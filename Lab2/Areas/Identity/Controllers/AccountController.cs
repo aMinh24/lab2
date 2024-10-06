@@ -109,7 +109,7 @@ namespace Lab2.Areas.Identity.Controllers
         }
         //
         // GET: /Account/Register
-        [HttpGet]
+        [HttpGet("/signup/")]
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
@@ -119,7 +119,7 @@ namespace Lab2.Areas.Identity.Controllers
         }
         //
         // POST: /Account/Register
-        [HttpPost]
+        [HttpPost("/signup/")]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
@@ -139,7 +139,6 @@ namespace Lab2.Areas.Identity.Controllers
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-                    // https://localhost:5001/confirm-email?userId=fdsfds&code=xyz&returnUrl=
                     var callbackUrl = Url.ActionLink(
                         action: nameof(ConfirmEmail),
                         values: 
