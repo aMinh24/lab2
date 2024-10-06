@@ -49,9 +49,32 @@ var mailsettings = builder.Configuration.GetSection("MailSettings");  // đọc 
 builder.Services.Configure<MailSettings>(mailsettings);               // đăng ký để Inject
 
 builder.Services.AddTransient<IEmailSender, SendMailService>();
+
+builder.Services.AddTransient<DataSeeder>();
 /////////////
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<AppDbContext>();
+        var userManager = services.GetRequiredService<UserManager<AppUser>>();
+
+        context.Database.Migrate(); // Apply migrations
+
+        var seeder = new DataSeeder(context, userManager);
+        await seeder.SeedDataAsync(); // Call SeedDataAsync
+        Console.WriteLine("seed thanh cong");
+
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred seeding the DB.");
+    }
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

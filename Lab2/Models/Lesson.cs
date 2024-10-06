@@ -20,6 +20,7 @@ namespace Lab2.Models
 
         [Required]
         public int OrderLesson { get; set; }
+        public double EstimateTime { get; set; }
 
         [ForeignKey("ChapterId")]
         public virtual Chapter Chapter { get; set; }
