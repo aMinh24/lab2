@@ -43,6 +43,7 @@ public class DataSeeder
             instructor = new AppUser
             {
                 Name = "Minh chúa quỷ",
+                Avatar = "~/images/people/50/guy-6.jpg",
                 UserName = "instructor@example.com",
                 Email = "instructor@example.com",
 
@@ -56,6 +57,7 @@ public class DataSeeder
             student = new AppUser
             {
                 Name = "Minh Chúa tể",
+                Avatar = "~/images/people/50/guy-3.jpg",
                 UserName = "student@example.com",
                 Email = "student@example.com",
             };
@@ -197,10 +199,10 @@ public class DataSeeder
         }
         if (!_context.Chapters.Any())
         {
-            var course = _context.Courses.FirstOrDefault(c => c.CourseId == 5);
+            var course = _context.Courses.FirstOrDefault(c => c.Title == "Learn Angular fundamentals");
             var chapter = new Chapter
             {
-                CourseId = 5,
+                CourseId = course.CourseId,
                 Title = "Introduce",
                 OrderChap = 1,
                 Course = course,
@@ -212,7 +214,8 @@ public class DataSeeder
         }
         if (!(_context.Lessons.Any()))
         {
-            Chapter chap = _context.Chapters.FirstOrDefault(c=>c.CourseId == 5);
+            var course = _context.Courses.Include(c=>c.Chapters).FirstOrDefault(c => c.Title == "Learn Angular fundamentals");
+            Chapter chap = course.Chapters.FirstOrDefault();
             Lesson lesson = new Lesson
             {
                 ChapterId = chap.ChapterId,

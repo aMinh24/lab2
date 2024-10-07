@@ -8,6 +8,7 @@ namespace Lab2.Models
     public class AppUser : IdentityUser
     {
         public string Name { get; set; }
+        public string Avatar {  get; set; }
         public virtual ICollection<BlogPost> BlogPosts { get; set; }
         public virtual ICollection<Course> CoursesInstructed { get; set; } // Courses where this user is the instructor
         public virtual ICollection<Discussion> DiscussionsStarted { get; set; }

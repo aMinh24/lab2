@@ -18,11 +18,12 @@ namespace Lab2.Controllers
         {
             Lesson lesson = _context.Lessons.FirstOrDefault(l => l.LessonId == id);
             Course course = _context.Courses.Include(c=>c.Instructor).FirstOrDefault(c => c.Chapters.Any(ch => ch.ChapterId == lesson.ChapterId));
+            
             LessonViewModel viewModel = new LessonViewModel
             {
                 CourseTitle = course.Title,
                 InstructorName = course.Instructor.Name,
-                Title = lesson.Title,
+                InstructorAvatar = course.Instructor.Avatar,
                 UrlVideo = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
                 Description = lesson.Description,
                 Duration = TimeSpan.FromMinutes(lesson.EstimateTime).ToString(@"hh\:mm")
