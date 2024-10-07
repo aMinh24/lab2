@@ -7,10 +7,7 @@ namespace Lab2.Models
 {
     public class AppUser : IdentityUser
     {
-        [Required(AllowEmptyStrings = true)]
-        [DataType(DataType.Date)]
-        public DateTime? BirthDate { get; set; }
-
+        public string Name { get; set; }
         public virtual ICollection<BlogPost> BlogPosts { get; set; }
         public virtual ICollection<Course> CoursesInstructed { get; set; } // Courses where this user is the instructor
         public virtual ICollection<Discussion> DiscussionsStarted { get; set; }
