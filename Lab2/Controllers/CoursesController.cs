@@ -53,5 +53,9 @@ namespace MyApp.Namespace
             }
             return View(course);
         }
+        public IActionResult Student()
+        {
+            return View();
+        }
     }
 }
