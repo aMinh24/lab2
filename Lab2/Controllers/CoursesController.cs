@@ -13,7 +13,7 @@ namespace MyApp.Namespace
         {
             _context = context;
         }
-
+        
         public async Task<ActionResult> Index()
         {
             // Eager loading Instructor (AppUser) with the Courses
@@ -38,6 +38,20 @@ namespace MyApp.Namespace
 
             return View(viewModel);
         }
-
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest("Can not solve id");
+            }
+            var course = await _context.Courses
+                .Include(c => c.Instructor) // Eager loading for the instructor
+                .FirstOrDefaultAsync(c => c.CourseId == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+            return View(course);
+        }
     }
 }
