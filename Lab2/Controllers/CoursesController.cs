@@ -46,6 +46,8 @@ namespace MyApp.Namespace
             }
             var course = await _context.Courses
                 .Include(c => c.Instructor) // Eager loading for the instructor
+                .Include(c => c.Chapters)
+                .ThenInclude(ch => ch.Lessons)
                 .FirstOrDefaultAsync(c => c.CourseId == id);
             if (course == null)
             {

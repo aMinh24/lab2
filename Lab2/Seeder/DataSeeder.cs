@@ -203,10 +203,23 @@ public class DataSeeder
             var chapter = new Chapter
             {
                 CourseId = course.CourseId,
-                Title = "Introduce",
+                Title = "Getting Started With Angular",
                 OrderChap = 1,
+                Description = "Good tools make application development quick*er and easier to maintain than* if you did everything by hand. The goal in this guide is to build and run a simple Angular application in TypeScript, using the Angular CLI while adhering to the Style Guide recommendations that benefit every Angular project.",
                 Course = course,
                 
+            };
+            course.Chapters.Add(chapter);
+            _context.Chapters.Add(chapter);
+
+            chapter = new Chapter
+            {
+                CourseId = course.CourseId,
+                Title = "Creating and Communicating Between Angular Components",
+                OrderChap = 2,
+                Description = "Data sharing is an essential concept to understand before diving into your first Angular project. In this section, you will learn four different methods for sharing data between Angular components.",
+                Course = course,
+
             };
             course.Chapters.Add(chapter);
             _context.Chapters.Add(chapter);
@@ -224,6 +237,58 @@ public class DataSeeder
                 VideoUrl = "https://www.youtube.com/watch?v=5gO0xpY_Y3E&t=1s",
                 Description = "JavaScript is now used to power backends, create hybrid mobile applications, architect cloud solutions, design neural networks and even control robots. Enter TypeScript: a superset of JavaScript for scalable, secure, performant and feature-rich applications.",
                 EstimateTime = 181
+            };
+            chap.Lessons.Add(lesson);
+            _context.Lessons.Add(lesson);
+
+            lesson = new Lesson
+            {
+                ChapterId = chap.ChapterId,
+                Chapter = chap,
+                Title = "Introduction to JavaScript",
+                VideoUrl = "https://www.youtube.com/watch?v=5gO0xpY_Y3E&t=1s",
+                Description = "JavaScript is now used to power backends, create hybrid mobile applications, architect cloud solutions, design neural networks and even control robots. Enter TypeScript: a superset of JavaScript for scalable, secure, performant and feature-rich applications.",
+                EstimateTime = 181,
+                OrderLesson = 1,
+            };
+            chap.Lessons.Add(lesson);
+            _context.Lessons.Add(lesson);
+            lesson = new Lesson
+            {
+                ChapterId = chap.ChapterId,
+                Chapter = chap,
+                Title = "Compare Angular and AngularJS",
+                VideoUrl = "https://www.youtube.com/embed/4Ad-f9fUnto?si=2AEhf53XsoWjWvvB",
+                Description = "So Sánh HEHHEHEHEHEHHEH MINHHHHH",
+                EstimateTime = 366,
+                OrderLesson = 2,
+            };
+            chap.Lessons.Add(lesson);
+            _context.Lessons.Add(lesson);
+
+            chap = course.Chapters.Skip(1).First();
+            lesson = new Lesson
+            {
+                ChapterId = chap.ChapterId,
+                Chapter = chap,
+                Title = "Compare Angular and AngularJS",
+                VideoUrl = "https://www.youtube.com/embed/4Ad-f9fUnto?si=2AEhf53XsoWjWvvB",
+                Description = "So Sánh HEHHEHEHEHEHHEH MINHHHHH",
+                EstimateTime = 366,
+                OrderLesson = 2,
+            };
+            chap.Lessons.Add(lesson);
+            _context.Lessons.Add(lesson);
+
+            lesson = new Lesson
+            {
+                ChapterId = chap.ChapterId,
+                Chapter = chap,
+                Title = "Introduction to JavaScript",
+                VideoUrl = "https://www.youtube.com/watch?v=5gO0xpY_Y3E&t=1s",
+                Description = "JavaScript is now used to power backends, create hybrid mobile applications, architect cloud solutions, design neural networks and even control robots. Enter TypeScript: a superset of JavaScript for scalable, secure, performant and feature-rich applications.",
+                EstimateTime = 181,
+                OrderLesson = 1,
             };
             chap.Lessons.Add(lesson);
             _context.Lessons.Add(lesson);

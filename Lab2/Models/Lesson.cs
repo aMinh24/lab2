@@ -21,6 +21,7 @@ namespace Lab2.Models
         [Required]
         public int OrderLesson { get; set; }
         public double EstimateTime { get; set; }
+        public bool IsDone { get; set; }
 
         [ForeignKey("ChapterId")]
         public virtual Chapter Chapter { get; set; }
@@ -32,6 +33,7 @@ namespace Lab2.Models
         {
             Discussions = new List<Discussion>();
             UserLessons = new List<UserLesson>();
+            IsDone = false;
         }
     }
 }
