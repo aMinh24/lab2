@@ -21,6 +21,7 @@ namespace Lab2.Controllers
             
             LessonViewModel viewModel = new LessonViewModel
             {
+                LessonName = lesson.Title,
                 CourseTitle = course.Title,
                 InstructorName = course.Instructor.Name,
                 InstructorAvatar = course.Instructor.Avatar,
@@ -30,9 +31,22 @@ namespace Lab2.Controllers
             }; if (lesson == null) return NotFound();
             return View(viewModel);
         }
-        public IActionResult Student()
+        public IActionResult Review(int? id)
         {
-            return View();
+            Lesson lesson = _context.Lessons.FirstOrDefault(l => l.LessonId == id);
+            Course course = _context.Courses.Include(c => c.Instructor).FirstOrDefault(c => c.Chapters.Any(ch => ch.ChapterId == lesson.ChapterId));
+
+            LessonViewModel viewModel = new LessonViewModel
+            {
+                LessonName = lesson.Title,
+                CourseTitle = course.Title,
+                InstructorName = course.Instructor.Name,
+                InstructorAvatar = course.Instructor.Avatar,
+                UrlVideo = lesson.VideoUrl,
+                Description = lesson.Description,
+                Duration = TimeSpan.FromMinutes(lesson.EstimateTime).ToString(@"hh\:mm")
+            }; if (lesson == null) return NotFound();
+            return View(viewModel);
         }
     }
 }

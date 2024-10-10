@@ -4,6 +4,7 @@ namespace Lab2.ViewModels
 {
     public class LessonViewModel
     {
+        public String LessonName { get; set; }
         public String CourseTitle { get; set; }
         public String InstructorName { get; set; }
         public String InstructorAvatar { get; set; }
