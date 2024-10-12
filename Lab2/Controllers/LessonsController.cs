@@ -16,6 +16,10 @@ namespace Lab2.Controllers
 
         public IActionResult Index(int? id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Review", "Lessons", new { id = id });
+            }
             Lesson lesson = _context.Lessons.FirstOrDefault(l => l.LessonId == id);
             Course course = _context.Courses.Include(c=>c.Instructor).FirstOrDefault(c => c.Chapters.Any(ch => ch.ChapterId == lesson.ChapterId));
             

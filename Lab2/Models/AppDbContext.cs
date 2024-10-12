@@ -676,5 +676,6 @@ namespace Lab2.Models
         public DbSet<Topic> Topics { get; set; }
         public DbSet<UserCourse> UserCourses { get; set; }
         public DbSet<UserLesson> UserLessons { get; set; }
+        public DbSet<PaymentInformation> PaymentInformations { get; set; }
     }
 }

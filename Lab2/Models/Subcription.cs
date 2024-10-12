@@ -21,8 +21,6 @@ namespace Lab2.Models
         [Required]
         public DateTime EndDate { get; set; }
 
-        [Required]
-        public int PaymentStatus { get; set; } // Consider using an enum for payment status
 
         [ForeignKey("UserId")]
         public virtual AppUser User { get; set; }

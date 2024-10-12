@@ -50,8 +50,16 @@ public class DataSeeder
             };
             await _userManager.CreateAsync(instructor, "Password123!"); // Remember to hash passwords in production
         }
-
+        if (!instructor.EmailConfirmed)
+        {
+            _context.SaveChangesAsync();
+            string token = await _userManager.GenerateEmailConfirmationTokenAsync(instructor);
+            await _userManager.ConfirmEmailAsync(instructor, token);
+            _context.SaveChanges();
+            Console.WriteLine("Confirm Mail success");
+        }
         var student = await _userManager.FindByEmailAsync("student@example.com");
+
         if (student == null)
         {
             student = new AppUser
@@ -63,7 +71,14 @@ public class DataSeeder
             };
             await _userManager.CreateAsync(student, "Password123!");
         }
-
+        if (!student.EmailConfirmed)
+        {
+            _context.SaveChangesAsync();
+            string token = await _userManager.GenerateEmailConfirmationTokenAsync(student);
+            await _userManager.ConfirmEmailAsync(student, token);
+            _context.SaveChanges();
+            Console.WriteLine("Confirm Mail success");
+        }
         if (!(_context.Courses.Any()))
         {
             var platforms = await _context.Platforms.ToListAsync();
@@ -207,7 +222,7 @@ public class DataSeeder
                 OrderChap = 1,
                 Description = "Good tools make application development quick*er and easier to maintain than* if you did everything by hand. The goal in this guide is to build and run a simple Angular application in TypeScript, using the Angular CLI while adhering to the Style Guide recommendations that benefit every Angular project.",
                 Course = course,
-                
+
             };
             course.Chapters.Add(chapter);
             _context.Chapters.Add(chapter);
@@ -227,7 +242,7 @@ public class DataSeeder
         }
         if (!(_context.Lessons.Any()))
         {
-            var course = _context.Courses.Include(c=>c.Chapters).FirstOrDefault(c => c.Title == "Learn Angular fundamentals");
+            var course = _context.Courses.Include(c => c.Chapters).FirstOrDefault(c => c.Title == "Learn Angular fundamentals");
             Chapter chap = course.Chapters.FirstOrDefault();
             Lesson lesson = new Lesson
             {
@@ -294,8 +309,66 @@ public class DataSeeder
             _context.Lessons.Add(lesson);
             _context.SaveChanges();
         }
+        if (!_context.SubscriptionTypes.Any())
+        {
+            _context.SubscriptionTypes.AddRange(new List<SubscriptionType> {
+                new SubscriptionType
+                {
+                    Name = "Free",
+                    Price = 0,
+                    Duration = -1,
+                },
+                new SubscriptionType
+                {
+                    Name = "Student",
+                    Price = 9,
+                    Duration = 1,
+                },
+                new SubscriptionType
+                {
+                    Name = "Team",
+                    Price = 19,
+                    Duration = 1,
+                },
+                new SubscriptionType
+                {
+                    Name = "Enterprise",
+                    Price = 49,
+                    Duration = 1,
+                }
+            });
+            _context.SaveChanges();
+        }
+        if (!_context.Subscriptions.Any())
+        {
+            var typeSub = await _context.SubscriptionTypes.FirstAsync();
+            List<Subscription> subs = new List<Subscription>();
+            foreach (var user in _context.Users)
+            {
+                subs.Add(new Subscription
+                {
+                    SubscriptionTypeId = typeSub.SubscriptionTypeId,
+                    UserId = user.Id,
+                    User = user,
+                    SubscriptionType = typeSub,
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.AddDays(360)
+                });
+            }
+            _context.Subscriptions.AddRange(subs);
+            _context.SaveChanges();
+        }
+        if (!_context.PaymentInformations.Any())
+        {
+            _context.PaymentInformations.Add(new PaymentInformation
+            {
+                AutoRenew = true,
+                UserId = student.Id,
+                User = student,
+                CreditNumber = "12345567890",
+            });
+            _context.SaveChanges();
+        }
     }
-
-
 
 }
