@@ -41,6 +41,33 @@ namespace Lab2.Controllers
         {
             return View();
         }
+        public IActionResult UpgradeAccount(int id)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Redirect("/Login");
+            }
+            string userId = _userManager.GetUserId(User);
+            PaymentInformation paymentInformation = _context.PaymentInformations.Find(userId);
+            if(paymentInformation == null)
+            {
+                return RedirectToAction("Payment", "Billing");
+            }
+            else
+            {
+                Subscription sub = _context.Subscriptions.First(s => s.UserId == userId);
+                SubscriptionType subscriptionType = _context.SubscriptionTypes.First(s => s.SubscriptionTypeId == id);
+                if(subscriptionType != null)
+                {
+                    sub.SubscriptionType = subscriptionType;
+                    sub.SubscriptionTypeId = id;
+                    _context.SaveChanges();
+                    return RedirectToAction("Index", "Billing");
+                }
+            }
+
+            return View();
+        }
         public IActionResult Payment()
         {
             if (!User.Identity.IsAuthenticated)
@@ -48,7 +75,7 @@ namespace Lab2.Controllers
                 return RedirectToAction("Index", "Home");
             }
             string userId = _userManager.GetUserId(User);
-            PaymentInformation paymentInformation = _context.PaymentInformations.Include(p => p.User).First(p => p.UserId == userId);
+            PaymentInformation paymentInformation = _context.PaymentInformations.Include(p => p.User).FirstOrDefault(p => p.UserId == userId);
             return View(paymentInformation);
         }
         public IActionResult Invoice()

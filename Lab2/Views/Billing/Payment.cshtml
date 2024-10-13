@@ -42,7 +42,16 @@
                 <div class="list-group list-group-form">
                     <div class="list-group-item d-flex align-items-center">
                         <img src="../../public/images/visa.svg" alt="visa" width="38" class="mr-16pt">
-                        <div class="flex">Your current payment method is <strong>Visa ending with @Model.CreditNumber.Substring(Model.CreditNumber.Length - 4)</strong></div>
+                        <div class="flex">
+                            @if (Model != null)
+                            {
+                                <text>Your current payment method is <strong>Visa ending with @Model.CreditNumber.Substring(Model.CreditNumber.Length - 4)</strong></text>
+                            }
+                            else
+                            {
+                                <text>There is not any payment method</text>
+                            }
+                        </div>
                     </div>
 
                     <input type="hidden" asp-for="UserId" />
