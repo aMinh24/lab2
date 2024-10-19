@@ -17,7 +17,7 @@ namespace Lab2.Areas.Identity.Controllers
 
     [Authorize]
     [Area("Identity")]
-    [Route("/Member/[action]")]
+    [Route("/Manage/[action]")]
     public class ManageController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -39,7 +39,7 @@ namespace Lab2.Areas.Identity.Controllers
 
         //
         // GET: /Manage/Index
-        [HttpGet]
+        [HttpGet("/manage/")]
         public async Task<IActionResult> Index(ManageMessageId? message = null)
         {
             ViewData["StatusMessage"] =

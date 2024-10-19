@@ -20,6 +20,13 @@ builder.Services.AddIdentity<AppUser, IdentityRole>()
 
 ////////////////
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/login";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+});
+
+
 builder.Services.Configure<IdentityOptions> (options => {
     // Thiết lập về Password
     options.Password.RequireDigit = false; // Không bắt phải có số
@@ -61,10 +68,12 @@ using (var scope = app.Services.CreateScope())
     {
         var context = services.GetRequiredService<AppDbContext>();
         var userManager = services.GetRequiredService<UserManager<AppUser>>();
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>(); 
+
 
         context.Database.Migrate(); // Apply migrations
 
-        var seeder = new DataSeeder(context, userManager);
+        var seeder = new DataSeeder(context, userManager,roleManager);
         await seeder.SeedDataAsync(); // Call SeedDataAsync
         Console.WriteLine("seed thanh cong");
 
@@ -87,7 +96,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

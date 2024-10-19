@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Lab2.Areas.Identity.Models.AccountViewModels;
+using Lab2.Data;
 using Lab2.ExtendMethods;
 using Lab2.Models;
 using Lab2.Utilities;
@@ -47,6 +48,10 @@ namespace Lab2.Areas.Identity.Controllers
         [AllowAnonymous]
         public IActionResult Login(string returnUrl = null)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Redirect("/");
+            }
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -113,6 +118,10 @@ namespace Lab2.Areas.Identity.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Redirect("/");
+            }
             returnUrl ??= Url.Content("~/");
             ViewData["ReturnUrl"] = returnUrl;
             return View();
@@ -133,6 +142,8 @@ namespace Lab2.Areas.Identity.Controllers
 
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, RoleName.Student);
+
                     _logger.LogInformation("Đã tạo user mới.");
 
                     // Phát sinh token để xác nhận email
@@ -171,7 +182,67 @@ namespace Lab2.Areas.Identity.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-        
+
+        // GET: /Account/RegisterTeacher
+        [HttpGet("/register-teacher/")]
+        [Authorize(Roles = RoleName.Administrator)]
+        public IActionResult RegisterTeacher(string returnUrl = null)
+        {
+            returnUrl ??= Url.Content("~/");
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        // POST: /Account/RegisterTeacher
+        [HttpPost("/register-teacher/")]
+        [Authorize(Roles = RoleName.Administrator)]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterTeacher(RegisterViewModel model, string returnUrl = null)
+        {
+            returnUrl ??= Url.Content("~/");
+            ViewData["ReturnUrl"] = returnUrl;
+
+            if (ModelState.IsValid)
+            {
+                var user = new AppUser { UserName = model.UserName, Email = model.Email };
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    // Assign Teacher role to the user
+                    await _userManager.AddToRoleAsync(user, RoleName.Instructor);
+
+                    _logger.LogInformation("Teacher account created by admin.");
+
+                    // Confirm email immediately
+                    var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var confirmResult = await _userManager.ConfirmEmailAsync(user, token);
+
+                    if (confirmResult.Succeeded)
+                    {
+                        _logger.LogInformation("Email confirmed for teacher account.");
+                    }
+                    else
+                    {
+                        _logger.LogError("Email confirmation failed.");
+                    }
+
+                    return LocalRedirect(returnUrl);
+                }
+
+                // Handle errors if user creation failed
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            // If something failed, redisplay form
+            return View(model);
+        }
+
+
+
         // GET: /Account/ConfirmEmail
         [HttpGet]
         [AllowAnonymous]

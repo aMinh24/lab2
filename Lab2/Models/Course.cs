@@ -23,6 +23,7 @@ namespace Lab2.Models
         [Required]
         public int PlatformId { get; set; }
         public string Thumbnail { get; set; }
+        public DateTime? Date { get; set; }
 
         [ForeignKey("InstructorId")]
         public virtual AppUser Instructor { get; set; }

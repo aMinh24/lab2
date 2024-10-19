@@ -1,5 +1,6 @@
 ﻿using Lab2.Models;
 using Lab2.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,7 @@ namespace Lab2.Controllers
             string t = (model.PaymentInformation?.AutoRenew ?? false) ? "checked" : "";
             return View(model);
         }
+        [AllowAnonymous]
         public IActionResult Upgrade()
         {
             return View();
@@ -82,6 +84,7 @@ namespace Lab2.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Payment(PaymentInformation paymentInfo)
         {

@@ -3,7 +3,7 @@ namespace Lab2.Data
     public class RoleName 
     {
         public const string Administrator = "Administrator";
-        public const string Editor = "Editor";
-        public const string Member = "Member";
+        public const string Student = "Student";
+        public const string Instructor = "Instructor";
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace Lab2.Models
 {
@@ -12,10 +13,12 @@ namespace Lab2.Models
         public string Name { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<Instructor> Instructors { get; set; }
 
         public Topic()
         {
             Courses = new List<Course>();
+            Instructors = new List<Instructor>();
         }
     }
 }

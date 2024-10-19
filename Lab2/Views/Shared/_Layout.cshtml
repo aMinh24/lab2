@@ -90,7 +90,7 @@
                     </button>
 
                     <!-- Navbar Brand -->
-                    <a href="index.html"
+                    <a href="/"
                        class="navbar-brand mr-16pt">
                         <!-- <img class="navbar-brand-icon" src="~/images/logo/white-100@2x.png" width="30" alt="Luma"> -->
 
@@ -224,7 +224,7 @@
 
                     <ul class="nav navbar-nav ml-auto mr-0">
                         <li class="nav-item">
-                            <a href="login.html"
+                            <a href="login"
                                class="nav-link"
                                data-toggle="tooltip"
                                data-title="Login"
@@ -232,27 +232,17 @@
                                data-boundary="window"><i class="material-icons">lock_open</i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="signup.html"
+                            <a href="signup"
                                class="btn btn-outline-white">Get Started</a>
                         </li>
                     </ul>
                 </div>
-
-                
             </div>
         </div>
-        
-        <!-- // END Header Layout Content -->
         @RenderBody()
-        <!-- Footer -->
-
-        
-
-        <!-- // END Footer -->
 
     </div>
-    <!-- // END Header Layout -->
-    <!-- Drawer -->
+
 
     <div class="mdk-drawer js-mdk-drawer"
          id="default-drawer">
@@ -286,12 +276,12 @@
                                  class="img-fluid"
                                  alt="logo" />
                         </span>
-                        
+
                     </span>
 
                     <span>Luma</span>
                 </a>
-                
+
                 @await Component.InvokeAsync("Menu");
 
                 <!-- // END Sidebar Content -->
@@ -300,7 +290,6 @@
         </div>
     </div>
 
-    <!-- // END Drawer -->
 
     <script src="~/js/settings.js"></script>
     <!-- jQuery -->

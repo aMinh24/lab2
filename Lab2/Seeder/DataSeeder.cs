@@ -7,15 +7,51 @@ public class DataSeeder
 {
     private readonly AppDbContext _context;
     private readonly UserManager<AppUser> _userManager;
+    private readonly RoleManager<IdentityRole> _roleManager;
 
-    public DataSeeder(AppDbContext context, UserManager<AppUser> userManager)
+    public DataSeeder(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
     {
         _context = context;
         _userManager = userManager;
+        _roleManager = roleManager;
     }
 
     public async Task SeedDataAsync()
     {
+        var roleNames = typeof(RoleName).GetFields();
+        foreach (var role in roleNames)
+        {
+            string roleName = (string)role.GetRawConstantValue();
+            var roleFound = await _roleManager.FindByNameAsync(roleName);
+            if (roleFound == null)
+            {
+                await _roleManager.CreateAsync(new IdentityRole(roleName));
+            }
+        }
+
+        var userAdmin = await _userManager.FindByEmailAsync("instructor@example.com");
+        if (userAdmin == null)
+        {
+            userAdmin = new AppUser
+            {
+                Name = "admin",
+                Avatar = "~/images/people/50/guy-6.jpg",
+                UserName = "admin",
+                Email = "admin@example.com",
+
+            };
+            await _userManager.CreateAsync(userAdmin, "Password123!"); // Remember to hash passwords in production
+            await _userManager.AddToRoleAsync(userAdmin, RoleName.Administrator);
+        }
+        if (!userAdmin.EmailConfirmed)
+        {
+            _context.SaveChangesAsync();
+            string token = await _userManager.GenerateEmailConfirmationTokenAsync(userAdmin);
+            await _userManager.ConfirmEmailAsync(userAdmin, token);
+            _context.SaveChanges();
+            Console.WriteLine("Confirm Mail success");
+        }
+
         if (!_context.Platforms.Any())
         {
             _context.Platforms.AddRange(
@@ -49,6 +85,8 @@ public class DataSeeder
 
             };
             await _userManager.CreateAsync(instructor, "Password123!"); // Remember to hash passwords in production
+            await _userManager.AddToRoleAsync(instructor, RoleName.Instructor);
+
         }
         if (!instructor.EmailConfirmed)
         {
@@ -58,6 +96,9 @@ public class DataSeeder
             _context.SaveChanges();
             Console.WriteLine("Confirm Mail success");
         }
+
+        
+
         var student = await _userManager.FindByEmailAsync("student@example.com");
 
         if (student == null)
@@ -70,6 +111,8 @@ public class DataSeeder
                 Email = "student@example.com",
             };
             await _userManager.CreateAsync(student, "Password123!");
+            await _userManager.AddToRoleAsync(student, RoleName.Student);
+
         }
         if (!student.EmailConfirmed)
         {
@@ -83,6 +126,18 @@ public class DataSeeder
         {
             var platforms = await _context.Platforms.ToListAsync();
             var topics = await _context.Topics.ToListAsync();
+            instructor = await _userManager.FindByEmailAsync("instructor@example.com");
+            var teacher = new Instructor()
+            {
+                UserId = instructor.Id,
+                About = "Minh chúa quỷ 1 2 3 4",
+                LinkFacebook = "https://www.facebook.com/minh2k4z",
+                LinkTwitter = "123",
+                Avatar = "123"
+            };
+
+            _context.Instructors.Add(teacher);
+            await _context.SaveChangesAsync();
             var newCourses = new List<Course>
                 {
                     new Course
@@ -93,7 +148,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p=> p.Name == "Udemy").PlatformId,
                         TopicId = topics.First(p=> p.Name == "Web Development").TopicId,
                         Thumbnail = "~/images/paths/mailchimp_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     },
                     new Course
                     {
@@ -103,7 +159,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId,
                         TopicId = topics.First(p => p.Name == "Web Development").TopicId,
                         Thumbnail = "~/images/paths/xd_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     },
                     new Course
                     {
@@ -113,7 +170,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId,
                         TopicId = topics.First(p => p.Name == "Web Development").TopicId,
                         Thumbnail = "~/images/paths/invision_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     },
                     new Course
                     {
@@ -123,7 +181,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId,
                         TopicId = topics.First(p => p.Name == "Web Development").TopicId,
                         Thumbnail = "~/images/paths/craft_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     },
                     new Course
                     {
@@ -133,7 +192,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with actual PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId,     // Replace with actual TopicId
                         Thumbnail = "~/images/paths/angular_430x168.png",
-                                                TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
 
                     },
                     new Course
@@ -144,7 +204,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId,  // Replace with actual PlatformId
                         TopicId = topics.First(t => t.Name == "Mobile Development").TopicId, // Replace with actual TopicId
                         Thumbnail = "~/images/paths/swift_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     },
                     new Course
                     {
@@ -154,7 +215,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with actual PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId,  // Replace with actual TopicId
                         Thumbnail = "~/images/paths/wordpress_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     },
                     new Course
                     {
@@ -164,7 +226,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with actual PlatformId
                         TopicId = topics.First(t => t.Name == "Mobile Development").TopicId, // Replace with actual TopicId
                         Thumbnail = "~/images/paths/react_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     },
                     new Course
                     {
@@ -174,7 +237,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with your PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId, // Replace with your TopicId
                         Thumbnail = "~/images/paths/sketch_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     },
                     new Course
                     {
@@ -184,7 +248,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId,  // Replace with your PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId, // Replace with your TopicId
                         Thumbnail = "~/images/paths/flinto_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     },
                      new Course
                     {
@@ -194,7 +259,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with your PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId, // Replace with your TopicId
                         Thumbnail = "~/images/paths/photoshop_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     },
                       new Course
                     {
@@ -204,7 +270,8 @@ public class DataSeeder
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with your PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId, // Replace with your TopicId
                         Thumbnail = "~/images/paths/figma_430x168.png",
-                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm"
+                        TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
+                        Date = DateTime.Now
                     }
                 };
 

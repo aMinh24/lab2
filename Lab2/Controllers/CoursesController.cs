@@ -27,7 +27,6 @@ namespace MyApp.Namespace
             {
                 CourseId = c.CourseId,
                 Title = c.Title,
-                InstructorName = c.Instructor?.UserName, // Access UserName from the included Instructor
                 // Add other properties as needed
                 Description = c.Description,
                 Thumbnail = c.Thumbnail,

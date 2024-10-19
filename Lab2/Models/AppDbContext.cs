@@ -5,7 +5,7 @@ namespace Lab2.Models
 {
     public class AppDbContext : IdentityDbContext<AppUser>
     {
-       public AppDbContext (DbContextOptions<AppDbContext> options) : base (options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,7 +23,7 @@ namespace Lab2.Models
                 {
                     entityType.SetTableName(tableName.Substring(6));
                 }
-            }   
+            }
 
             modelBuilder.Entity<ParentMenu>().HasData(
                 new ParentMenu
@@ -94,7 +94,7 @@ namespace Lab2.Models
                     Id = 1,
                     ParentMenuId = 1, // Student
                     Name = "Home",
-                    Link = "index.html",
+                    Link = "",
                     Icon = "home",
                     Span = "Home",
                     Meta = "home_meta",
@@ -107,7 +107,7 @@ namespace Lab2.Models
                     Id = 2,
                     ParentMenuId = 1,
                     Name = "Browse Courses",
-                    Link = "courses.html",
+                    Link = "courses",
                     Icon = "local_library",
                     Span = "Browse Courses",
                     Meta = "courses_meta",
@@ -121,7 +121,7 @@ namespace Lab2.Models
                     Id = 3,
                     ParentMenuId = 1,
                     Name = "Browse Paths",
-                    Link = "paths.html",
+                    Link = "paths",
                     Icon = "style",
                     Span = "Browse Paths",
                     Meta = "paths_meta",
@@ -135,7 +135,7 @@ namespace Lab2.Models
                     Id = 4,
                     ParentMenuId = 1,
                     Name = "Student Dashboard",
-                    Link = "student-dashboard.html",
+                    Link = "dashboard",
                     Icon = "account_box",
                     Span = "Student Dashboard",
                     Meta = "dashboard_meta",
@@ -149,7 +149,7 @@ namespace Lab2.Models
                     Id = 5,
                     ParentMenuId = 1,
                     Name = "My Courses",
-                    Link = "student-my-courses.html",
+                    Link = "mycourse",
                     Icon = "search",
                     Span = "My Courses",
                     Meta = "my_courses_meta",
@@ -163,7 +163,7 @@ namespace Lab2.Models
                     Id = 6,
                     ParentMenuId = 1,
                     Name = "My Paths",
-                    Link = "student-paths.html",
+                    Link = "mypaths",
                     Icon = "timeline",
                     Span = "My Paths",
                     Meta = "my_paths_meta",
@@ -177,7 +177,7 @@ namespace Lab2.Models
                     Id = 7,
                     ParentMenuId = 1,
                     Name = "Path Details",
-                    Link = "student-path.html",
+                    Link = "pathdetail",
                     Icon = "change_history",
                     Span = "Path Details",
                     Meta = "path_details_meta",
@@ -190,7 +190,7 @@ namespace Lab2.Models
                     Id = 8,
                     ParentMenuId = 1, // Student
                     Name = "Course Preview",
-                    Link = "student-course.html",
+                    Link = "courseprview",
                     Icon = "face",
                     Span = "Course Preview",
                     Meta = "course_preview_meta",
@@ -204,7 +204,7 @@ namespace Lab2.Models
                     Id = 9,
                     ParentMenuId = 1,
                     Name = "Lesson Preview",
-                    Link = "student-lesson.html",
+                    Link = "lesson",
                     Icon = "panorama_fish_eye",
                     Span = "Lesson Preview",
                     Meta = "lesson_preview_meta",
@@ -623,43 +623,47 @@ namespace Lab2.Models
                     Badge = ""
                 }
         );
-        modelBuilder.Entity<BlogPost>()
-            .HasOne(bp => bp.User)
-            .WithMany(u => u.BlogPosts)
-            .HasForeignKey(bp => bp.UserId);
+            modelBuilder.Entity<BlogPost>()
+                .HasOne(bp => bp.User)
+                .WithMany(u => u.BlogPosts)
+                .HasForeignKey(bp => bp.UserId);
 
 
-        modelBuilder.Entity<Course>()
-            .HasOne(c => c.Instructor)
-            .WithMany(u => u.CoursesInstructed)
-            .HasForeignKey(c => c.InstructorId);
+            modelBuilder.Entity<Course>()
+                .HasOne(c => c.Instructor)
+                .WithMany(u => u.CoursesInstructed)
+                .HasForeignKey(c => c.InstructorId);
 
-        modelBuilder.Entity<Discussion>()
-            .HasOne(d => d.User)
-            .WithMany(u => u.DiscussionsStarted)
-            .HasForeignKey(d => d.UserId);
-
-
-        modelBuilder.Entity<DiscussionReply>()
-            .HasOne(dr => dr.User)
-            .WithMany(u => u.DiscussionReplies)
-            .HasForeignKey(dr => dr.UserId);
+            modelBuilder.Entity<Discussion>()
+                .HasOne(d => d.User)
+                .WithMany(u => u.DiscussionsStarted)
+                .HasForeignKey(d => d.UserId);
 
 
-        modelBuilder.Entity<Subscription>()
-            .HasOne(s => s.User)
-            .WithMany(u => u.Subscriptions)
-            .HasForeignKey(s => s.UserId);
+            modelBuilder.Entity<DiscussionReply>()
+                .HasOne(dr => dr.User)
+                .WithMany(u => u.DiscussionReplies)
+                .HasForeignKey(dr => dr.UserId);
 
-        modelBuilder.Entity<UserCourse>()
-            .HasOne(uc => uc.User)
-            .WithMany(u => u.UserCourses)
-            .HasForeignKey(uc => uc.UserId);
 
-        modelBuilder.Entity<UserLesson>()
-            .HasOne(ul => ul.User)
-            .WithMany(u => u.UserLessons)
-            .HasForeignKey(ul => ul.UserId);
+            modelBuilder.Entity<Subscription>()
+                .HasOne(s => s.User)
+                .WithMany(u => u.Subscriptions)
+                .HasForeignKey(s => s.UserId);
+
+            modelBuilder.Entity<UserCourse>()
+                .HasOne(uc => uc.User)
+                .WithMany(u => u.UserCourses)
+                .HasForeignKey(uc => uc.UserId);
+
+            modelBuilder.Entity<UserLesson>()
+                .HasOne(ul => ul.User)
+                .WithMany(u => u.UserLessons)
+                .HasForeignKey(ul => ul.UserId);
+            modelBuilder.Entity<Instructor>()
+                .HasOne(i => i.AppUser)
+                .WithOne()
+                .HasForeignKey<Instructor>(i => i.UserId);
         }
 
         public DbSet<ParentMenu> ParentMenus { get; set; }
@@ -677,5 +681,7 @@ namespace Lab2.Models
         public DbSet<UserCourse> UserCourses { get; set; }
         public DbSet<UserLesson> UserLessons { get; set; }
         public DbSet<PaymentInformation> PaymentInformations { get; set; }
+        public DbSet<Instructor> Instructors { get; set; }
+
     }
 }

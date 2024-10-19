@@ -2,19 +2,18 @@
 
 @foreach (var parent in Model)
 {
-
     <div class="sidebar-heading">@parent.Name</div>
-    @if (parent.Menus != null)
+    @if (parent.Menus != null && parent.Menus.Any())
     {
         <ul class="sidebar-menu">
             @foreach (var menu in parent.Menus)
             {
-
                 <li class="sidebar-menu-item">
                     <a class="sidebar-menu-button"
-                       href="index.html">
+                       asp-controller="@parent.Name.ToLower()"
+                       asp-action="@menu.Name.Replace(" ","").ToLower()">
                         <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">@menu.Icon</span>
-                        <span class="sidebar-menu-text">@menu.Name</span>                    
+                        <span class="sidebar-menu-text">@menu.Name</span>
                     </a>
                 </li>
             }
