@@ -8,7 +8,7 @@
     },
     {
       "library": "jquery@3.7.1",
-      "destination": "libman install bootstrap --provider cdnjs"
+      "destination": "wwwroot\\lib\\js"
     },
     {
       "library": "bootstrap@5.3.3",

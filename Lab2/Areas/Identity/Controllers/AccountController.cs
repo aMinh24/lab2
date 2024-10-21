@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Lab2.Areas.Identity.Controllers
@@ -30,17 +31,20 @@ namespace Lab2.Areas.Identity.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<AccountController> _logger;
+        private readonly AppDbContext _context;
 
         public AccountController(
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            AppDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            _context = context;
         }
 
         // GET: /Account/Login
@@ -143,7 +147,7 @@ namespace Lab2.Areas.Identity.Controllers
                 if (result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(user, RoleName.Student);
-
+                    
                     _logger.LogInformation("Đã tạo user mới.");
 
                     // Phát sinh token để xác nhận email
@@ -211,6 +215,18 @@ namespace Lab2.Areas.Identity.Controllers
                 {
                     // Assign Teacher role to the user
                     await _userManager.AddToRoleAsync(user, RoleName.Instructor);
+                    var instructor = await _userManager.FindByEmailAsync(model.Email);
+                    var teacher = new Instructor()
+                    {
+                        UserId = instructor.Id,
+                        About = "",
+                        LinkFacebook = "",
+                        LinkTwitter = "",
+                        Avatar = ""
+                    };
+
+                    _context.Instructors.Add(teacher);
+                    await _context.SaveChangesAsync();
 
                     _logger.LogInformation("Teacher account created by admin.");
 
