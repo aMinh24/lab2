@@ -12,11 +12,1599 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Uploads\images\1280_15ntkpxqt54y-sai-kiran-anagani.jpg" />
+    <None Remove="Uploads\images\1280_derxvssqndm-artem-sapegin.jpg" />
+    <None Remove="Uploads\images\1280_work-station-straight-on-view.jpg" />
+    <None Remove="Uploads\images\1280_writing-down-goals_4460x4460.jpg" />
+    <None Remove="Uploads\images\256_daniel-gaffey-1060698-unsplash.jpg" />
+    <None Remove="Uploads\images\256_jeremy-banks-798787-unsplash.jpg" />
+    <None Remove="Uploads\images\256_joao-silas-636453-unsplash.jpg" />
+    <None Remove="Uploads\images\256_luke-porter-261779-unsplash.jpg" />
+    <None Remove="Uploads\images\256_michael-dam-258165-unsplash.jpg" />
+    <None Remove="Uploads\images\256_rsz_1andy-lee-642320-unsplash.jpg" />
+    <None Remove="Uploads\images\256_rsz_90-jiang-640827-unsplash.jpg" />
+    <None Remove="Uploads\images\256_rsz_clem-onojeghuo-150467-unsplash.jpg" />
+    <None Remove="Uploads\images\256_rsz_florian-perennes-594195-unsplash.jpg" />
+    <None Remove="Uploads\images\256_rsz_james-gillespie-714755-unsplash.jpg" />
+    <None Remove="Uploads\images\256_rsz_karl-s-973833-unsplash.jpg" />
+    <None Remove="Uploads\images\256_rsz_nicolas-horn-689011-unsplash.jpg" />
+    <None Remove="Uploads\images\256_rsz_sharina-mae-agellon-377466-unsplash.jpg" />
+    <None Remove="Uploads\images\256_s-a-r-a-h-s-h-a-r-p-764291-unsplash.jpg" />
+    <None Remove="Uploads\images\985px-Laravel.svg.png" />
+    <None Remove="Uploads\images\achievements\angular.png" />
+    <None Remove="Uploads\images\achievements\flinto.png" />
+    <None Remove="Uploads\images\email.png" />
+    <None Remove="Uploads\images\icon\components.svg" />
+    <None Remove="Uploads\images\icon\footer\facebook-square.png" />
+    <None Remove="Uploads\images\icon\footer\facebook-square.svg" />
+    <None Remove="Uploads\images\icon\footer\facebook-square@2x.png" />
+    <None Remove="Uploads\images\icon\footer\twitter-square.png" />
+    <None Remove="Uploads\images\icon\footer\twitter-square.svg" />
+    <None Remove="Uploads\images\icon\footer\twitter-square@2x.png" />
+    <None Remove="Uploads\images\icon\footer\vimeo-square.png" />
+    <None Remove="Uploads\images\icon\footer\vimeo-square.svg" />
+    <None Remove="Uploads\images\icon\footer\vimeo-square@2x.png" />
+    <None Remove="Uploads\images\icon\footer\youtube-square.png" />
+    <None Remove="Uploads\images\icon\footer\youtube-square.svg" />
+    <None Remove="Uploads\images\icon\footer\youtube-square@2x.png" />
+    <None Remove="Uploads\images\icon\prototype-white.svg" />
+    <None Remove="Uploads\images\icon\prototype.svg" />
+    <None Remove="Uploads\images\icon\rocket-white.svg" />
+    <None Remove="Uploads\images\icon\rocket.svg" />
+    <None Remove="Uploads\images\icon\rtl.svg" />
+    <None Remove="Uploads\images\icon\skins.svg" />
+    <None Remove="Uploads\images\icon\template-white.svg" />
+    <None Remove="Uploads\images\icon\template.svg" />
+    <None Remove="Uploads\images\illustration\achievement\128\white.png" />
+    <None Remove="Uploads\images\illustration\achievement\128\white.svg" />
+    <None Remove="Uploads\images\illustration\player.svg" />
+    <None Remove="Uploads\images\illustration\student\128\black.svg" />
+    <None Remove="Uploads\images\illustration\student\128\white.svg" />
+    <None Remove="Uploads\images\illustration\teacher\128\black.svg" />
+    <None Remove="Uploads\images\illustration\teacher\128\white.png" />
+    <None Remove="Uploads\images\illustration\teacher\128\white.svg" />
+    <None Remove="Uploads\images\logo\black-100@2x.png" />
+    <None Remove="Uploads\images\logo\black-70@2x.png" />
+    <None Remove="Uploads\images\logo\bootstrap.svg" />
+    <None Remove="Uploads\images\logo\bootstrap_body.svg" />
+    <None Remove="Uploads\images\logo\white-100@2x.png" />
+    <None Remove="Uploads\images\paths\angular_200x168.png" />
+    <None Remove="Uploads\images\paths\angular_277x96.png" />
+    <None Remove="Uploads\images\paths\angular_40x40.png" />
+    <None Remove="Uploads\images\paths\angular_40x40.svg" />
+    <None Remove="Uploads\images\paths\angular_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\angular_430x168.png" />
+    <None Remove="Uploads\images\paths\angular_64x64.png" />
+    <None Remove="Uploads\images\paths\angular_64x64.svg" />
+    <None Remove="Uploads\images\paths\angular_96x96.png" />
+    <None Remove="Uploads\images\paths\angular_96x96.svg" />
+    <None Remove="Uploads\images\paths\angular_patterns_200x168.png" />
+    <None Remove="Uploads\images\paths\angular_patterns_430x168.png" />
+    <None Remove="Uploads\images\paths\angular_patterns_430x168.svg" />
+    <None Remove="Uploads\images\paths\angular_routing_200x168.png" />
+    <None Remove="Uploads\images\paths\angular_routing_430x168.png" />
+    <None Remove="Uploads\images\paths\angular_services_200x168.png" />
+    <None Remove="Uploads\images\paths\angular_services_430x168.png" />
+    <None Remove="Uploads\images\paths\angular_services_430x168.svg" />
+    <None Remove="Uploads\images\paths\angular_testing_200x168.png" />
+    <None Remove="Uploads\images\paths\angular_testing_430x168.png" />
+    <None Remove="Uploads\images\paths\craft_200x168.png" />
+    <None Remove="Uploads\images\paths\craft_40x40.png" />
+    <None Remove="Uploads\images\paths\craft_40x40.svg" />
+    <None Remove="Uploads\images\paths\craft_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\craft_430x168.png" />
+    <None Remove="Uploads\images\paths\devops_200x168.png" />
+    <None Remove="Uploads\images\paths\devops_40x40.png" />
+    <None Remove="Uploads\images\paths\devops_40x40.svg" />
+    <None Remove="Uploads\images\paths\devops_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\devops_430x168.png" />
+    <None Remove="Uploads\images\paths\figma_200x168.png" />
+    <None Remove="Uploads\images\paths\figma_40x40.png" />
+    <None Remove="Uploads\images\paths\figma_40x40.svg" />
+    <None Remove="Uploads\images\paths\figma_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\figma_430x168.png" />
+    <None Remove="Uploads\images\paths\flinto_200x168.png" />
+    <None Remove="Uploads\images\paths\flinto_40x40.png" />
+    <None Remove="Uploads\images\paths\flinto_40x40.svg" />
+    <None Remove="Uploads\images\paths\flinto_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\flinto_430x168.png" />
+    <None Remove="Uploads\images\paths\invision_200x168.png" />
+    <None Remove="Uploads\images\paths\invision_40x40.png" />
+    <None Remove="Uploads\images\paths\invision_40x40.svg" />
+    <None Remove="Uploads\images\paths\invision_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\invision_430x168.png" />
+    <None Remove="Uploads\images\paths\mailchimp_200x168.png" />
+    <None Remove="Uploads\images\paths\mailchimp_40x40.png" />
+    <None Remove="Uploads\images\paths\mailchimp_40x40.svg" />
+    <None Remove="Uploads\images\paths\mailchimp_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\mailchimp_430x168.png" />
+    <None Remove="Uploads\images\paths\photoshop_200x168.png" />
+    <None Remove="Uploads\images\paths\photoshop_40x40.png" />
+    <None Remove="Uploads\images\paths\photoshop_40x40.svg" />
+    <None Remove="Uploads\images\paths\photoshop_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\photoshop_430x168.png" />
+    <None Remove="Uploads\images\paths\react_200x168.png" />
+    <None Remove="Uploads\images\paths\react_277x96.png" />
+    <None Remove="Uploads\images\paths\react_40x40.png" />
+    <None Remove="Uploads\images\paths\react_40x40.svg" />
+    <None Remove="Uploads\images\paths\react_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\react_430x168.png" />
+    <None Remove="Uploads\images\paths\redis_200x168.png" />
+    <None Remove="Uploads\images\paths\redis_40x40.png" />
+    <None Remove="Uploads\images\paths\redis_40x40.svg" />
+    <None Remove="Uploads\images\paths\redis_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\redis_430x168.png" />
+    <None Remove="Uploads\images\paths\sketch_200x168.png" />
+    <None Remove="Uploads\images\paths\sketch_40x40.png" />
+    <None Remove="Uploads\images\paths\sketch_40x40.svg" />
+    <None Remove="Uploads\images\paths\sketch_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\sketch_430x168.png" />
+    <None Remove="Uploads\images\paths\swift_200x168.png" />
+    <None Remove="Uploads\images\paths\swift_277x96.png" />
+    <None Remove="Uploads\images\paths\swift_40x40.png" />
+    <None Remove="Uploads\images\paths\swift_40x40.svg" />
+    <None Remove="Uploads\images\paths\swift_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\swift_430x168.png" />
+    <None Remove="Uploads\images\paths\typescript_200x168.png" />
+    <None Remove="Uploads\images\paths\typescript_40x40.png" />
+    <None Remove="Uploads\images\paths\typescript_40x40.svg" />
+    <None Remove="Uploads\images\paths\typescript_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\typescript_430x168.png" />
+    <None Remove="Uploads\images\paths\typescript_64x64.png" />
+    <None Remove="Uploads\images\paths\typescript_64x64.svg" />
+    <None Remove="Uploads\images\paths\typescript_892x286.png" />
+    <None Remove="Uploads\images\paths\wordpress_200x168.png" />
+    <None Remove="Uploads\images\paths\wordpress_40x40.png" />
+    <None Remove="Uploads\images\paths\wordpress_40x40.svg" />
+    <None Remove="Uploads\images\paths\wordpress_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\wordpress_430x168.png" />
+    <None Remove="Uploads\images\paths\xd_200x168.png" />
+    <None Remove="Uploads\images\paths\xd_40x40.png" />
+    <None Remove="Uploads\images\paths\xd_40x40.svg" />
+    <None Remove="Uploads\images\paths\xd_40x40@2x.png" />
+    <None Remove="Uploads\images\paths\xd_430x168.png" />
+    <None Remove="Uploads\images\people\110\guy-1.jpg" />
+    <None Remove="Uploads\images\people\110\guy-2.jpg" />
+    <None Remove="Uploads\images\people\110\guy-3.jpg" />
+    <None Remove="Uploads\images\people\110\guy-4.jpg" />
+    <None Remove="Uploads\images\people\110\guy-5.jpg" />
+    <None Remove="Uploads\images\people\110\guy-6.jpg" />
+    <None Remove="Uploads\images\people\110\guy-7.jpg" />
+    <None Remove="Uploads\images\people\110\guy-8.jpg" />
+    <None Remove="Uploads\images\people\110\guy-9.jpg" />
+    <None Remove="Uploads\images\people\110\woman-1.jpg" />
+    <None Remove="Uploads\images\people\110\woman-10.jpg" />
+    <None Remove="Uploads\images\people\110\woman-2.jpg" />
+    <None Remove="Uploads\images\people\110\woman-3.jpg" />
+    <None Remove="Uploads\images\people\110\woman-4.jpg" />
+    <None Remove="Uploads\images\people\110\woman-5.jpg" />
+    <None Remove="Uploads\images\people\110\woman-6.jpg" />
+    <None Remove="Uploads\images\people\110\woman-7.jpg" />
+    <None Remove="Uploads\images\people\110\woman-8.jpg" />
+    <None Remove="Uploads\images\people\110\woman-9.jpg" />
+    <None Remove="Uploads\images\people\256\256_rsz_90-jiang-640827-unsplash.jpg" />
+    <None Remove="Uploads\images\people\256\256_rsz_clem-onojeghuo-150467-unsplash.jpg" />
+    <None Remove="Uploads\images\people\256\256_rsz_florian-perennes-594195-unsplash.jpg" />
+    <None Remove="Uploads\images\people\256\256_rsz_james-gillespie-714755-unsplash.jpg" />
+    <None Remove="Uploads\images\people\256\256_rsz_karl-s-973833-unsplash.jpg" />
+    <None Remove="Uploads\images\people\256\256_rsz_nicolas-horn-689011-unsplash.jpg" />
+    <None Remove="Uploads\images\people\256\256_rsz_sharina-mae-agellon-377466-unsplash.jpg" />
+    <None Remove="Uploads\images\people\256\265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg" />
+    <None Remove="Uploads\images\people\50\guy-1.jpg" />
+    <None Remove="Uploads\images\people\50\guy-2.jpg" />
+    <None Remove="Uploads\images\people\50\guy-3.jpg" />
+    <None Remove="Uploads\images\people\50\guy-4.jpg" />
+    <None Remove="Uploads\images\people\50\guy-5.jpg" />
+    <None Remove="Uploads\images\people\50\guy-6.jpg" />
+    <None Remove="Uploads\images\people\50\guy-7.jpg" />
+    <None Remove="Uploads\images\people\50\guy-8.jpg" />
+    <None Remove="Uploads\images\people\50\guy-9.jpg" />
+    <None Remove="Uploads\images\people\50\woman-1.jpg" />
+    <None Remove="Uploads\images\people\50\woman-10.jpg" />
+    <None Remove="Uploads\images\people\50\woman-2.jpg" />
+    <None Remove="Uploads\images\people\50\woman-3.jpg" />
+    <None Remove="Uploads\images\people\50\woman-4.jpg" />
+    <None Remove="Uploads\images\people\50\woman-5.jpg" />
+    <None Remove="Uploads\images\people\50\woman-6.jpg" />
+    <None Remove="Uploads\images\people\50\woman-7.jpg" />
+    <None Remove="Uploads\images\people\50\woman-8.jpg" />
+    <None Remove="Uploads\images\people\50\woman-9.jpg" />
+    <None Remove="Uploads\images\photodune-4161018-group-of-students-m.jpg" />
+    <None Remove="Uploads\images\photodune-6745579-modern-creative-man-relaxing-on-workspace-m.jpg" />
+    <None Remove="Uploads\images\preview\app-cms-dashboard.png" />
+    <None Remove="Uploads\images\preview\app-earnings.png" />
+    <None Remove="Uploads\images\preview\app-edit-course.png" />
+    <None Remove="Uploads\images\preview\app-employees.png" />
+    <None Remove="Uploads\images\preview\app-hr-dashboard.png" />
+    <None Remove="Uploads\images\preview\app-instructor-dashboard.png" />
+    <None Remove="Uploads\images\preview\app-instructor-quizzes.png" />
+    <None Remove="Uploads\images\preview\app-messages.png" />
+    <None Remove="Uploads\images\preview\app-my-courses.png" />
+    <None Remove="Uploads\images\preview\app-path.png" />
+    <None Remove="Uploads\images\preview\app-posts.png" />
+    <None Remove="Uploads\images\preview\app-projects.png" />
+    <None Remove="Uploads\images\preview\app-staff.png" />
+    <None Remove="Uploads\images\preview\app-tasks-board.png" />
+    <None Remove="Uploads\images\preview\blog.png" />
+    <None Remove="Uploads\images\preview\boxed-crm-dashboard.png" />
+    <None Remove="Uploads\images\preview\boxed-my-paths.png" />
+    <None Remove="Uploads\images\preview\change-password.png" />
+    <None Remove="Uploads\images\preview\compact-email.png" />
+    <None Remove="Uploads\images\preview\compact-instructor-profile.png" />
+    <None Remove="Uploads\images\preview\compact-my-quizzes.png" />
+    <None Remove="Uploads\images\preview\compact-student-path-assessment.png" />
+    <None Remove="Uploads\images\preview\compact-student-profile.png" />
+    <None Remove="Uploads\images\preview\compact-take-course.png" />
+    <None Remove="Uploads\images\preview\compact-take-lesson.png" />
+    <None Remove="Uploads\images\preview\compact-take-quiz.png" />
+    <None Remove="Uploads\images\preview\course.png" />
+    <None Remove="Uploads\images\preview\courses.png" />
+    <None Remove="Uploads\images\preview\home.png" />
+    <None Remove="Uploads\images\preview\icon\pages.png" />
+    <None Remove="Uploads\images\preview\intro\app-2.png" />
+    <None Remove="Uploads\images\preview\intro\app.png" />
+    <None Remove="Uploads\images\preview\intro\blog.png" />
+    <None Remove="Uploads\images\preview\intro\boxed-courses.png" />
+    <None Remove="Uploads\images\preview\intro\boxed-home.png" />
+    <None Remove="Uploads\images\preview\intro\compact-instructor-profile.png" />
+    <None Remove="Uploads\images\preview\intro\compact-layout.png" />
+    <None Remove="Uploads\images\preview\intro\course-card.png" />
+    <None Remove="Uploads\images\preview\intro\courses.png" />
+    <None Remove="Uploads\images\preview\intro\home.png" />
+    <None Remove="Uploads\images\preview\intro\mini-secondary-paths.png" />
+    <None Remove="Uploads\images\preview\intro\mini-take-quiz.png" />
+    <None Remove="Uploads\images\preview\intro\sticky-student-dashboard.png" />
+    <None Remove="Uploads\images\preview\learnly-course.png" />
+    <None Remove="Uploads\images\preview\learnly-courses.png" />
+    <None Remove="Uploads\images\preview\learnly-home.png" />
+    <None Remove="Uploads\images\preview\learnly-instructor-courses.png" />
+    <None Remove="Uploads\images\preview\learnly-instructor-dashboard.png" />
+    <None Remove="Uploads\images\preview\learnly-instructor-earnings.png" />
+    <None Remove="Uploads\images\preview\learnly-instructor-edit-course.png" />
+    <None Remove="Uploads\images\preview\learnly-instructor-edit-quiz.png" />
+    <None Remove="Uploads\images\preview\learnly-instructor-profile.png" />
+    <None Remove="Uploads\images\preview\learnly-instructor-quizzes.png" />
+    <None Remove="Uploads\images\preview\learnly-instructor-statement.png" />
+    <None Remove="Uploads\images\preview\learnly-lesson.png" />
+    <None Remove="Uploads\images\preview\learnly-login.png" />
+    <None Remove="Uploads\images\preview\learnly-my-courses.png" />
+    <None Remove="Uploads\images\preview\learnly-my-paths.png" />
+    <None Remove="Uploads\images\preview\learnly-my-quizzes.png" />
+    <None Remove="Uploads\images\preview\learnly-path.png" />
+    <None Remove="Uploads\images\preview\learnly-paths.png" />
+    <None Remove="Uploads\images\preview\learnly-pricing.png" />
+    <None Remove="Uploads\images\preview\learnly-quiz-result.png" />
+    <None Remove="Uploads\images\preview\learnly-signup.png" />
+    <None Remove="Uploads\images\preview\learnly-skill-assessment.png" />
+    <None Remove="Uploads\images\preview\learnly-skill-result.png" />
+    <None Remove="Uploads\images\preview\learnly-student-dashboard.png" />
+    <None Remove="Uploads\images\preview\learnly-student-profile.png" />
+    <None Remove="Uploads\images\preview\learnly-take-course.png" />
+    <None Remove="Uploads\images\preview\learnly-take-lesson.png" />
+    <None Remove="Uploads\images\preview\learnly-take-quiz.png" />
+    <None Remove="Uploads\images\preview\lesson.png" />
+    <None Remove="Uploads\images\preview\login-image.png" />
+    <None Remove="Uploads\images\preview\login.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-account-password.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-billing-payment.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-billing.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-edit-account-notifications.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-edit-account.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-edit-profile.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-edit-quiz.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-erp-dashboard.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-instructor-courses.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-invoice.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-leaves.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-payment-history.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-quiz-result-details.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-shop-dashboard.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-statement.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-student-dashboard.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-student-path-assessment-result.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-tasks-list.png" />
+    <None Remove="Uploads\images\preview\mini-secondary-upgrade-account.png" />
+    <None Remove="Uploads\images\preview\path.png" />
+    <None Remove="Uploads\images\preview\paths.png" />
+    <None Remove="Uploads\images\preview\pricing.png" />
+    <None Remove="Uploads\images\preview\reset-password.png" />
+    <None Remove="Uploads\images\preview\signup-image.png" />
+    <None Remove="Uploads\images\preview\signup-payment.png" />
+    <None Remove="Uploads\images\preview\signup.png" />
+    <None Remove="Uploads\images\stories\256_rsz_clem-onojeghuo-193397-unsplash.jpg" />
+    <None Remove="Uploads\images\stories\256_rsz_dex-ezekiel-761373-unsplash.jpg" />
+    <None Remove="Uploads\images\stories\256_rsz_euan-carmichael-666378-unsplash.jpg" />
+    <None Remove="Uploads\images\stories\256_rsz_jared-rice-388260-unsplash.jpg" />
+    <None Remove="Uploads\images\stories\256_rsz_phil-hearing-769014-unsplash.jpg" />
+    <None Remove="Uploads\images\stories\256_rsz_rhema-kallianpur-275251-unsplash.jpg" />
+    <None Remove="Uploads\images\stories\256_rsz_ross-sneddon-798476-unsplash.jpg" />
+    <None Remove="Uploads\images\stories\256_rsz_thomas-russell-751613-unsplash.jpg" />
+    <None Remove="Uploads\images\stories\house-plant-on-wooden-slat-wall_4460x4460.jpg" />
+    <None Remove="Uploads\images\stories\leaf-wall-office-space_925x.jpg" />
+    <None Remove="Uploads\images\stories\modern-business-woman-portrait_925x.jpg" />
+    <None Remove="Uploads\images\stories\pink-wall-offices_925x.jpg" />
+    <None Remove="Uploads\images\stories\woman-in-modern-office_925x.jpg" />
+    <None Remove="Uploads\images\stories\woman-in-office_925x.jpg" />
+    <None Remove="Uploads\images\stories\young-professional_925x.jpg" />
+    <None Remove="Uploads\images\visa.svg" />
+    <None Remove="Uploads\images\Vue.js_Logo_2.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Uploads\images\1280_15ntkpxqt54y-sai-kiran-anagani.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\1280_derxvssqndm-artem-sapegin.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\1280_work-station-straight-on-view.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\1280_writing-down-goals_4460x4460.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_daniel-gaffey-1060698-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_jeremy-banks-798787-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_joao-silas-636453-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_luke-porter-261779-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_michael-dam-258165-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_rsz_1andy-lee-642320-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_rsz_90-jiang-640827-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_rsz_clem-onojeghuo-150467-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_rsz_florian-perennes-594195-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_rsz_james-gillespie-714755-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_rsz_karl-s-973833-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_rsz_nicolas-horn-689011-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_rsz_sharina-mae-agellon-377466-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\256_s-a-r-a-h-s-h-a-r-p-764291-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\985px-Laravel.svg.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\achievements\angular.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\achievements\flinto.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\email.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\components.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\facebook-square.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\facebook-square.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\facebook-square@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\twitter-square.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\twitter-square.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\twitter-square@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\vimeo-square.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\vimeo-square.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\vimeo-square@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\youtube-square.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\youtube-square.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\footer\youtube-square@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\prototype-white.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\prototype.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\rocket-white.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\rocket.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\rtl.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\skins.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\template-white.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\icon\template.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\illustration\achievement\128\white.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\illustration\achievement\128\white.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\illustration\player.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\illustration\student\128\black.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\illustration\student\128\white.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\illustration\teacher\128\black.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\illustration\teacher\128\white.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\illustration\teacher\128\white.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\logo\black-100@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\logo\black-70@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\logo\bootstrap.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\logo\bootstrap_body.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\logo\white-100@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_277x96.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_64x64.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_64x64.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_96x96.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_96x96.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_patterns_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_patterns_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_patterns_430x168.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_routing_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_routing_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_services_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_services_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_services_430x168.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_testing_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\angular_testing_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\craft_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\craft_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\craft_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\craft_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\craft_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\devops_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\devops_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\devops_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\devops_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\devops_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\figma_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\figma_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\figma_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\figma_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\figma_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\flinto_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\flinto_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\flinto_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\flinto_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\flinto_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\invision_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\invision_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\invision_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\invision_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\invision_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\mailchimp_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\mailchimp_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\mailchimp_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\mailchimp_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\mailchimp_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\photoshop_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\photoshop_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\photoshop_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\photoshop_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\photoshop_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\react_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\react_277x96.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\react_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\react_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\react_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\react_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\redis_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\redis_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\redis_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\redis_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\redis_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\sketch_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\sketch_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\sketch_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\sketch_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\sketch_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\swift_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\swift_277x96.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\swift_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\swift_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\swift_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\swift_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\typescript_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\typescript_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\typescript_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\typescript_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\typescript_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\typescript_64x64.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\typescript_64x64.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\typescript_892x286.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\wordpress_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\wordpress_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\wordpress_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\wordpress_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\wordpress_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\xd_200x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\xd_40x40.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\xd_40x40.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\xd_40x40@2x.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\paths\xd_430x168.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\guy-1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\guy-2.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\guy-3.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\guy-4.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\guy-5.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\guy-6.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\guy-7.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\guy-8.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\guy-9.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\woman-1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\woman-10.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\woman-2.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\woman-3.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\woman-4.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\woman-5.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\woman-6.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\woman-7.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\woman-8.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\110\woman-9.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\256\256_rsz_90-jiang-640827-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\256\256_rsz_clem-onojeghuo-150467-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\256\256_rsz_florian-perennes-594195-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\256\256_rsz_james-gillespie-714755-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\256\256_rsz_karl-s-973833-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\256\256_rsz_nicolas-horn-689011-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\256\256_rsz_sharina-mae-agellon-377466-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\256\265_rsz_mubariz-mehdizadeh-364026-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\guy-1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\guy-2.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\guy-3.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\guy-4.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\guy-5.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\guy-6.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\guy-7.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\guy-8.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\guy-9.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\woman-1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\woman-10.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\woman-2.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\woman-3.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\woman-4.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\woman-5.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\woman-6.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\woman-7.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\woman-8.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\people\50\woman-9.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\photodune-4161018-group-of-students-m.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\photodune-6745579-modern-creative-man-relaxing-on-workspace-m.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-cms-dashboard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-earnings.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-edit-course.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-employees.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-hr-dashboard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-instructor-dashboard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-instructor-quizzes.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-messages.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-my-courses.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-path.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-posts.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-projects.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-staff.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\app-tasks-board.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\blog.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\boxed-crm-dashboard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\boxed-my-paths.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\change-password.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\compact-email.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\compact-instructor-profile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\compact-my-quizzes.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\compact-student-path-assessment.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\compact-student-profile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\compact-take-course.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\compact-take-lesson.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\compact-take-quiz.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\course.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\courses.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\home.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\icon\pages.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\app-2.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\app.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\blog.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\boxed-courses.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\boxed-home.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\compact-instructor-profile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\compact-layout.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\course-card.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\courses.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\home.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\mini-secondary-paths.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\mini-take-quiz.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\intro\sticky-student-dashboard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-course.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-courses.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-home.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-instructor-courses.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-instructor-dashboard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-instructor-earnings.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-instructor-edit-course.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-instructor-edit-quiz.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-instructor-profile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-instructor-quizzes.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-instructor-statement.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-lesson.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-login.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-my-courses.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-my-paths.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-my-quizzes.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-path.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-paths.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-pricing.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-quiz-result.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-signup.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-skill-assessment.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-skill-result.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-student-dashboard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-student-profile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-take-course.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-take-lesson.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\learnly-take-quiz.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\lesson.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\login-image.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\login.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-account-password.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-billing-payment.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-billing.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-edit-account-notifications.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-edit-account.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-edit-profile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-edit-quiz.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-erp-dashboard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-instructor-courses.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-invoice.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-leaves.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-payment-history.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-quiz-result-details.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-shop-dashboard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-statement.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-student-dashboard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-student-path-assessment-result.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-tasks-list.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\mini-secondary-upgrade-account.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\path.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\paths.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\pricing.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\reset-password.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\signup-image.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\signup-payment.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\preview\signup.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\256_rsz_clem-onojeghuo-193397-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\256_rsz_dex-ezekiel-761373-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\256_rsz_euan-carmichael-666378-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\256_rsz_jared-rice-388260-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\256_rsz_phil-hearing-769014-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\256_rsz_rhema-kallianpur-275251-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\256_rsz_ross-sneddon-798476-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\256_rsz_thomas-russell-751613-unsplash.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\house-plant-on-wooden-slat-wall_4460x4460.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\leaf-wall-office-space_925x.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\modern-business-woman-portrait_925x.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\pink-wall-offices_925x.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\woman-in-modern-office_925x.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\woman-in-office_925x.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\stories\young-professional_925x.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\visa.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Uploads\images\Vue.js_Logo_2.svg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\Courses\Index.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="elFinder.NetCore" Version="1.4.1" />
     <PackageReference Include="MailKit" Version="4.8.0" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
@@ -39,6 +1627,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Files\Data\" />
+    <Folder Include="Areas\Files\Models\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 

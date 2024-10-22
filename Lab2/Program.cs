@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Configuration;
+using Lab2.Areas.Admin;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -75,7 +76,7 @@ using (var scope = app.Services.CreateScope())
 
         var seeder = new DataSeeder(context, userManager,roleManager);
         await seeder.SeedDataAsync(); // Call SeedDataAsync
-        Console.WriteLine("seed thanh cong");
+        Console.WriteLine("\n\n----seed thanh cong----\n\n");
 
     }
     catch (Exception ex)
@@ -98,7 +99,12 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+AdminAreaRegistration.RegisterArea(app);
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers(); 
+});
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
