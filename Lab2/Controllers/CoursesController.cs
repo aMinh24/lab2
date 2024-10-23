@@ -28,6 +28,7 @@ namespace MyApp.Namespace
                 CourseId = c.CourseId,
                 Title = c.Title,
                 // Add other properties as needed
+                InstructorName = c.Instructor.Name,
                 Description = c.Description,
                 Thumbnail = c.Thumbnail,
                 // ... other properties
