@@ -2,8 +2,10 @@ using Lab2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.SignalR;
 using System.Configuration;
 using Lab2.Areas.Admin;
+using Lab2.Hub;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -59,8 +61,15 @@ builder.Services.Configure<MailSettings>(mailsettings);               // đăng 
 builder.Services.AddTransient<IEmailSender, SendMailService>();
 
 builder.Services.AddTransient<DataSeeder>();
+builder.Services.AddSignalR();
+builder.Services.AddCors();
 /////////////
 var app = builder.Build();
+app.UseCors(x => x
+     .SetIsOriginAllowed(origin => true)
+     .AllowAnyMethod()
+     .AllowAnyHeader()
+     .AllowCredentials());
 
 using (var scope = app.Services.CreateScope())
 {
@@ -92,7 +101,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+app.MapHub<DiscussionHub>("/hub/discussionHub");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

@@ -25,5 +25,9 @@ namespace Lab2.Models
 
         [ForeignKey("UserId")]
         public virtual AppUser User { get; set; }
+        public DiscussionReply()
+        {
+            CreatedAt = DateTime.Now;
+        }
     }
 }

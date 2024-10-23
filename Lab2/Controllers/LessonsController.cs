@@ -20,18 +20,20 @@ namespace Lab2.Controllers
             {
                 return RedirectToAction("Review", "Lessons", new { id = id });
             }
-            Lesson lesson = _context.Lessons.FirstOrDefault(l => l.LessonId == id);
-            Course course = _context.Courses.Include(c=>c.Instructor).FirstOrDefault(c => c.Chapters.Any(ch => ch.ChapterId == lesson.ChapterId));
-            
+            Lesson lesson = _context.Lessons.Include(l => l.Discussions).ThenInclude(d=>d.User).FirstOrDefault(l => l.LessonId == id);
+            Course course = _context.Courses.Include(c => c.Instructor).FirstOrDefault(c => c.Chapters.Any(ch => ch.ChapterId == lesson.ChapterId));
+
             LessonViewModel viewModel = new LessonViewModel
             {
+                Id = lesson.LessonId,
                 LessonName = lesson.Title,
                 CourseTitle = course.Title,
                 InstructorName = course.Instructor.Name,
                 InstructorAvatar = course.Instructor.Avatar,
                 UrlVideo = lesson.VideoUrl,
                 Description = lesson.Description,
-                Duration = TimeSpan.FromMinutes(lesson.EstimateTime).ToString(@"hh\:mm")
+                Duration = TimeSpan.FromMinutes(lesson.EstimateTime).ToString(@"hh\:mm"),
+                Discussions = lesson.Discussions.OrderByDescending(l=>l.CreatedAt).Take(2).ToList(),
             }; if (lesson == null) return NotFound();
             return View(viewModel);
         }
@@ -48,7 +50,7 @@ namespace Lab2.Controllers
                 InstructorAvatar = course.Instructor.Avatar,
                 UrlVideo = lesson.VideoUrl,
                 Description = lesson.Description,
-                Duration = TimeSpan.FromMinutes(lesson.EstimateTime).ToString(@"hh\:mm")
+                Duration = TimeSpan.FromMinutes(lesson.EstimateTime).ToString(@"hh\:mm"),
             }; if (lesson == null) return NotFound();
             return View(viewModel);
         }

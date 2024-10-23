@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Discussion\Test.cshtml" />
     <Content Remove="Views\Home\courses.cshtml" />
   </ItemGroup>
 
@@ -1599,6 +1600,7 @@
 
   <ItemGroup>
     <None Include="Views\Courses\Index.cshtml" />
+    <None Include="Views\Discussion\Test.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1609,6 +1611,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
       <PrivateAssets>all</PrivateAssets>

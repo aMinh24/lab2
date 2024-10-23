@@ -133,86 +133,54 @@
 
         <div class="d-flex align-items-center mb-heading">
             <h4 class="m-0">Discussions</h4>
-            <a href="discussions-ask.html"
+            <a asp-action="Ask" asp-controller="Discussion"
                class="text-underline ml-auto">Ask a Question</a>
         </div>
 
         <div class="border-top">
 
             <div class="list-group list-group-flush">
+                @foreach (var disc in Model.Discussions)
+                {
 
-                <div class="list-group-item p-3">
-                    <div class="row align-items-start">
-                        <div class="col-md-3 mb-8pt mb-md-0">
-                            <div class="media align-items-center">
-                                <div class="media-left mr-12pt">
-                                    <a href=""
-                                       class="avatar avatar-sm">
-                                        <!-- <img src="../../LB" alt="avatar" class="avatar-img rounded-circle"> -->
-                                        <span class="avatar-title rounded-circle">LB</span>
-                                    </a>
-                                </div>
-                                <div class="d-flex flex-column media-body media-middle">
-                                    <a href=""
-                                       class="card-title">Laza Bogdan</a>
-                                    <small class="text-muted">2 days ago</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col mb-8pt mb-md-0">
-                            <p class="mb-8pt">
-                                <a href="discussion.html"
-                                   class="text-body"><strong>Using Angular HttpClientModule instead of HttpModule</strong></a>
-                            </p>
-
-                            <a href="discussion.html"
-                               class="chip chip-outline-secondary">Angular fundamentals</a>
-
-                        </div>
-                        <div class="col-auto d-flex flex-column align-items-center justify-content-center">
-                            <h5 class="m-0">1</h5>
-                            <p class="lh-1 mb-0"><small class="text-70">answers</small></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="list-group-item p-3">
-                    <div class="row align-items-start">
-                        <div class="col-md-3 mb-8pt mb-md-0">
-                            <div class="media align-items-center">
-                                <div class="media-left mr-12pt">
-                                    <a href=""
-                                       class="avatar avatar-sm">
-                                        <!-- <img src="../../AC" alt="avatar" class="avatar-img rounded-circle"> -->
-                                        <span class="avatar-title rounded-circle">AC</span>
-                                    </a>
-                                </div>
-                                <div class="d-flex flex-column media-body media-middle">
-                                    <a href=""
-                                       class="card-title">Adam Curtis</a>
-                                    <small class="text-muted">3 days ago</small>
+                    <div class="list-group-item p-3">
+                        <div class="row align-items-start">
+                            <div class="col-md-3 mb-8pt mb-md-0">
+                                <div class="media align-items-center">
+                                    <div class="media-left mr-12pt">
+                                        <a href=""
+                                           class="avatar avatar-sm">
+                                            <img src="@Url.Content(@disc.User.Avatar)" alt="avatar" class="avatar-img rounded-circle">
+                                            @* <span class="avatar-title rounded-circle">LB</span> *@
+                                        </a>
+                                    </div>
+                                    <div class="d-flex flex-column media-body media-middle">
+                                        <a href=""
+                                           class="card-title">@disc.User.Name</a>
+                                        <small class="text-muted">@(DateTime.Now.Day - disc.CreatedAt.Day) days ago</small>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col mb-8pt mb-md-0">
-                            <p class="mb-0">
-                                <a href="discussion.html"
-                                   class="text-body"><strong>Why am I getting an error when trying to install angular/http@2.4.2</strong></a>
-                            </p>
+                            <div class="col mb-8pt mb-md-0">
+                                <p class="mb-8pt">
+                                    <a asp-action="Detail" asp-controller="Discussion" asp-route-id="@disc.DiscussionId"
+                                       class="text-body"><strong>@disc.Title</strong></a>
+                                </p>
 
-                        </div>
-                        <div class="col-auto d-flex flex-column align-items-center justify-content-center">
-                            <h5 class="m-0">1</h5>
-                            <p class="lh-1 mb-0"><small class="text-70">answers</small></p>
+                            </div>
+                            <div class="col-auto d-flex flex-column align-items-center justify-content-center">
+                                <h5 class="m-0">@disc.DiscussionReplies.Count()</h5>
+                                <p class="lh-1 mb-0"><small class="text-70">answers</small></p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
 
             </div>
 
         </div>
 
-        <a href="discussions.html"
+        <a asp-action="Index" asp-controller="Discussion" asp-route-id ="@Model.Id"
            class="btn btn-outline-secondary">See all discussions for this lesson</a>
 
     </div>

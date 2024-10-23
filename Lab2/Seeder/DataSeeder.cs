@@ -436,6 +436,33 @@ public class DataSeeder
             });
             _context.SaveChanges();
         }
+
+        if (!_context.Discussions.Any())
+        {
+            var course = _context.Courses.FirstOrDefault(c => c.Title == "Learn Angular fundamentals");
+            var chapt = _context.Chapters.Include(c => c.Lessons).FirstOrDefault(c => c.CourseId == course.CourseId);
+            var disc = new List<Discussion>
+            {
+                new Discussion
+                {
+                    UserId = student.Id,
+                    CourseId = course.CourseId,
+                    LessonId = chapt.Lessons.FirstOrDefault().LessonId,
+                    Title = "Using Angular HttpClientModule instead of HttpModule",
+                    Content = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae quisquam iste maiores libero, corrupti totam saepe itaque quidem perspiciatis?\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Eos culpa commodi consequuntur! Optio labore corporis quo a quia, incidunt unde soluta velit ad, eius exercitationem sequi ab laborum! Nostrum voluptate earum sit aperiam quaerat unde, vel excepturi quisquam nihil reprehenderit in minus laudantium eligendi odio iusto nemo, aspernatur, optio soluta!",
+                },
+                 new Discussion
+                {
+                    UserId = student.Id,
+                    CourseId = course.CourseId,
+                    LessonId = chapt.Lessons.FirstOrDefault().LessonId,
+                    Title = "Why am I getting an error when trying to install angular/http@2.4.2",
+                    Content = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae quisquam iste maiores libero, corrupti totam saepe itaque quidem perspiciatis?\r\n\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Eos culpa commodi consequuntur! Optio labore corporis quo a quia, incidunt unde soluta velit ad, eius exercitationem sequi ab laborum! Nostrum voluptate earum sit aperiam quaerat unde, vel excepturi quisquam nihil reprehenderit in minus laudantium eligendi odio iusto nemo, aspernatur, optio soluta!",
+                },
+            };
+            _context.Discussions.AddRange(disc);
+            _context.SaveChanges();
+        }
     }
 
 }

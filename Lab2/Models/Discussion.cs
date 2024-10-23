@@ -37,6 +37,7 @@ namespace Lab2.Models
 
         public Discussion()
         {
+            CreatedAt = DateTime.Now;
             DiscussionReplies = new List<DiscussionReply>();
         }
     }
