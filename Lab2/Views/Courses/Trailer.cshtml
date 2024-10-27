@@ -1,0 +1,164 @@
+﻿@model Lab2.Models.Course
+
+<!-- Header Layout Content -->
+<div class="mdk-header-layout__content page-content ">
+
+    <div class="navbar navbar-light border-0 navbar-expand">
+        <div class="container page__container">
+            <div class="media flex-nowrap">
+                <div class="media-left mr-16pt">
+                    <a href="student-course.html">
+                        <img src="../../public/images/paths/angular_64x64.png"
+                             width="40"
+                             alt="Angular"
+                             class="rounded">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <a href="student-course.html"
+                       class="card-title text-body mb-0">
+                        @Model.Title
+                    </a>
+                    <p class="lh-1 d-flex align-items-center mb-0">
+                        <span class="text-50 small font-weight-bold mr-8pt">@Model.Instructor.Name</span>
+                        <span class="text-50 small">@Model.Topic.Name</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-primary pb-lg-64pt py-32pt">
+        <div class="container page__container">
+            <nav class="course-nav">
+                <a data-toggle="tooltip"
+                   data-placement="bottom"
+                   data-title="Getting Started with Angular: Introduction"
+                   href="">
+                    <span class="material-icons">lock</span>
+                </a>
+                <a data-toggle="tooltip"
+                   data-placement="bottom"
+                   data-title="Getting Started with Angular: Introduction to TypeScript"
+                   href="">
+                    <span class="material-icons text-primary">account_circle</span>
+                </a>
+                <a data-toggle="tooltip"
+                   data-placement="bottom"
+                   data-title="Getting Started with Angular: Comparing Angular to AngularJS"
+                   href="">
+                    <span class="material-icons">lock</span>
+                </a>
+                <a data-toggle="tooltip"
+                   data-placement="bottom"
+                   data-title="Getting Started with Angular: Lesson 4"
+                   href="">
+                    <span class="material-icons">lock</span>
+                </a>
+            </nav>
+            <div class="js-player embed-responsive embed-responsive-16by9 mb-32pt">
+                <div class="player embed-responsive-item">
+                    <div class="player__content">
+                        <div class="player__image"
+                             style="--player-image: url(@Model.Thumbnail)">
+                        </div>
+                        <a href=""
+                           class="player__play bg-primary">
+                            <span class="material-icons">play_arrow</span>
+                        </a>
+                    </div>
+                    <div class="player__embed d-none">
+                        <iframe class="embed-responsive-item"
+                                src="@Model.TrailerUrl"
+                                allowfullscreen="">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            @{
+            var firstChapter = Model.Chapters.FirstOrDefault();
+            var firstLesson = firstChapter?.Lessons?.FirstOrDefault();
+            }
+
+            @if (firstLesson != null)
+            {
+            <div class="d-flex flex-wrap align-items-end mb-16pt">
+                <h1 class="text-white flex m-0">@firstLesson.Title</h1>
+                <p class="h1 text-white-50 font-weight-light m-0">@firstLesson.EstimateTime</p>
+            </div>
+
+            <p class="hero__lead measure-hero-lead text-white-50 mb-24pt">@firstLesson.Description</p>
+            }
+            else
+            {
+            <p class="text-white-50">No lesson available.</p>
+            }
+
+            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start">
+                <a href="lesson.html"
+                    Watch trailer <i class="material-icons icon--right">play_circle_outline</i>
+                </a>
+                <a href="pricing.html"
+                   class="btn btn-white">
+                    Get started
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-expand-sm navbar-light bg-white border-bottom-2 navbar-list p-0 m-0 align-items-center">
+        <div class="container page__container">
+            <ul class="nav navbar-nav flex align-items-sm-center">
+                <li class="nav-item navbar-list__item">
+                    <div class="media align-items-center">
+                        <span class="media-left mr-16pt">
+                            <img src="@Model.Instructor.Avatar"
+                                 width="40"
+                                 alt="avatar"
+                                 class="rounded-circle">
+                        </span>
+                        <div class="media-body">
+                            <a class="card-title m-0"
+                                asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Instructor.Id"
+                               >
+                                @Model.Instructor.Name
+                            </a>
+                            <p class="text-50 lh-1 mb-0">Instructor</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item navbar-list__item">
+                    <i class="material-icons text-muted icon--left">schedule</i>
+                    2h 46m
+                </li>
+                <li class="nav-item navbar-list__item">
+                    <i class="material-icons text-muted icon--left">assessment</i>
+                    Beginner
+                </li>
+                <li class="nav-item ml-sm-auto text-sm-center flex-column navbar-list__item">
+                    <div class="rating rating-24">
+                        <div class="rating__item">
+                            <i class="material-icons">star</i>
+                        </div>
+                        <div class="rating__item">
+                            <i class="material-icons">star</i>
+                        </div>
+                        <div class="rating__item">
+                            <i class="material-icons">star</i>
+                        </div>
+                        <div class="rating__item">
+                            <i class="material-icons">star</i>
+                        </div>
+                        <div class="rating__item">
+                            <i class="material-icons">star_border</i>
+                        </div>
+                    </div>
+                    <p class="lh-1 mb-0">
+                        <small class="text-muted">20 ratings</small>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<!-- // END Header Layout Content -->
