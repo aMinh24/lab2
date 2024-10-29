@@ -25,7 +25,7 @@ namespace Lab2.Controllers
                 return RedirectToAction("Index", "Home");
             }
             string userId = _userManager.GetUserId(User);
-            Subscription sub = _context.Subscriptions.Include(s => s.SubscriptionType).FirstOrDefault(s => s.UserId == userId);
+            Subscription sub = _context.Subscriptions.Include(s => s.SubscriptionType).Include(s=>s.Student).FirstOrDefault(s => s.Student.UserId == userId);
             PaymentInformation payInf = _context.PaymentInformations.Find(userId);
 
             ViewBillModel model = new ViewBillModel
@@ -57,7 +57,7 @@ namespace Lab2.Controllers
             }
             else
             {
-                Subscription sub = _context.Subscriptions.First(s => s.UserId == userId);
+                Subscription sub = _context.Subscriptions.Include(s=>s.Student).First(s => s.Student.UserId == userId);
                 SubscriptionType subscriptionType = _context.SubscriptionTypes.First(s => s.SubscriptionTypeId == id);
                 if(subscriptionType != null)
                 {

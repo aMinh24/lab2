@@ -10,7 +10,7 @@ namespace Lab2.Models
         public int UserLessonId { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         public int LessonId { get; set; }
@@ -19,7 +19,7 @@ namespace Lab2.Models
         public bool Completed { get; set; }
 
         [ForeignKey("UserId")]
-        public virtual AppUser User { get; set; }
+        public virtual Student Student { get; set; }
 
         [ForeignKey("LessonId")]
         public virtual Lesson Lesson { get; set; }

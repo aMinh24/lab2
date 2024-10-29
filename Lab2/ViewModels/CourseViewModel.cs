@@ -1,4 +1,6 @@
-﻿namespace Lab2.ViewModels
+﻿using Lab2.Models;
+
+namespace Lab2.ViewModels
 {
     public class CourseViewModel
     {
@@ -7,6 +9,9 @@
         public string InstructorName { get; set; } // To hold the instructor's name
         public string Description { get; set; }
         public string Thumbnail { get; set; }
+        public Topic Topic { get; set; }
+
+        public double? AverageRating { get; set; } = 0;
 
         // Add other properties as needed from the Course model
     }

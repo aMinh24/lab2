@@ -638,28 +638,19 @@ namespace Lab2.Models
                 .HasOne(d => d.User)
                 .WithMany(u => u.DiscussionsStarted)
                 .HasForeignKey(d => d.UserId);
-
-
             modelBuilder.Entity<DiscussionReply>()
                 .HasOne(dr => dr.User)
                 .WithMany(u => u.DiscussionReplies)
                 .HasForeignKey(dr => dr.UserId);
-
-
-            modelBuilder.Entity<Subscription>()
-                .HasOne(s => s.User)
-                .WithMany(u => u.Subscriptions)
+            //
+            // modelBuilder.Entity<FeedBack>()
+            //     .HasOne(f => f.User)
+            //     .WithMany(f=> f.FeedBacks)
+            //     .HasForeignKey(f => f.UserId);
+            modelBuilder.Entity<Student>()
+                .HasOne(s => s.AppUser)
+                .WithMany(s=> s.Students)
                 .HasForeignKey(s => s.UserId);
-
-            modelBuilder.Entity<UserCourse>()
-                .HasOne(uc => uc.User)
-                .WithMany(u => u.UserCourses)
-                .HasForeignKey(uc => uc.UserId);
-
-            modelBuilder.Entity<UserLesson>()
-                .HasOne(ul => ul.User)
-                .WithMany(u => u.UserLessons)
-                .HasForeignKey(ul => ul.UserId);
             modelBuilder.Entity<Instructor>()
                 .HasOne(i => i.AppUser)
                 .WithOne()
@@ -682,6 +673,7 @@ namespace Lab2.Models
         public DbSet<UserLesson> UserLessons { get; set; }
         public DbSet<PaymentInformation> PaymentInformations { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
-
+        public DbSet<FeedBack> FeedBacks { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
 }

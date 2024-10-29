@@ -25,6 +25,11 @@ namespace Lab2.Models
         public string Thumbnail { get; set; }
         public DateTime? Date { get; set; }
 
+        public double? Duration { get; set; }
+        [NotMapped]
+        public double? AverageRating { get; set; }
+        
+        
         [ForeignKey("InstructorId")]
         public virtual AppUser Instructor { get; set; }
 

@@ -100,7 +100,7 @@ public class DataSeeder
         
 
         var student = await _userManager.FindByEmailAsync("student@example.com");
-
+        
         if (student == null)
         {
             student = new AppUser
@@ -112,6 +112,7 @@ public class DataSeeder
             };
             await _userManager.CreateAsync(student, "Password123!");
             await _userManager.AddToRoleAsync(student, RoleName.Student);
+            
 
         }
         if (!student.EmailConfirmed)
@@ -135,9 +136,17 @@ public class DataSeeder
                 LinkTwitter = "123",
                 Avatar = "123"
             };
+            student = await _userManager.FindByEmailAsync("student@example.com");
+            var newStudent = new Student()
+            {
+                UserId = student.Id,
+                
+            };
 
             _context.Instructors.Add(teacher);
+            _context.Students.Add(newStudent);
             await _context.SaveChangesAsync();
+
             var newCourses = new List<Course>
                 {
                     new Course
@@ -279,6 +288,14 @@ public class DataSeeder
             _context.Courses.AddRange(newCourses);
             await _context.SaveChangesAsync();
         }
+        
+        
+        student = await _userManager.FindByEmailAsync("student@example.com");
+
+        var studentNew = await _context.Students
+            .FirstOrDefaultAsync(s => s.UserId == student.Id); // Assuming UserId is the foreign key
+
+        
         if (!_context.Chapters.Any())
         {
             var course = _context.Courses.FirstOrDefault(c => c.Title == "Learn Angular fundamentals");
@@ -415,8 +432,8 @@ public class DataSeeder
                 subs.Add(new Subscription
                 {
                     SubscriptionTypeId = typeSub.SubscriptionTypeId,
-                    UserId = user.Id,
-                    User = user,
+                    UserId = studentNew.StudentId,
+                    Student = studentNew,
                     SubscriptionType = typeSub,
                     StartDate = DateTime.Now,
                     EndDate = DateTime.Now.AddDays(360)
@@ -435,6 +452,26 @@ public class DataSeeder
                 CreditNumber = "12345567890",
             });
             _context.SaveChanges();
+        }
+
+        if (!_context.FeedBacks.Any())
+        {
+            Random random = new Random();
+
+            // Tạo dữ liệu mẫu cho phản hồi
+            for (int i = 1; i <= 20; i++)
+            {
+                var feedback = new FeedBack
+                {
+                    UserId = 1,
+                    CourseId = 1,
+                    Rating = random.Next(1, 6),
+                    Feedback = $"Feedback #{i}: This is a feedback message.",
+                    Created = DateTime.Now
+                };
+                _context.FeedBacks.Add(feedback);
+                _context.SaveChanges();
+            }
         }
     }
 

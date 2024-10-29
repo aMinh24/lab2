@@ -14,9 +14,11 @@ namespace Lab2.Models
         public virtual ICollection<Course> CoursesInstructed { get; set; } // Courses where this user is the instructor
         public virtual ICollection<Discussion> DiscussionsStarted { get; set; }
         public virtual ICollection<DiscussionReply> DiscussionReplies { get; set; }
-        public virtual ICollection<Subscription> Subscriptions { get; set; }
-        public virtual ICollection<UserCourse> UserCourses { get; set; }
-        public virtual ICollection<UserLesson> UserLessons { get; set; }
+        // public virtual ICollection<Subscription> Subscriptions { get; set; }
+        // public virtual ICollection<UserCourse> UserCourses { get; set; }
+        // public virtual ICollection<UserLesson> UserLessons { get; set; }
+        // public virtual ICollection<FeedBack> FeedBacks { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
 
         public AppUser()
         {
@@ -26,9 +28,11 @@ namespace Lab2.Models
             CoursesInstructed = new List<Course>();
             DiscussionsStarted = new List<Discussion>();
             DiscussionReplies = new List<DiscussionReply>();
-            Subscriptions = new List<Subscription>();
-            UserCourses = new List<UserCourse>();
-            UserLessons = new List<UserLesson>();
+            // Subscriptions = new List<Subscription>();
+            // UserCourses = new List<UserCourse>();
+            // UserLessons = new List<UserLesson>();
+            // FeedBacks = new List<FeedBack>();
+            Students = new List<Student>();
         }
     }
 }

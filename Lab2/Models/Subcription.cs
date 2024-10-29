@@ -10,7 +10,7 @@ namespace Lab2.Models
         public int SubscriptionId { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         public int SubscriptionTypeId { get; set; }
@@ -23,7 +23,7 @@ namespace Lab2.Models
 
 
         [ForeignKey("UserId")]
-        public virtual AppUser User { get; set; }
+        public virtual Student Student { get; set; }
 
         [ForeignKey("SubscriptionTypeId")]
         public virtual SubscriptionType SubscriptionType { get; set; }
