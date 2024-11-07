@@ -92,9 +92,9 @@
                                             }
                                         </div>
                                     </div>
-                                    @if (i.AppUser.CoursesInstructed.Any())
+                                    @if (i.CoursesInstructed.Any())
                                     {
-                                        var firstCourse = i.AppUser.CoursesInstructed.First();
+                                        var firstCourse = i.CoursesInstructed.First();
                                         <div class="d-flex align-items-center">
                                             <a asp-controller="Courses"
                                                asp-action="Detail"

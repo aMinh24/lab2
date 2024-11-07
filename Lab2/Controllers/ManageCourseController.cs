@@ -30,14 +30,16 @@ namespace Lab2.Controllers
         {
             var userId = _userManager.GetUserId(User);
 
-
             var courses = await _context.Courses
-                .Where(c => c.InstructorId.Equals(userId))
+                .Where(c => c.Instructor.UserId.Equals(userId))
+                .Include(c => c.Instructor)
+                .ThenInclude(i => i.AppUser)
                 .Include(c => c.Platform)
                 .Include(c => c.Topic)
+                .Include(c => c.Path) // Bao gồm Path để có thể hiển thị tên
                 .ToListAsync();
-            return View(courses);
 
+            return View(courses);
         }
 
         // GET: ManageCourse/Details/5
@@ -52,7 +54,9 @@ namespace Lab2.Controllers
                 .Include(c => c.Instructor)
                 .Include(c => c.Platform)
                 .Include(c => c.Topic)
+                .Include(c => c.Path) // Include Path information
                 .FirstOrDefaultAsync(m => m.CourseId == id);
+
             if (course == null)
             {
                 return NotFound();
@@ -67,6 +71,13 @@ namespace Lab2.Controllers
             ViewData["PlatformId"] = new SelectList(_context.Platforms, "PlatformId", "Name");
             ViewData["TopicId"] = new SelectList(_context.Topics, "TopicId", "Name");
 
+            // Lấy tên Path để hiển thị trong danh sách chọn
+            ViewData["PathId"] = new SelectList(_context.Paths, "PathId", "Name");
+            ViewData["Difficulty"] = new SelectList(new List<dynamic>
+            {
+                new { Value = 0, Text = "Beginner" },
+                new { Value = 1, Text = "Intermediate" }
+            }, "Value", "Text");
             return View();
         }
 
@@ -75,10 +86,20 @@ namespace Lab2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CourseId,Title,Description,TrailerUrl,TopicId,PlatformId,Thumbnail")] Course course)
+        public async Task<IActionResult> Create(
+            [Bind("CourseId,Title,Description,TrailerUrl,TopicId,PlatformId,Thumbnail,PathId,DifficultCourse")]
+            Course course)
         {
-            // Gán InstructorId và Date trước khi kiểm tra ModelState
-            course.InstructorId = _userManager.GetUserId(User);
+            var userId = _userManager.GetUserId(User);
+            var instructor = await _context.Instructors
+                .FirstOrDefaultAsync(i => i.UserId.Equals(userId));
+
+            if (instructor == null)
+            {
+                return BadRequest("Không phải role để tạo");
+            }
+
+            course.InstructorId = instructor.InstructorId;
             course.Date = DateTime.Now;
 
             _context.Add(course);
@@ -94,30 +115,43 @@ namespace Lab2.Controllers
                 return NotFound();
             }
 
-            var course = await _context.Courses.FindAsync(id);
+            var course = await _context.Courses.Include(c => c.Path).FirstOrDefaultAsync(c => c.CourseId == id);
             if (course == null)
             {
                 return NotFound();
             }
-            ViewData["InstructorId"] = new SelectList(_context.Users, "Id", "Id", course.InstructorId);
+
             ViewData["PlatformId"] = new SelectList(_context.Platforms, "PlatformId", "Name", course.PlatformId);
             ViewData["TopicId"] = new SelectList(_context.Topics, "TopicId", "Name", course.TopicId);
+            ViewData["PathId"] = new SelectList(_context.Paths, "PathId", "Name",course.PathId);
+            ViewData["Difficulty"] = new SelectList(new List<dynamic>
+            {
+                new { Value = 0, Text = "Beginner" },
+                new { Value = 1, Text = "Intermediate" }
+            }, "Value", "Text", course.DifficultCourse.HasValue ? (int)course.DifficultCourse : 0);
+
             return View(course);
         }
 
-        // POST: ManageCourse/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CourseId,Title,Description,TrailerUrl,InstructorId,TopicId,PlatformId,Thumbnail,Date")] Course course)
+        public async Task<IActionResult> Edit(int id,
+            [Bind("CourseId,Title,Description,TrailerUrl,InstructorId,TopicId,PlatformId,Thumbnail,Date,PathId,DifficultCourse")]
+            Course course)
         {
             if (id != course.CourseId)
             {
                 return NotFound();
             }
 
-            course.InstructorId = _userManager.GetUserId(User);
+            var userId = _userManager.GetUserId(User);
+            var instructor = await _context.Instructors.FirstOrDefaultAsync(i => i.UserId.Equals(userId));
+            if (instructor == null)
+            {
+                return BadRequest("Không phải role để tạo");
+            }
+
+            course.InstructorId = instructor.InstructorId;
             try
             {
                 _context.Update(course);
@@ -134,8 +168,8 @@ namespace Lab2.Controllers
                     throw;
                 }
             }
-            return RedirectToAction(nameof(Index));
 
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: ManageCourse/Delete/5

@@ -19,6 +19,7 @@ namespace MyApp.Namespace
             // Eager loading Instructor (AppUser) with the Courses
             var courses = await _context.Courses
                 .Include(c => c.Instructor)
+                .ThenInclude(i=>i.AppUser)
                 .Include(c=>c.Topic)
                 .Include(c=>c.UserCourses)
                 .ToListAsync();
@@ -41,7 +42,7 @@ namespace MyApp.Namespace
                 // Add other properties as needed
                 Description = c.Description,
                 Thumbnail = c.Thumbnail,
-                InstructorName = c.Instructor.Name,
+                InstructorName = c.Instructor.AppUser.Name,
                 AverageRating = c.AverageRating
                 // ... other properties
             });
@@ -57,12 +58,13 @@ namespace MyApp.Namespace
             }
             var course = await _context.Courses
                 .Include(c => c.Instructor) // Eager loading for the instructor
+                .ThenInclude(i=>i.AppUser)
                 .Include(c => c.Chapters)
                 .ThenInclude(ch => ch.Lessons)
                 .FirstOrDefaultAsync(c => c.CourseId == id);
             if (course == null)
             {
-                return NotFound();
+                return BadRequest("Can't see course");
             }
 
             var feedbacks = await _context.FeedBacks
@@ -72,12 +74,31 @@ namespace MyApp.Namespace
                 .Include(f=>f.Student)
                 .ThenInclude(s=>s.AppUser)
                 .ToListAsync();
+
             return View(Tuple.Create(course, feedbacks.AsEnumerable()));
         }
 
-        public IActionResult Student()
+        public async Task<IActionResult> Student(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return BadRequest("Can not solve id");
+            }
+            var course = await _context.Courses
+                .Include(c => c.Topic)
+                .Include(c => c.Instructor)
+                .ThenInclude(i => i.AppUser)
+                .Include(c => c.Chapters)
+                .ThenInclude(ch => ch.Lessons)
+                .FirstOrDefaultAsync(c => c.CourseId == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+            var feedback = await _context.FeedBacks
+                .Where(f => f.CourseId == course.CourseId).ToListAsync();
+            
+            return View(Tuple.Create(course,feedback.AsEnumerable()));
         }
 
         public async Task<IActionResult> Trailer(int? id)
@@ -87,7 +108,9 @@ namespace MyApp.Namespace
                 return BadRequest("Can not solve id");
             }
             var course = await _context.Courses
+                .Include(c=>c.Topic)
                 .Include(c => c.Instructor) // Eager loading for the instructor
+                .ThenInclude(i => i.AppUser)
                 .Include(c => c.Chapters)
                 .ThenInclude(ch => ch.Lessons)
                 .FirstOrDefaultAsync(c => c.CourseId == id);
@@ -95,7 +118,10 @@ namespace MyApp.Namespace
             {
                 return NotFound();
             }
-            return View(course);
+            var feedback = await _context.FeedBacks
+                .Where(f => f.CourseId == course.CourseId).ToListAsync();
+            
+            return View(Tuple.Create(course,feedback.AsEnumerable()));
         }
     }
 }

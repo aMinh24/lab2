@@ -1,7 +1,7 @@
 ﻿@model Lab2.Models.Course
 
 @{
-    ViewData["Title"] = "Edit Course";
+ViewData["Title"] = "Edit Course";
 }
 
 <!-- Page Title and Layout -->
@@ -24,7 +24,7 @@
                 </div>
 
                 <!-- Form -->
-                <form asp-action="Create">
+                <form asp-action="Create" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                     <!-- Course Title -->
@@ -32,8 +32,7 @@
                         <label asp-for="Title" class="form-label"></label>
                         <div class="form-group mb-24pt">
                             <input asp-for="Title" class="form-control form-control-lg" placeholder="Course title" />
-                            <small class="form-text text-muted">Please see our <a href="#">course title
-                                    guideline</a>.</small>
+                            <small class="form-text text-muted">Please see our <a href="#">course title guideline</a>.</small>
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
                     </div>
@@ -66,6 +65,16 @@
                         <select asp-for="PlatformId" class="form-control" asp-items="ViewBag.PlatformId"></select>
                     </div>
 
+                    <!-- Path (Difficulty Level) -->
+                    <div class="form-group">
+                        <label asp-for="PathId" class="form-label"></label>
+                        <select asp-for="PathId" class="form-control" asp-items="ViewBag.PathId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DifficultCourse" class="form-label"></label>
+                        <select asp-for="DifficultCourse" class="form-control" asp-items="ViewBag.Difficulty"></select>
+                    </div>
+
                     <!-- Thumbnail -->
                     <div class="form-group">
                         <label asp-for="Thumbnail" class="form-label"></label>
@@ -75,7 +84,7 @@
 
                     <!-- Submit Button -->
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <input type="submit" value="Save Changes" class="btn btn-primary" />
                     </div>
                 </form>
             </div>
@@ -87,8 +96,8 @@
                     <div class="card-body">
                         <label class="form-label">URL</label>
                         <input type="text" class="form-control"
-                            value="https://player.vimeo.com/video/97243285?title=0&byline=0&portrait=0"
-                            placeholder="Enter Video URL" />
+                               value="https://player.vimeo.com/video/97243285?title=0&byline=0&portrait=0"
+                               placeholder="Enter Video URL" />
                         <small class="form-text text-muted">Enter a valid video URL.</small>
                     </div>
                 </div>
@@ -142,6 +151,6 @@
 
 @section Scripts {
     @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }

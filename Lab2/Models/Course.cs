@@ -2,6 +2,7 @@
 using Microsoft.CodeAnalysis;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Lab2.Data;
 
 namespace Lab2.Models
 {
@@ -17,11 +18,13 @@ namespace Lab2.Models
         public string Description { get; set; }
         public string TrailerUrl { get; set; }
         [Required]
-        public string InstructorId { get; set; }
+        public int InstructorId { get; set; }
         [Required]
         public int TopicId { get; set; }
         [Required]
         public int PlatformId { get; set; }
+        [Required]
+        public int? PathId {get; set;}
         public string Thumbnail { get; set; }
         public DateTime? Date { get; set; }
 
@@ -29,15 +32,20 @@ namespace Lab2.Models
         [NotMapped]
         public double? AverageRating { get; set; }
         
+        public DifficultCourse? DifficultCourse { get; set; }
+        
         
         [ForeignKey("InstructorId")]
-        public virtual AppUser Instructor { get; set; }
+        public virtual Instructor Instructor { get; set; }
 
         [ForeignKey("TopicId")]
         public virtual Topic Topic { get; set; }
 
         [ForeignKey("PlatformId")]
         public virtual Platform Platform { get; set; }
+        
+        [ForeignKey("PathId")]
+        public virtual Path? Path { get; set; }
 
         public virtual ICollection<Chapter> Chapters { get; set; }
         public virtual ICollection<Discussion> Discussions { get; set; }

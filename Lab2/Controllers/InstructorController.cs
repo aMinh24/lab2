@@ -18,7 +18,7 @@ namespace Lab2.Controllers
             var instructors = await _appDbContext.Instructors
                 .Include(i => i.AppUser)
                 .Include(i => i.PrimaryTopic)
-                .Include(i => i.AppUser.CoursesInstructed)
+                .Include(i => i.CoursesInstructed)
                 .ToListAsync();
 
 
@@ -37,7 +37,7 @@ namespace Lab2.Controllers
                 .Where(i => i.InstructorId == id)
                 .Include(i => i.AppUser)
                 .Include(i => i.PrimaryTopic)
-                .Include(i => i.AppUser.CoursesInstructed)
+                .Include(i => i.CoursesInstructed)
                 .FirstOrDefaultAsync();
 
             if (instructors == null)
@@ -48,12 +48,12 @@ namespace Lab2.Controllers
 
         }
 
-        public IActionResult MyCourse()
+        public IActionResult Earning()
         {
             return View();
         }
 
-        public IActionResult EditCourse()
+        public IActionResult Statement()
         {
             return View();
         }

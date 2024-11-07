@@ -24,5 +24,12 @@ namespace Lab2.Models
         public virtual Topic PrimaryTopic { get; set; }
 
         public virtual AppUser AppUser { get; set; }
+        
+        public virtual ICollection<Course> CoursesInstructed { get; set; } // Courses where this user is the instructor
+
+        public Instructor()
+        {
+            CoursesInstructed = new List<Course>();
+        }
     }
 }

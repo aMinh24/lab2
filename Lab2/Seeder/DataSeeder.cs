@@ -123,6 +123,44 @@ public class DataSeeder
             _context.SaveChanges();
             Console.WriteLine("Confirm Mail success");
         }
+
+        if (!_context.TypePaths.Any())
+        {
+            var typePaths = new List<TypePath>
+            {
+                new TypePath { Path = "Development" },
+                new TypePath { Path = "Design" }
+            };
+
+            _context.TypePaths.AddRange(typePaths);
+            await _context.SaveChangesAsync();
+
+            var developmentTypePath = await _context.TypePaths.FirstAsync(tp => tp.Path == "Development");
+            var designTypePath = await _context.TypePaths.FirstAsync(tp => tp.Path == "Design");
+
+            var paths = new List<Lab2.Models.Path>
+            {
+                new Lab2.Models.Path
+                {
+                    Name = "Web Development", Description = "Path for web development courses",
+                    TypePathId = developmentTypePath.TypePathId, Avatar = "dev_path_avatar.png"
+                },
+                new Lab2.Models.Path
+                {
+                    Name = "Mobile Development", Description = "Path for mobile development courses",
+                    TypePathId = developmentTypePath.TypePathId, Avatar = "mobile_path_avatar.png"
+                },
+                new Lab2.Models.Path
+                {
+                    Name = "Graphic Design", Description = "Path for design courses",
+                    TypePathId = designTypePath.TypePathId, Avatar = "design_path_avatar.png"
+                }
+            };
+
+            _context.Paths.AddRange(paths);
+            await _context.SaveChangesAsync();
+        }
+        
         if (!(_context.Courses.Any()))
         {
             var platforms = await _context.Platforms.ToListAsync();
@@ -147,148 +185,173 @@ public class DataSeeder
             _context.Students.Add(newStudent);
             await _context.SaveChangesAsync();
 
+            var newInstructor = await _context.Instructors.Where(i=>i.UserId == instructor.Id).FirstOrDefaultAsync();
+            
             var newCourses = new List<Course>
                 {
                     new Course
                     {
                         Title = "Newsletter Design",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.",
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p=> p.Name == "Udemy").PlatformId,
                         TopicId = topics.First(p=> p.Name == "Web Development").TopicId,
                         Thumbnail = "~/images/paths/mailchimp_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
                     },
                     new Course
                     {
                         Title = "Adobe XD",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.",
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId,
                         TopicId = topics.First(p => p.Name == "Web Development").TopicId,
                         Thumbnail = "~/images/paths/xd_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
+
                     },
                     new Course
                     {
                         Title = "inVision App",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.",
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId,
                         TopicId = topics.First(p => p.Name == "Web Development").TopicId,
                         Thumbnail = "~/images/paths/invision_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
+
                     },
                     new Course
                     {
                         Title = "Craft by inVision",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.",
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId,
                         TopicId = topics.First(p => p.Name == "Web Development").TopicId,
                         Thumbnail = "~/images/paths/craft_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
+
                     },
                     new Course
                     {
                         Title = "Learn Angular fundamentals",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.",
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with actual PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId,     // Replace with actual TopicId
                         Thumbnail = "~/images/paths/angular_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
-
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
+                        
                     },
                     new Course
                     {
                         Title = "Build an iOS Application in Swift",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.", // Update description if needed
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId,  // Replace with actual PlatformId
                         TopicId = topics.First(t => t.Name == "Mobile Development").TopicId, // Replace with actual TopicId
                         Thumbnail = "~/images/paths/swift_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
                     },
                     new Course
                     {
                         Title = "Build a WordPress Website",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.", // Update description if needed
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with actual PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId,  // Replace with actual TopicId
                         Thumbnail = "~/images/paths/wordpress_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
                     },
                     new Course
                     {
                         Title = "Become a React Native Developer",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.", // Update description if needed
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with actual PlatformId
                         TopicId = topics.First(t => t.Name == "Mobile Development").TopicId, // Replace with actual TopicId
                         Thumbnail = "~/images/paths/react_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
                     },
                     new Course
                     {
                         Title = "Learn Sketch",
                         Description = "Learn the fundamentals of working with Sketch.", // Update description
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with your PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId, // Replace with your TopicId
                         Thumbnail = "~/images/paths/sketch_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
                     },
                     new Course
                     {
                         Title = "Learn Flinto",
                         Description = "Learn the fundamentals of working with Flinto.", // Update description
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId,  // Replace with your PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId, // Replace with your TopicId
                         Thumbnail = "~/images/paths/flinto_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
                     },
                      new Course
                     {
                         Title = "Learn Photoshop",
                         Description = "Learn the fundamentals of working with Photoshop.", // Update description
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with your PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId, // Replace with your TopicId
                         Thumbnail = "~/images/paths/photoshop_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
                     },
                       new Course
                     {
                         Title = "Learn Figma",
                         Description = "Learn the fundamentals of working with Figma.", // Update description
-                        InstructorId = instructor.Id,
+                        InstructorId = newInstructor.InstructorId,
                         PlatformId = platforms.First(p => p.Name == "Udemy").PlatformId, // Replace with your PlatformId
                         TopicId = topics.First(t => t.Name == "Web Development").TopicId, // Replace with your TopicId
                         Thumbnail = "~/images/paths/figma_430x168.png",
                         TrailerUrl = "https://www.youtube.com/embed/o1JIK5W3DRU?si=6jqOuz3OL9dPVxRm",
-                        Date = DateTime.Now
+                        Date = DateTime.Now,
+                        DifficultCourse = DifficultCourse.Beginner
                     }
                 };
 
+            var paths = await _context.Paths.ToListAsync();
+            var webDevPath = paths.First(p => p.Name == "Web Development").PathId;
+            var mobileDevPath = paths.First(p => p.Name == "Mobile Development").PathId;
+            var designPath = paths.First(p => p.Name == "Graphic Design").PathId;
+            foreach (var course in newCourses)
+            {
+                course.PathId = course.Title.Contains("Web") || course.Title.Contains("Angular") ? webDevPath :
+                    course.Title.Contains("iOS") || course.Title.Contains("React Native") ? mobileDevPath : designPath;
+            }
 
             _context.Courses.AddRange(newCourses);
             await _context.SaveChangesAsync();
         }
-        
         
         student = await _userManager.FindByEmailAsync("student@example.com");
 

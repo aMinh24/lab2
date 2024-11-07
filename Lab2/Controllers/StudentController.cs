@@ -26,6 +26,46 @@ namespace Lab2.Controllers
             return View();
         }
 
+        public IActionResult PathAssessment()
+        {
+            return View();
+        }
+
+        public IActionResult PathAssessmenetResult()
+        {
+            return View();
+        }
+
+        public IActionResult PathDetail()
+        {
+            return View();
+        }
+
+        public IActionResult QuizResult()
+        {
+            return View();
+        }
+
+        public IActionResult QuizResultDetail()
+        {
+            return View();
+        }
+
+        public IActionResult TakeCourse()
+        {
+            return View();
+        }
+
+        public IActionResult TakeLesson()
+        {
+            return View();
+        }
+
+        public IActionResult TakeQuiz()
+        {
+            return View();
+        }
+
 
 
     }

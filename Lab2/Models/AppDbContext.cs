@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.CodeAnalysis.Scripting.Hosting;
+
 namespace Lab2.Models
 {
     public class AppDbContext : IdentityDbContext<AppUser>
@@ -629,10 +631,10 @@ namespace Lab2.Models
                 .HasForeignKey(bp => bp.UserId);
 
 
-            modelBuilder.Entity<Course>()
-                .HasOne(c => c.Instructor)
-                .WithMany(u => u.CoursesInstructed)
-                .HasForeignKey(c => c.InstructorId);
+            // modelBuilder.Entity<Course>()
+            //     .HasOne(c => c.Instructor)
+            //     .WithMany(u => u.CoursesInstructed)
+            //     .HasForeignKey(c => c.InstructorId);
 
             modelBuilder.Entity<Discussion>()
                 .HasOne(d => d.User)
@@ -675,5 +677,8 @@ namespace Lab2.Models
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<FeedBack> FeedBacks { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Path> Paths { get; set; }
+        public DbSet<TypePath> TypePaths { get; set; }
+        public DbSet<StudentPath> StudentPaths { get; set; }
     }
 }

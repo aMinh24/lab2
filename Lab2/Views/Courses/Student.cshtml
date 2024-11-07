@@ -1,4 +1,6 @@
-﻿            <!-- // END Header -->
+﻿@model Tuple<Lab2.Models.Course,IEnumerable<Lab2.Models.FeedBack>>
+
+            <!-- // END Header -->
 <!-- Header Layout Content -->
 <div class="mdk-header-layout__content page-content ">
 
@@ -7,10 +9,10 @@
         <div class="mdk-box__content">
             <div class="hero py-64pt text-center text-sm-left">
                 <div class="container page__container">
-                    <h1 class="text-white">Angular Fundamentals</h1>
-                    <p class="lead text-white-50 measure-hero-lead">It’s not every day that one of the most important front-end libraries in web development gets a complete overhaul. Keep your skills relevant and up-to-date with this comprehensive introduction to Google’s popular community project.</p>
+                    <h1 class="text-white">@Model.Item1.Title</h1>
+                    <p class="lead text-white-50 measure-hero-lead">@Model.Item1.Description</p>
                     <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start">
-                        <a href="student-lesson.html"
+                        <a asp-action="Trailer" asp-route-id="@Model.Item1.CourseId"
                            class="btn btn-outline-white mb-16pt mb-sm-0 mr-sm-16pt">Watch trailer <i class="material-icons icon--right">play_circle_outline</i></a>
                         <a href="pricing.html"
                            class="btn btn-white">Start your free trial</a>
@@ -26,14 +28,14 @@
                 <li class="nav-item navbar-list__item">
                     <div class="media align-items-center">
                         <span class="media-left mr-16pt">
-                            <img src="~/images/people/50/guy-6.jpg"
+                            <img src="@Url.Content(@Model.Item1.Instructor.AppUser.Avatar)"
                                  width="40"
                                  alt="avatar"
                                  class="rounded-circle">
                         </span>
                         <div class="media-body">
                             <a class="card-title m-0"
-                               href="teacher-profile.html">Eddie Bryan</a>
+                               asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Item1.InstructorId">@Model.Item1.Instructor.AppUser.Name</a>
                             <p class="text-50 lh-1 mb-0">Instructor</p>
                         </div>
                     </div>
@@ -47,14 +49,30 @@
                     Beginner
                 </li>
                 <li class="nav-item ml-sm-auto text-sm-center flex-column navbar-list__item">
+                    @{
+                        var totalFeedback = @Model.Item2.Count(f => f.CourseId == @Model.Item1.CourseId);
+                        var averageRating = 0.0; // Khởi tạo giá trị mặc định
+                        if (Model.Item2 != null && Model.Item2.Any()) // Kiểm tra nếu Item2 không null và có ít nhất một đánh giá
+                        {
+                            averageRating = Model.Item2
+                                .Where(f => f.Rating.HasValue) // Lọc những đánh giá có Rating
+                                .DefaultIfEmpty() // Đảm bảo có giá trị mặc định
+                                .Average(f => f.Rating.HasValue ? f.Rating.Value : 0); // Tính trung bình
+                        }
+                    }
                     <div class="rating rating-24">
-                        <div class="rating__item"><i class="material-icons">star</i></div>
-                        <div class="rating__item"><i class="material-icons">star</i></div>
-                        <div class="rating__item"><i class="material-icons">star</i></div>
-                        <div class="rating__item"><i class="material-icons">star</i></div>
-                        <div class="rating__item"><i class="material-icons">star_border</i></div>
+                        @for (int i = 1; i <= (int)averageRating; i++)
+                        {
+                            <div class="rating__item"><i class="material-icons">star</i></div>
+                            
+                        }
+                        @for (int i = (int)averageRating + 1; i <= 5; i++)
+                        {
+                            <div class="rating__item"><i class="material-icons">star_border</i></div>
+                            
+                        }
                     </div>
-                    <p class="lh-1 mb-0"><small class="text-muted">20 ratings</small></p>
+                    <p class="lh-1 mb-0"><small class="text-muted">@totalFeedback ratings</small></p>
                 </li>
             </ul>
         </div>

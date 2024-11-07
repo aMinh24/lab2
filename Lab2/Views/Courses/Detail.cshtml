@@ -35,7 +35,7 @@
                     <li class="nav-item navbar-list__item">
                         <div class="media align-items-center">
                             <span class="media-left mr-16pt">
-                                <img src="@Model.Item1.Instructor.Avatar"
+                                <img src="@Url.Content(Model.Item1.Instructor.AppUser.Avatar)"
                                      width="40"
                                      alt="avatar"
                                      class="rounded-circle">
@@ -43,7 +43,7 @@
                             <div class="media-body">
                                 <a class="card-title m-0"
                                    href="teacher-profile.html">
-                                    @Model.Item1.Instructor.Name
+                                    @Model.Item1.Instructor.AppUser.Name
                                 </a>
                                 <p class="text-50 lh-1 mb-0">Instructor</p>
                             </div>
@@ -373,16 +373,16 @@
                              class="rounded-circle"
                              width="64">
                     </p>
-                    <h4 class="m-0">@Model.Item1.Instructor.Name</h4>
+                    <h4 class="m-0">@Model.Item1.Instructor.AppUser.Name</h4>
                     <p class="lh-1">
                         <small class="text-muted">Angular, Web Development</small>
                     </p>
                     <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start">
-                        <a asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Item1.Instructor.Id"
+                        <a asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Item1.Instructor.InstructorId"
                            class="btn btn-outline-primary mb-16pt mb-sm-0 mr-sm-16pt">
                             Follow
                         </a>
-                        <a asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Item1.Instructor.Id"
+                        <a asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Item1.Instructor.InstructorId"
                            class="btn btn-outline-secondary">
                             View Profile
                         </a>
