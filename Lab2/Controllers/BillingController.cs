@@ -1,4 +1,6 @@
-﻿using Lab2.Models;
+﻿
+using Lab2.Data;
+using Lab2.Entities;
 using Lab2.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -25,7 +27,10 @@ namespace Lab2.Controllers
                 return RedirectToAction("Index", "Home");
             }
             string userId = _userManager.GetUserId(User);
-            Subscription sub = _context.Subscriptions.Include(s => s.SubscriptionType).Include(s=>s.Student).FirstOrDefault(s => s.Student.UserId == userId);
+            Subscription sub = _context.Subscriptions
+                .Include(s => s.SubscriptionType)
+                .Include(s=>s.Student)
+                .FirstOrDefault(s => s.Student.UserId == userId);
             PaymentInformation payInf = _context.PaymentInformations.Find(userId);
 
             ViewBillModel model = new ViewBillModel
@@ -57,8 +62,12 @@ namespace Lab2.Controllers
             }
             else
             {
-                Subscription sub = _context.Subscriptions.Include(s=>s.Student).First(s => s.Student.UserId == userId);
-                SubscriptionType subscriptionType = _context.SubscriptionTypes.First(s => s.SubscriptionTypeId == id);
+                Subscription sub = _context.Subscriptions
+                    .Include(s=>s.Student)
+                    .First(s => s.Student.UserId == userId);
+                
+                SubscriptionType subscriptionType = _context.SubscriptionTypes
+                    .First(s => s.SubscriptionTypeId == id);
                 if(subscriptionType != null)
                 {
                     sub.SubscriptionType = subscriptionType;
@@ -77,7 +86,9 @@ namespace Lab2.Controllers
                 return RedirectToAction("Index", "Home");
             }
             string userId = _userManager.GetUserId(User);
-            PaymentInformation paymentInformation = _context.PaymentInformations.Include(p => p.User).FirstOrDefault(p => p.UserId == userId);
+            PaymentInformation paymentInformation = _context.PaymentInformations
+                .Include(p => p.User)
+                .FirstOrDefault(p => p.UserId == userId);
             return View(paymentInformation);
         }
         public IActionResult Invoice()
@@ -88,7 +99,8 @@ namespace Lab2.Controllers
         [HttpPost]
         public IActionResult Payment(PaymentInformation paymentInfo)
         {
-            var existingPayment = _context.PaymentInformations.FirstOrDefault(p => p.UserId == paymentInfo.UserId);
+            var existingPayment = _context.PaymentInformations
+                .FirstOrDefault(p => p.UserId == paymentInfo.UserId);
 
             if (existingPayment != null)
             {

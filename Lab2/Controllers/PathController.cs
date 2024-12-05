@@ -1,4 +1,4 @@
-﻿using Lab2.Models;
+﻿using Lab2.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,21 +6,21 @@ namespace Lab2.Controllers
 {
     public class PathController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IPathService _pathService;
 
-        public PathController(AppDbContext context)
+        public PathController(IPathService pathService)
         {
-            _context = context;
+            _pathService = pathService;
         }
+
         public async Task<IActionResult> Index()
         {
-            var paths = await _context.Paths
-                .Include(p=>p.TypePath)
-                .Include(p=>p.Courses)
-                .ThenInclude(c=>c.Chapters)
-                .ThenInclude(ch=>ch.Lessons)
-                .ToListAsync();
-        
+            var paths = await _pathService.GetAllWithIncludesAsync(
+                p=>p.TypePath,
+                p=>p.Courses,
+                p=>p.Courses.Select(ch=>ch.Chapters),
+                path => path.Courses.Select(c => c.Chapters.Select(ch => ch.Lessons))
+            );
             
             return View(paths);
         }
@@ -32,15 +32,17 @@ namespace Lab2.Controllers
             {
                 return BadRequest("Can't resolve id");
             }
-            var path = await _context.Paths
-                .Include(p => p.TypePath)
-                .Include(p => p.Courses)
-                .ThenInclude(c => c.Chapters)
-                .ThenInclude(ch => ch.Lessons)
-                .Include(p => p.Courses)
-                .ThenInclude(c => c.Instructor)
-                .ThenInclude(i=>i.AppUser)
-                .FirstOrDefaultAsync(p => p.PathId == id);
+            
+            var paths = await _pathService.GetAllWithIncludesAsync(
+                p=>p.TypePath,
+                p=>p.Courses,
+                p=>p.Courses.Select(ch=>ch.Chapters),
+                p => p.Courses.Select(c => c.Chapters.Select(ch => ch.Lessons)),
+                p=>p.Courses.Select(c=>c.Instructor)
+            );
+            
+            var path = paths
+                .FirstOrDefault(p => p.PathId == id);
 
             return View(path);
         }

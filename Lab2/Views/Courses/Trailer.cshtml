@@ -1,4 +1,4 @@
-﻿@model Tuple<Lab2.Models.Course,IEnumerable<Lab2.Models.FeedBack>>
+﻿@model Tuple<Lab2.Entities.Course,IEnumerable<Lab2.Entities.FeedBack>>
 
 !-- Header Layout Content -->
 <div class="mdk-header-layout__content page-content ">
@@ -20,7 +20,7 @@
                         @Model.Item1?.Title
                     </a>
                     <p class="lh-1 d-flex align-items-center mb-0">
-                        <span class="text-50 small font-weight-bold mr-8pt">@Model.Item1?.Instructor?.AppUser?.Name</span>
+                        <span class="text-50 small font-weight-bold mr-8pt">@Model.Item1?.Instructor?.Name</span>
                         <span class="text-50 small">@Model.Item1?.Topic?.Name</span>
                     </p>
                 </div>
@@ -84,7 +84,7 @@
                 <li class="nav-item navbar-list__item">
                     <div class="media align-items-center">
                         <span class="media-left mr-16pt">
-                            <img src="@Url.Content(@Model.Item1?.Instructor?.AppUser?.Avatar) "
+                            <img src="@Url.Content(@Model.Item1?.Instructor?.Avatar) "
                                  width="40"
                                  alt="Instructor Avatar"
                                  class="rounded-circle">
@@ -92,7 +92,7 @@
                         <div class="media-body">
                             <a class="card-title m-0"
                                asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Item1?.Instructor?.InstructorId">
-                                @Model.Item1?.Instructor?.AppUser?.Name 
+                                @Model.Item1?.Instructor?.Name 
                             </a>
                             <p class="text-50 lh-1 mb-0">Instructor</p>
                         </div>

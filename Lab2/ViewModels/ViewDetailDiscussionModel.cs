@@ -1,5 +1,6 @@
 ﻿using Lab2.Controllers;
-using Lab2.Models;
+using Lab2.Controllers;
+using Lab2.Entities;
 
 namespace Lab2.ViewModels
 {

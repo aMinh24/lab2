@@ -1,4 +1,18 @@
-﻿<!-- Header Layout Content -->
+﻿@using Lab2.Utilities
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Tuple<Lab2.Entities.Course, IEnumerable<Lab2.Entities.FeedBack>>
+@{
+    var averageRating = 0.0; // Khởi tạo giá trị mặc định
+    if (Model.Item2 != null && Model.Item2.Any()) // Kiểm tra nếu Item2 không null và có ít nhất một đánh giá
+    {
+        averageRating = Model.Item2
+            .Where(f => f.Rating.HasValue) // Lọc những đánh giá có Rating
+            .DefaultIfEmpty() // Đảm bảo có giá trị mặc định
+            .Average(f => f.Rating.HasValue ? f.Rating.Value : 0); // Tính trung bình
+    }
+}
+
+<!-- Header Layout Content -->
 <div class="mdk-header-layout__content page-content ">
 
 <div class="mdk-box bg-primary mdk-box--bg-gradient-primary2 js-mdk-box mb-0"
@@ -6,7 +20,7 @@
     <div class="mdk-box__content">
         <div class="hero py-64pt text-center text-sm-left">
             <div class="container page__container">
-                <h1 class="text-white">Angular Fundamentals</h1>
+                <h1 class="text-white">@Model.Item1.Title</h1>
                 <p class="lead text-white-50 measure-hero-lead mb-24pt">It’s not every day that one of the most important front-end libraries in web development gets a complete overhaul. Keep your skills relevant and up-to-date with this comprehensive introduction to Google’s popular community project.</p>
                 <a href="student-take-lesson.html"
                    class="btn btn-white">
@@ -20,7 +34,7 @@
                     <li class="nav-item navbar-list__item">
                         <div class="media align-items-center">
                             <span class="media-left mr-16pt">
-                                <img src="~/images/people/50/guy-6.jpg"
+                                <img src="@Url.Content(Model.Item1.Instructor.Avatar)"
                                      width="40"
                                      alt="avatar"
                                      class="rounded-circle">
@@ -28,7 +42,7 @@
                             <div class="media-body">
                                 <a class="card-title m-0"
                                    href="teacher-profile.html">
-                                    Eddie Bryan
+                                    @Model.Item1.Instructor.Name
                                 </a>
                                 <p class="text-50 lh-1 mb-0">Instructor</p>
                             </div>
@@ -44,24 +58,36 @@
                     </li>
                     <li class="nav-item ml-sm-auto text-sm-center flex-column navbar-list__item">
                         <div class="rating rating-24">
-                            <div class="rating__item">
-                                <i class="material-icons">star</i>
-                            </div>
-                            <div class="rating__item">
-                                <i class="material-icons">star</i>
-                            </div>
-                            <div class="rating__item">
-                                <i class="material-icons">star</i>
-                            </div>
-                            <div class="rating__item">
-                                <i class="material-icons">star</i>
-                            </div>
-                            <div class="rating__item">
-                                <i class="material-icons">star_border</i>
-                            </div>
+                            @if (averageRating == null)
+                            {
+                            <span class="rating__item">
+                                    <span class="material-icons">star_border</span>
+                                </span>
+                            <span class="rating__item">
+                                    <span class="material-icons">star_border</span>
+                                </span>
+                            <span class="rating__item">
+                                    <span class="material-icons">star_border</span>
+                                </span>
+                            <span class="rating__item">
+                                    <span class="material-icons">star_border</span>
+                                </span>
+                            <span class="rating__item">
+                                    <span class="material-icons">star_border</span>
+                                </span>
+                            }
+                            else
+                            {
+                            @for (int i = 0; i < 5; i++)
+                            {
+                            <span class="rating__item">
+                                        <span class="material-icons">@((i < averageRating) ? "star" : "star_border")</span>
+                                    </span>
+                            }
+                            }
                         </div>
                         <p class="lh-1 mb-0">
-                            <small class="text-muted">20 ratings</small>
+                            <small class="text-muted">@Model.Item2.Count() ratings</small>
                         </p>
                     </li>
                 </ul>
@@ -74,122 +100,56 @@
     <div class="row">
         <div class="col-lg-7">
             <div class="border-left-2 page-section pl-32pt">
-
+                @{ int count = 1; }
+                @foreach (var ch in Model.Item1.Chapters)
+                {
                 <div class="d-flex align-items-center page-num-container">
-                    <div class="page-num">1</div>
-                    <h4>Getting Started With Angular</h4>
+                    <div class="page-num">@count</div>
+                    <h4>@ch.Title</h4>
                 </div>
 
-                <p class="text-70 mb-24pt">Good tools make application development quick*er and easier to maintain than* if you did everything by hand. The goal in this guide is to build and run a simple Angular application in TypeScript, using the Angular CLI while adhering to the Style Guide recommendations that benefit every Angular project.</p>
+                <p class="text-70 mb-24pt">@Model.Item1.Description</p>
 
                 <div class="card mb-32pt mb-lg-64pt">
                     <ul class="accordion accordion--boxed js-accordion mb-0"
-                        id="toc-1">
+                        id="toc-@count">
                         <li class="accordion__item open">
                             <a class="accordion__toggle"
                                data-toggle="collapse"
-                               data-parent="#toc-1"
-                               href="#toc-content-1">
-                                <span class="flex">1 of 4 Steps</span>
+                               data-parent="#toc-@count"
+                               href="#toc-content-@count">
+                                @if (ch.Lessons.Any(l => l.IsDone))
+                                {
+                                <span class="flex">@ch.Lessons.Where(l => l.IsDone).Count() of @ch.Lessons.Count() Steps</span>
+                                }
+                                else
+                                {
+                                <span class="flex">@ch.Lessons.Count() Steps</span>
+                                }
                                 <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
                             </a>
                             <div class="accordion__menu">
                                 <ul class="list-unstyled collapse show"
-                                    id="toc-content-1">
+                                    id="toc-content-@count">
+
+                                    @foreach (var lesson in ch.Lessons)
+                                    {
                                     <li class="accordion__menu-link">
-                                        <span class="material-icons icon-16pt icon--left text-body">check_circle</span>
+                                        <span class="material-icons icon-16pt icon--left text-body">@(lesson.IsDone ? "check_circle" : "play_circle_outline")</span>
                                         <a class="flex"
-                                           href="student-take-lesson.html">
-                                            Introduction
+                                           asp-action="Index" asp-controller="Lessons" asp-route-id="@lesson.LessonId">
+                                            @lesson.Title
                                         </a>
-                                        <span class="text-muted">8m 42s</span>
+                                        <span class="text-muted">@lesson.EstimateTime.ToMinutesSeconds()</span>
                                     </li>
-                                    <li class="accordion__menu-link">
-                                        <span class="material-icons icon-16pt icon--left text-body">play_circle_outline</span>
-                                        <a class="flex"
-                                           href="student-take-lesson.html">
-                                            Introduction to TypeScript
-                                        </a>
-                                        <span class="text-muted">50m 13s</span>
-                                    </li>
-                                    <li class="accordion__menu-link">
-                                        <span class="material-icons icon-16pt icon--left text-body">play_circle_outline</span>
-                                        <a class="flex"
-                                           href="student-take-lesson.html">
-                                            Comparing Angular to AngularJS
-                                        </a>
-                                        <span class="text-muted">12m 10s</span>
-                                    </li>
-                                    <li class="accordion__menu-link">
-                                        <span class="material-icons icon-16pt icon--left text-50">hourglass_empty</span>
-                                        <a class="flex"
-                                           href="student-take-quiz.html">
-                                            Quiz: Getting Started With Angular
-                                        </a>
-                                    </li>
+                                    }
                                 </ul>
                             </div>
                         </li>
                     </ul>
                 </div>
-
-                <div class="d-flex align-items-center page-num-container">
-                    <div class="page-num">2</div>
-                    <h4>Creating and Communicating Between Angular Components</h4>
-                </div>
-                <p class="text-70 mb-24pt">Data sharing is an essential concept to understand before diving into your first Angular project. In this section, you will learn four different methods for sharing data between Angular components.</p>
-
-                <div class="card mb-0">
-                    <ul class="accordion accordion--boxed js-accordion mb-0"
-                        id="toc-2">
-                        <li class="accordion__item">
-                            <a class="accordion__toggle"
-                               data-toggle="collapse"
-                               data-parent="#toc-2"
-                               href="#toc-content-2">
-                                <span class="flex">6 Steps</span>
-                                <span class="accordion__toggle-icon material-icons">keyboard_arrow_down</span>
-                            </a>
-                            <div class="accordion__menu">
-                                <ul class="list-unstyled collapse"
-                                    id="toc-content-2">
-                                    <li class="accordion__menu-link">
-                                        <span class="material-icons icon-16pt icon--left text-body">check_circle</span>
-                                        <a class="flex"
-                                           href="student-take-lesson.html">
-                                            Introduction
-                                        </a>
-                                        <span class="text-muted">8m 42s</span>
-                                    </li>
-                                    <li class="accordion__menu-link">
-                                        <span class="material-icons icon-16pt icon--left text-body">play_circle_outline</span>
-                                        <a class="flex"
-                                           href="student-take-lesson.html">
-                                            Introduction to TypeScript
-                                        </a>
-                                        <span class="text-muted">50m 13s</span>
-                                    </li>
-                                    <li class="accordion__menu-link">
-                                        <span class="material-icons icon-16pt icon--left text-body">play_circle_outline</span>
-                                        <a class="flex"
-                                           href="student-take-lesson.html">
-                                            Comparing Angular to AngularJS
-                                        </a>
-                                        <span class="text-muted">12m 10s</span>
-                                    </li>
-                                    <li class="accordion__menu-link">
-                                        <span class="material-icons icon-16pt icon--left text-50">hourglass_empty</span>
-                                        <a class="flex"
-                                           href="student-take-quiz.html">
-                                            Quiz: Getting Started With Angular
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
+                count++;
+                }
             </div>
         </div>
         <div class="col-lg-5 page-nav">
@@ -201,18 +161,13 @@
                     <!-- <h4 class="mb-16pt">Table of contents</h4> -->
                 </div>
                 <nav class="nav page-nav__menu">
-                    <a class="nav-link active"
-                       href="">
-                        Getting Started With Angular
-                    </a>
+                    @foreach (var ch in Model.Item1.Chapters)
+                    {
                     <a class="nav-link"
                        href="">
-                        Creating and Communicating Between Angular Components
+                        @ch.Title
                     </a>
-                    <a class="nav-link"
-                       href="">
-                        Exploring the Angular Template Syntax
-                    </a>
+                    }
                 </nav>
             </div>
         </div>
@@ -227,9 +182,9 @@
                 <div class="page-separator">
                     <div class="page-separator__text">About this course</div>
                 </div>
-                <p class="text-70">This course will teach you the fundamentals o*f working with Angular 2. You *will learn everything you need to know to create complete applications including: components, services, directives, pipes, routing, HTTP, and even testing.</p>
-                <p class="text-70 mb-0">This course will teach you the fundamentals o*f working with Angular 2. You *will learn everything you need to know to create complete applications including: components, services, directives, pipes, routing, HTTP, and even testing.</p>
-            </div>
+                <p class="text-70">@Model.Item1.Description</p>
+            
+                </div>
             <div class="col-md-5">
                 <div class="page-separator">
                     <div class="page-separator__text bg-alt">What you’ll learn</div>
@@ -408,11 +363,11 @@
                         <small class="text-muted">Angular, Web Development</small>
                     </p>
                     <div class="d-flex flex-column flex-sm-row align-items-center justify-content-start">
-                        <a href="teacher-profile.html"
+                        <a asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Item1.Instructor.InstructorId"
                            class="btn btn-outline-primary mb-16pt mb-sm-0 mr-sm-16pt">
                             Follow
                         </a>
-                        <a href="teacher-profile.html"
+                        <a asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Item1.Instructor.InstructorId"
                            class="btn btn-outline-secondary">
                             View Profile
                         </a>
@@ -444,12 +399,13 @@
                     <span class="sr-only">Next</span>
                 </a>
                 <div class="mdk-carousel__content">
-
+                    @for (int i = 0; i < 3 && i < Model.Item2.Count(); i++)
+                    {
                     <div class="col-12 col-md-6">
-
+    
                         <div class="card card-feedback card-body">
                             <blockquote class="blockquote mb-0">
-                                <p class="text-70 small mb-0">A wonderful course on how to start. Eddie beautifully conveys all essentials of a becoming a good Angular developer. Very glad to have taken this course. Thank you Eddie Bryan.</p>
+                                <p class="text-70 small mb-0">@Model.Item2.ElementAt(i).Feedback</p>
                             </blockquote>
                         </div>
                         <div class="media ml-12pt">
@@ -457,121 +413,50 @@
                                 <a href="student-profile.html"
                                    class="avatar avatar-sm">
                                     <!-- <img src="~/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle"> -->
-                                    <span class="avatar-title rounded-circle">UK</span>
+                                    <span class="avatar-title rounded-circle">@string.Join("", Model.Item2.ElementAt(i).Student.Name.Split(' ').Select(word => word.Substring(0, 1).ToUpper()))</span>
                                 </a>
                             </div>
                             <div class="media-body media-middle">
                                 <a href="student-profile.html"
                                    class="card-title">
-                                    Umberto Kass
+                                    @Model.Item2.ElementAt(i).Student.Name
                                 </a>
                                 <div class="rating mt-4pt">
+                                    @if (@Model.Item2.ElementAt(i).Rating == null)
+                                    {
                                     <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
+                                                <span class="material-icons">star_border</span>
+                                            </span>
                                     <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
+                                                <span class="material-icons">star_border</span>
+                                            </span>
                                     <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
+                                                <span class="material-icons">star_border</span>
+                                            </span>
                                     <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
+                                                <span class="material-icons">star_border</span>
+                                            </span>
                                     <span class="rating__item">
-                                        <span class="material-icons">star_border</span>
-                                    </span>
+                                                <span class="material-icons">star_border</span>
+                                            </span>
+                                    }
+                                    else
+                                    {
+                                    @for (int j = 0; j < 5; j++)
+                                    {
+                                    <span class="rating__item">
+                                                    <span class="material-icons">@((j < @Model.Item2.ElementAt(i).Rating) ? "star" : "star_border")</span>
+                                                </span>
+                                    }
+                                    }
                                 </div>
                             </div>
                         </div>
 
                     </div>
-
-                    <div class="col-12 col-md-6">
-
-                        <div class="card card-feedback card-body">
-                            <blockquote class="blockquote mb-0">
-                                <p class="text-70 small mb-0">A wonderful course on how to start. Eddie beautifully conveys all essentials of a becoming a good Angular developer. Very glad to have taken this course. Thank you Eddie Bryan.</p>
-                            </blockquote>
-                        </div>
-                        <div class="media ml-12pt">
-                            <div class="media-left mr-12pt">
-                                <a href="student-profile.html"
-                                   class="avatar avatar-sm">
-                                    <!-- <img src="~/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle"> -->
-                                    <span class="avatar-title rounded-circle">UK</span>
-                                </a>
-                            </div>
-                            <div class="media-body media-middle">
-                                <a href="student-profile.html"
-                                   class="card-title">
-                                    Umberto Kass
-                                </a>
-                                <div class="rating mt-4pt">
-                                    <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
-                                    <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
-                                    <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
-                                    <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
-                                    <span class="rating__item">
-                                        <span class="material-icons">star_border</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-12 col-md-6">
-
-                        <div class="card card-feedback card-body">
-                            <blockquote class="blockquote mb-0">
-                                <p class="text-70 small mb-0">A wonderful course on how to start. Eddie beautifully conveys all essentials of a becoming a good Angular developer. Very glad to have taken this course. Thank you Eddie Bryan.</p>
-                            </blockquote>
-                        </div>
-                        <div class="media ml-12pt">
-                            <div class="media-left mr-12pt">
-                                <a href="student-profile.html"
-                                   class="avatar avatar-sm">
-                                    <!-- <img src="~/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle"> -->
-                                    <span class="avatar-title rounded-circle">UK</span>
-                                </a>
-                            </div>
-                            <div class="media-body media-middle">
-                                <a href="student-profile.html"
-                                   class="card-title">
-                                    Umberto Kass
-                                </a>
-                                <div class="rating mt-4pt">
-                                    <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
-                                    <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
-                                    <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
-                                    <span class="rating__item">
-                                        <span class="material-icons">star</span>
-                                    </span>
-                                    <span class="rating__item">
-                                        <span class="material-icons">star_border</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
+                    }
                 </div>
+
             </div>
         </div>
     </div>
@@ -585,39 +470,56 @@
 </div>
 <div class="row mb-32pt">
 <div class="col-md-3 mb-32pt mb-md-0">
-    <div class="display-1">4.7</div>
+    <div class="display-1">@averageRating</div>
     <div class="rating rating-24">
+        @if (averageRating == null)
+        {
         <span class="rating__item">
-            <span class="material-icons">star</span>
-        </span>
+                            <span class="material-icons">star_border</span>
+                        </span>
         <span class="rating__item">
-            <span class="material-icons">star</span>
-        </span>
+                            <span class="material-icons">star_border</span>
+                        </span>
         <span class="rating__item">
-            <span class="material-icons">star</span>
-        </span>
+                            <span class="material-icons">star_border</span>
+                        </span>
         <span class="rating__item">
-            <span class="material-icons">star</span>
-        </span>
+                            <span class="material-icons">star_border</span>
+                        </span>
         <span class="rating__item">
-            <span class="material-icons">star_border</span>
-        </span>
+                            <span class="material-icons">star_border</span>
+                        </span>
+        }
+        else
+        {
+        @for (int i = 0; i < 5; i++)
+        {
+        <span class="rating__item">
+                                <span class="material-icons">@((i < averageRating) ? "star" : "star_border")</span>
+                            </span>
+        }
+        }
     </div>
-    <p class="text-muted mb-0">20 ratings</p>
+    <p class="text-muted mb-0">@Model.Item2.Count() ratings</p>
 </div>
 <div class="col-md-9">
+    @{
+    var totalFeedbacks = @Model.Item2.Count();
+    }@for (int i = 5; i >= 1; i--)
+    {
+    // Tính tỷ lệ phần trăm cho đánh giá >= i
+    var per = totalFeedbacks > 0 ? (double)@Model.Item2.Count(f => f.Rating >= i && f.Rating < i + 1) / totalFeedbacks * 100 : 0;
 
     <div class="row align-items-center mb-8pt"
          data-toggle="tooltip"
-         data-title="75% rated 5/5"
+         data-title="@Math.Round(per, 2)% rated @i/5"
          data-placement="top">
         <div class="col-md col-sm-6">
-            <div class="progress"
-                 style="height: 8px;">
+            <div class="progress" style="height: 8px;">
                 <div class="progress-bar bg-secondary"
                      role="progressbar"
-                     aria-valuenow="75"
-                     style="width: 75%"
+                     aria-valuenow="@per"
+                     style="width: @per%"
                      aria-valuemin="0"
                      aria-valuemax="100">
                 </div>
@@ -625,287 +527,79 @@
         </div>
         <div class="col-md-auto col-sm-6 d-none d-sm-flex align-items-center">
             <div class="rating">
+                @for (int j = 1; j <= i; j++)
+                {
                 <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
+                                        <span class="material-icons">star</span>
+                                    </span>
+                }
+                @for (int j = i + 1; j <= 5; j++)
+                {
                 <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
+                                        <span class="material-icons">star_border</span>
+                                    </span>
+                }
             </div>
         </div>
     </div>
-    <div class="row align-items-center mb-8pt"
-         data-toggle="tooltip"
-         data-title="16% rated 4/5"
-         data-placement="top">
-        <div class="col-md col-sm-6">
-            <div class="progress"
-                 style="height: 8px;">
-                <div class="progress-bar bg-secondary"
-                     role="progressbar"
-                     aria-valuenow="16"
-                     style="width: 16%"
-                     aria-valuemin="0"
-                     aria-valuemax="100">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-auto col-sm-6 d-none d-sm-flex align-items-center">
-            <div class="rating">
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star_border</span>
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="row align-items-center mb-8pt"
-         data-toggle="tooltip"
-         data-title="12% rated 3/5"
-         data-placement="top">
-        <div class="col-md col-sm-6">
-            <div class="progress"
-                 style="height: 8px;">
-                <div class="progress-bar bg-secondary"
-                     role="progressbar"
-                     aria-valuenow="12"
-                     style="width: 12%"
-                     aria-valuemin="0"
-                     aria-valuemax="100">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-auto col-sm-6 d-none d-sm-flex align-items-center">
-            <div class="rating">
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star_border</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star_border</span>
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="row align-items-center mb-8pt"
-         data-toggle="tooltip"
-         data-title="9% rated 2/5"
-         data-placement="top">
-        <div class="col-md col-sm-6">
-            <div class="progress"
-                 style="height: 8px;">
-                <div class="progress-bar bg-secondary"
-                     role="progressbar"
-                     aria-valuenow="9"
-                     style="width: 9%"
-                     aria-valuemin="0"
-                     aria-valuemax="100">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-auto col-sm-6 d-none d-sm-flex align-items-center">
-            <div class="rating">
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star_border</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star_border</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star_border</span>
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class="row align-items-center mb-8pt"
-         data-toggle="tooltip"
-         data-title="0% rated 0/5"
-         data-placement="top">
-        <div class="col-md col-sm-6">
-            <div class="progress"
-                 style="height: 8px;">
-                <div class="progress-bar bg-secondary"
-                     role="progressbar"
-                     aria-valuenow="0"
-                     aria-valuemin="0"
-                     aria-valuemax="100">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-auto col-sm-6 d-none d-sm-flex align-items-center">
-            <div class="rating">
-                <span class="rating__item">
-                    <span class="material-icons">star</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star_border</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star_border</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star_border</span>
-                </span>
-                <span class="rating__item">
-                    <span class="material-icons">star_border</span>
-                </span>
-            </div>
-        </div>
-    </div>
+    }
 
 </div>
 </div>
 
-<div class="pb-16pt mb-16pt border-bottom row">
-    <div class="col-md-3 mb-16pt mb-md-0">
-        <div class="d-flex">
-            <a href="student-profile.html"
-               class="avatar avatar-sm mr-12pt">
-                <!-- <img src="LB" alt="avatar" class="avatar-img rounded-circle"> -->
-                <span class="avatar-title rounded-circle">LB</span>
-            </a>
-            <div class="flex">
-                <p class="small text-muted m-0">2 days ago</p>
+    @for (int i = 0; i < 3 && i < Model.Item2.Count(); i++)
+    {
+    <div class="pb-16pt mb-16pt border-bottom row">
+        <div class="col-md-3 mb-16pt mb-md-0">
+            <div class="d-flex">
                 <a href="student-profile.html"
-                   class="card-title">
-                    Laza Bogdan
+                   class="avatar avatar-sm mr-12pt">
+                    <!-- <img src="LB" alt="avatar" class="avatar-img rounded-circle"> -->
+                    <span class="avatar-title rounded-circle">@string.Join("", Model.Item2.ElementAt(i).Student.Name.Split(' ').Select(word => word.Substring(0, 1).ToUpper()))</span>
                 </a>
+                <div class="flex">
+                    <p class="small text-muted m-0">@Model.Item2.ElementAt(i).Created</p>
+                    <a href="student-profile.html"
+                       class="card-title">
+                        @Model.Item2.ElementAt(i).Student.Name
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-9">
-        <div class="rating mb-8pt">
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star_border</span>
-            </span>
-        </div>
-        <p class="text-70 mb-0">A wonderful course on how to start. Eddie beautifully conveys all essentials of a becoming a good Angular developer. Very glad to have taken this course. Thank you Eddie Bryan.</p>
-    </div>
-</div>
-
-<div class="pb-16pt mb-16pt border-bottom row">
-    <div class="col-md-3 mb-16pt mb-md-0">
-        <div class="d-flex">
-            <a href="student-profile.html"
-               class="avatar avatar-sm mr-12pt">
-                <!-- <img src="UK" alt="avatar" class="avatar-img rounded-circle"> -->
-                <span class="avatar-title rounded-circle">UK</span>
-            </a>
-            <div class="flex">
-                <p class="small text-muted m-0">2 days ago</p>
-                <a href="student-profile.html"
-                   class="card-title">
-                    Umberto Klass
-                </a>
+        <div class="col-md-9">
+            <div class="rating mb-8pt">
+                @if (@Model.Item2.ElementAt(i).Rating == null)
+                {
+                <span class="rating__item">
+                                <span class="material-icons">star_border</span>
+                            </span>
+                <span class="rating__item">
+                                <span class="material-icons">star_border</span>
+                            </span>
+                <span class="rating__item">
+                                <span class="material-icons">star_border</span>
+                            </span>
+                <span class="rating__item">
+                                <span class="material-icons">star_border</span>
+                            </span>
+                <span class="rating__item">
+                                <span class="material-icons">star_border</span>
+                            </span>
+                }
+                else
+                {
+                @for (int j = 0; j < 5; j++)
+                {
+                <span class="rating__item">
+                                    <span class="material-icons">@((j < @Model.Item2.ElementAt(i).Rating) ? "star" : "star_border")</span>
+                                </span>
+                }
+                }
             </div>
+            <p class="text-70 mb-0">@Model.Item2.ElementAt(i).Feedback</p>
         </div>
     </div>
-    <div class="col-md-9">
-        <div class="rating mb-8pt">
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star_border</span>
-            </span>
-        </div>
-        <p class="text-70 mb-0">This course is absolutely amazing, Bryan goes* out of his way to really expl*ain things clearly I couldn&#39;t be happier, so glad I made this purchase!</p>
-    </div>
-</div>
-
-<div class="pb-16pt mb-24pt row">
-    <div class="col-md-3 mb-16pt mb-md-0">
-        <div class="d-flex">
-            <a href="student-profile.html"
-               class="avatar avatar-sm mr-12pt">
-                <!-- <img src="AD" alt="avatar" class="avatar-img rounded-circle"> -->
-                <span class="avatar-title rounded-circle">AD</span>
-            </a>
-            <div class="flex">
-                <p class="small text-muted m-0">2 days ago</p>
-                <a href="student-profile.html"
-                   class="card-title">
-                    Adrian Demian
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-9">
-        <div class="rating mb-8pt">
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star</span>
-            </span>
-            <span class="rating__item">
-                <span class="material-icons">star_border</span>
-            </span>
-        </div>
-        <p class="text-70 mb-0">This course is absolutely amazing, Bryan goes* out of his way to really expl*ain things clearly I couldn&#39;t be happier, so glad I made this purchase!</p>
-    </div>
-</div>
+    }
 
 </div>
 

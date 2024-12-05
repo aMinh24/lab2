@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Lab2.Models;
+using Lab2.Entities;
 
 namespace Lab2.Areas.Identity.Models.UserViewModels
 {

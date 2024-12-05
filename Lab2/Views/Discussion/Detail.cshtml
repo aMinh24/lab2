@@ -1,6 +1,7 @@
-﻿@using Lab2.ViewModels
+﻿@*@using Entities
 @using Microsoft.AspNetCore.Identity
-@model ViewDetailDiscussionModel
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model global::ViewModels.ViewDetailDiscussionModel
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
 @{
@@ -32,13 +33,13 @@
                         <div class="d-flex">
                             <a href=""
                                class="avatar avatar-sm avatar-online mr-12pt">
-                                <img src="@Url.Content(Model.Discussion.User.Avatar)" alt="people" class="avatar-img rounded-circle">
-                                @* <span class="avatar-title rounded-circle">JD</span> *@
+                                <img src="@Url.Content(Model.Discussion.GetAvatar)" alt="people" class="avatar-img rounded-circle">
+                                $1$ <span class="avatar-title rounded-circle">JD</span> #1#
                             </a>
                             <div class="flex">
                                 <p class="d-flex align-items-center mb-2">
                                     <a href=""
-                                       class="text-body mr-2"><strong>@Model.Discussion.User.Name</strong></a>
+                                       class="text-body mr-2"><strong>@Model.Discussion.GetName</strong></a>
                                     <small class="text-muted">@(DateTime.Now.Day - Model.Discussion.CreatedAt.Day) days ago</small>
                                 </p>
                                 <p>@Model.Discussion.Content</p>
@@ -62,7 +63,7 @@
                         <a href=""
                            class="avatar avatar-sm mr-12pt">
                             <img src="@Url.Content(user.Avatar)" class="avatar-img rounded-circle">
-                            @* <span class="avatar-title rounded-circle">LB</span> *@
+                            $1$ <span class="avatar-title rounded-circle">LB</span> #1#
                         </a>
                         <div class="flex">
                             <div class="form-group">
@@ -72,7 +73,7 @@
                                           name="comment"
                                           id="comment"
                                           rows="3"
-                                          placeholder="Type here to reply to @Model.Discussion.User.Name ..."></textarea>
+                                          placeholder="Type here to reply to @Model.Discussion.GetName ..."></textarea>
                             </div>
                             <button class="btn btn-outline-secondary post-btn">Post comment</button>
                         </div>
@@ -84,11 +85,11 @@
                             <div class="d-flex mb-3">
                                 <a href=""
                                    class="avatar avatar-sm mr-12pt">
-                                    <img src="@Url.Content(rep.User.Avatar)" alt="people" class="avatar-img rounded-circle">
+                                    <img src="@Url.Content(rep.GetAvatar)" alt="people" class="avatar-img rounded-circle">
                                 </a>
                                 <div class="flex">
                                     <a href=""
-                                       class="text-body"><strong>@rep.User.Name</strong></a><br>
+                                       class="text-body"><strong>@rep.GetName</strong></a><br>
                                     <p class="mt-1 text-70">@rep.Content</p>
                                     <div class="d-flex align-items-center">
                                         <small class="text-50 mr-2">@(DateTime.Now.Day - rep.CreatedAt.Day) days ago</small>
@@ -233,4 +234,4 @@
         }
     });
 
-</script>
+</script>*@

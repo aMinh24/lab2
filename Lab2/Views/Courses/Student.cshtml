@@ -1,4 +1,4 @@
-﻿@model Tuple<Lab2.Models.Course,IEnumerable<Lab2.Models.FeedBack>>
+﻿@model Tuple<Lab2.Entities.Course,IEnumerable<Lab2.Entities.FeedBack>>
 
             <!-- // END Header -->
 <!-- Header Layout Content -->
@@ -28,14 +28,14 @@
                 <li class="nav-item navbar-list__item">
                     <div class="media align-items-center">
                         <span class="media-left mr-16pt">
-                            <img src="@Url.Content(@Model.Item1.Instructor.AppUser.Avatar)"
+                            <img src="@Url.Content(@Model.Item1.Instructor.Avatar)"
                                  width="40"
                                  alt="avatar"
                                  class="rounded-circle">
                         </span>
                         <div class="media-body">
                             <a class="card-title m-0"
-                               asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Item1.InstructorId">@Model.Item1.Instructor.AppUser.Name</a>
+                               asp-controller="Instructor" asp-action="Profile" asp-route-id="@Model.Item1.InstructorId">@Model.Item1.Instructor.Name</a>
                             <p class="text-50 lh-1 mb-0">Instructor</p>
                         </div>
                     </div>

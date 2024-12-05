@@ -1,5 +1,5 @@
 ﻿using Lab2.Data;
-using Lab2.Models;
+using Lab2.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

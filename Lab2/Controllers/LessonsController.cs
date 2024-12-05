@@ -1,17 +1,23 @@
-﻿using Lab2.Models;
+﻿using System.Collections.Specialized;
+using Lab2.Interfaces;
 using Lab2.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lab2.Controllers
 {
     public class LessonsController : Controller
     {
-        private readonly AppDbContext _context;
-
-        public LessonsController(AppDbContext context)
+        private readonly ILessonService _iLessonService;
+        private readonly ICourseService _courseService;
+        private readonly IChapterService _chapterService;
+        
+        public LessonsController(ILessonService iLessonService, ICourseService courseService,IChapterService chapterService)
         {
-            _context = context;
+            _iLessonService = iLessonService;
+            _courseService = courseService;
+            _chapterService = chapterService;
         }
         [HttpGet("/Lessons/{id?}")]
         public async Task<IActionResult> Index(int? id)
@@ -24,23 +30,30 @@ namespace Lab2.Controllers
                 return RedirectToAction("Review", "Lessons", new { id });
             }
 
-            var lesson = await _context.Lessons.FirstOrDefaultAsync(l => l.LessonId == id);
+             
+            var lesson = await _iLessonService.GetLessonByIdAsync(id.Value);
             if (lesson == null) 
                 return NotFound();
 
-            var course = await _context.Courses
-                .Include(c => c.Instructor)
-                .ThenInclude(i => i.AppUser)
-                .SingleOrDefaultAsync(c => c.Chapters.Any(ch => ch.ChapterId == lesson.ChapterId));
-    
+            var courses = await _courseService.GetAllWithIncludesAsync(
+                c=>c.Instructor
+                );
+
+
+            var course = courses.SingleOrDefault();
             if (course == null) 
                 return NotFound();
 
+            var chapters = await _chapterService.GetWithFilterAndIncludesAsync(
+                ch=>ch.CourseId == course.CourseId,
+                ch=>ch.Lessons
+                );
+            course.Chapters = chapters.ToList();
             var viewModel = new LessonViewModel
             {
                 LessonName = lesson.Title,
                 CourseTitle = course.Title,
-                InstructorName = course.Instructor.AppUser.Name,
+                InstructorName = course.Instructor.Name,
                 InstructorAvatar = course.Instructor.Avatar,
                 UrlVideo = lesson.VideoUrl,
                 Description = lesson.Description,
@@ -50,16 +63,38 @@ namespace Lab2.Controllers
             return View(viewModel);
         }
 
-        public IActionResult Review(int? id)
+        public async Task<IActionResult> Review(int? id)
         {
-            Lesson lesson = _context.Lessons.FirstOrDefault(l => l.LessonId == id);
-            Course course = _context.Courses.Include(c => c.Instructor).ThenInclude(i=>i.AppUser).FirstOrDefault(c => c.Chapters.Any(ch => ch.ChapterId == lesson.ChapterId));
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            var lesson = await _iLessonService.GetLessonByIdAsync(id.Value);
+            if (lesson == null)
+            {
+                return NotFound();
+            }
+
+            var courses = await _courseService.GetAllWithIncludesAsync(
+                c=>c.Instructor
+                );
+
+            
+            var course = courses.FirstOrDefault();
+            if (course == null)
+                return NotFound();
+
+            var chapters = await _chapterService.GetWithFilterAndIncludesAsync(
+                ch=>ch.CourseId == course.CourseId,
+                ch=>ch.Lessons
+                );
+            course.Chapters = chapters.ToList();
             LessonViewModel viewModel = new LessonViewModel
             {
                 LessonName = lesson.Title,
                 CourseTitle = course.Title,
-                InstructorName = course.Instructor.AppUser.Name,
+                InstructorName = course.Instructor.Name,
                 InstructorAvatar = course.Instructor.Avatar,
                 UrlVideo = lesson.VideoUrl,
                 Description = lesson.Description,

@@ -1,5 +1,6 @@
 ﻿using Lab2.Data;
-using Lab2.Models;
+using Lab2.Entities;
+using Lab2.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -34,8 +35,6 @@ public class DataSeeder
         {
             userAdmin = new AppUser
             {
-                Name = "admin",
-                Avatar = "~/images/people/50/guy-6.jpg",
                 UserName = "admin",
                 Email = "admin@example.com",
 
@@ -78,8 +77,6 @@ public class DataSeeder
         {
             instructor = new AppUser
             {
-                Name = "Minh chúa quỷ",
-                Avatar = "~/images/people/50/guy-6.jpg",
                 UserName = "instructor@example.com",
                 Email = "instructor@example.com",
 
@@ -105,8 +102,6 @@ public class DataSeeder
         {
             student = new AppUser
             {
-                Name = "Minh Chúa tể",
-                Avatar = "~/images/people/50/guy-3.jpg",
                 UserName = "student@example.com",
                 Email = "student@example.com",
             };
@@ -138,19 +133,19 @@ public class DataSeeder
             var developmentTypePath = await _context.TypePaths.FirstAsync(tp => tp.Path == "Development");
             var designTypePath = await _context.TypePaths.FirstAsync(tp => tp.Path == "Design");
 
-            var paths = new List<Lab2.Models.Path>
+            var paths = new List<Lab2.Entities.Path>
             {
-                new Lab2.Models.Path
+                new Lab2.Entities.Path
                 {
                     Name = "Web Development", Description = "Path for web development courses",
                     TypePathId = developmentTypePath.TypePathId, Avatar = "dev_path_avatar.png"
                 },
-                new Lab2.Models.Path
+                new Lab2.Entities.Path
                 {
                     Name = "Mobile Development", Description = "Path for mobile development courses",
                     TypePathId = developmentTypePath.TypePathId, Avatar = "mobile_path_avatar.png"
                 },
-                new Lab2.Models.Path
+                new Lab2.Entities.Path
                 {
                     Name = "Graphic Design", Description = "Path for design courses",
                     TypePathId = designTypePath.TypePathId, Avatar = "design_path_avatar.png"
@@ -526,7 +521,7 @@ public class DataSeeder
             {
                 var feedback = new FeedBack
                 {
-                    UserId = 1,
+                    StudentId = 1,
                     CourseId = 1,
                     Rating = random.Next(1, 6),
                     Feedback = $"Feedback #{i}: This is a feedback message.",

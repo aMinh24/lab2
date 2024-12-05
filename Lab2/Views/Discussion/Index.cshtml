@@ -1,4 +1,5 @@
-@model List<Discussion>
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<Lab2.Entities.Discussion>
 <!-- // END Header -->
 <!-- Header Layout Content -->
 <div class="mdk-header-layout__content page-content ">
@@ -66,13 +67,13 @@
                                         <div class="media-left mr-12pt">
                                             <a href=""
                                                class="avatar avatar-sm">
-                                                <img src="@Url.Content(@disc.User.Avatar)" alt="avatar" class="avatar-img rounded-circle">
+                                                <img src="@Url.Content(@disc.GetName)" alt="avatar" class="avatar-img rounded-circle">
                                                 @* <span class="avatar-title rounded-circle">LB</span> *@
                                             </a>
                                         </div>
                                         <div class="d-flex flex-column media-body media-middle">
                                             <a href=""
-                                               class="card-title">@disc.User.Name</a>
+                                               class="card-title">@disc.GetName</a>
                                             <small class="text-muted">@(DateTime.Now.Day -disc.CreatedAt.Day) days ago</small>
                                         </div>
                                     </div>
@@ -136,6 +137,5 @@
 
     </div>
     <!-- // END Header Layout Content -->
-</div>
 </div>
 

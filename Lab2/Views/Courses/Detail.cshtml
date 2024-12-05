@@ -1,6 +1,7 @@
-﻿@using Lab2.Utilities
+﻿
+@using Lab2.Utilities
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@model Tuple<Lab2.Models.Course, IEnumerable<Lab2.Models.FeedBack>>
+@model Tuple<Lab2.Entities.Course, IEnumerable<Lab2.Entities.FeedBack>>
 @{
     var averageRating = 0.0; // Khởi tạo giá trị mặc định
     if (Model.Item2 != null && Model.Item2.Any()) // Kiểm tra nếu Item2 không null và có ít nhất một đánh giá
@@ -35,7 +36,7 @@
                     <li class="nav-item navbar-list__item">
                         <div class="media align-items-center">
                             <span class="media-left mr-16pt">
-                                <img src="@Url.Content(Model.Item1.Instructor.AppUser.Avatar)"
+                                <img src="@Url.Content(Model.Item1.Instructor.Avatar)"
                                      width="40"
                                      alt="avatar"
                                      class="rounded-circle">
@@ -43,7 +44,7 @@
                             <div class="media-body">
                                 <a class="card-title m-0"
                                    href="teacher-profile.html">
-                                    @Model.Item1.Instructor.AppUser.Name
+                                    @Model.Item1.Instructor.Name
                                 </a>
                                 <p class="text-50 lh-1 mb-0">Instructor</p>
                             </div>
@@ -373,7 +374,7 @@
                              class="rounded-circle"
                              width="64">
                     </p>
-                    <h4 class="m-0">@Model.Item1.Instructor.AppUser.Name</h4>
+                    <h4 class="m-0">@Model.Item1.Instructor.Name</h4>
                     <p class="lh-1">
                         <small class="text-muted">Angular, Web Development</small>
                     </p>
@@ -428,13 +429,13 @@
                                     <a href="student-profile.html"
                                        class="avatar avatar-sm">
                                         <!-- <img src="~/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle"> -->
-                                        <span class="avatar-title rounded-circle">@string.Join("", Model.Item2.ElementAt(i).Student.AppUser.Name.Split(' ').Select(word => word.Substring(0, 1).ToUpper()))</span>
+                                        <span class="avatar-title rounded-circle">@string.Join("", Model.Item2.ElementAt(i).Student.Name.Split(' ').Select(word => word.Substring(0, 1).ToUpper()))</span>
                                     </a>
                                 </div>
                                 <div class="media-body media-middle">
                                     <a href="student-profile.html"
                                        class="card-title">
-                                        @Model.Item2.ElementAt(i).Student.AppUser.Name
+                                        @Model.Item2.ElementAt(i).Student.Name
                                     </a>
                                     <div class="rating mt-4pt">
                                         @if (@Model.Item2.ElementAt(i).Rating == null)
@@ -572,13 +573,13 @@
                         <a href="student-profile.html"
                            class="avatar avatar-sm mr-12pt">
                             <!-- <img src="LB" alt="avatar" class="avatar-img rounded-circle"> -->
-                            <span class="avatar-title rounded-circle">@string.Join("", Model.Item2.ElementAt(i).Student.AppUser.Name.Split(' ').Select(word => word.Substring(0, 1).ToUpper()))</span>
+                            <span class="avatar-title rounded-circle">@string.Join("", Model.Item2.ElementAt(i).Student.Name.Split(' ').Select(word => word.Substring(0, 1).ToUpper()))</span>
                         </a>
                         <div class="flex">
                             <p class="small text-muted m-0">@Model.Item2.ElementAt(i).Created</p>
                             <a href="student-profile.html"
                                class="card-title">
-                                @Model.Item2.ElementAt(i).Student.AppUser.Name
+                                @Model.Item2.ElementAt(i).Student.Name
                             </a>
                         </div>
                     </div>

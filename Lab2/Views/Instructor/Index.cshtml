@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Lab2.Models.Instructor>
+﻿@model IEnumerable<Lab2.Entities.Instructor>
 
 <!-- // END Header -->
 <!-- Header Layout Content -->
@@ -47,7 +47,7 @@
                                 <div class="card card-group-row__card">
                                     <div class="card-header d-flex align-items-center">
                                         <a href="@Url.Action("Profile", "Instructor", new { id = i.InstructorId})"
-                                           class="card-title flex mr-12pt">@i.AppUser.Name</a>
+                                           class="card-title flex mr-12pt">@i.Name</a>
                                         <a href="@Url.Action("Profile", "Instructor", new { id = i.InstructorId})"
                                            class="btn btn-light btn-sm"
                                            data-toggle="tooltip"

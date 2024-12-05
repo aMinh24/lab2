@@ -1,8 +1,14 @@
-using Lab2.Models;
+using Lab2.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Configuration;
+using Lab2.Data;
+using Lab2.Entities;
+using Lab2.Services;
+using Lab2.Interfaces;
+using IEmailSender = Lab2.Interfaces.IEmailSender;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

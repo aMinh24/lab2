@@ -1,4 +1,5 @@
-﻿using Lab2.Models;
+﻿
+using Lab2.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,25 +7,22 @@ namespace Lab2.Controllers
 {
     public class InstructorController : Controller
     {
-        private readonly AppDbContext _appDbContext;
-
-        public InstructorController(AppDbContext appDbContext)
+        private readonly IInstructorService _instructorService;
+        
+        public InstructorController(IInstructorService instructorService)
         {
-            _appDbContext = appDbContext;
+            _instructorService = instructorService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var instructors = await _appDbContext.Instructors
-                .Include(i => i.AppUser)
-                .Include(i => i.PrimaryTopic)
-                .Include(i => i.CoursesInstructed)
-                .ToListAsync();
-
-
+            var instructors = await _instructorService.GetAllWithIncludesAsync(
+                i=>i.CoursesInstructed,
+                i=>i.AppUser,
+                i=>i.PrimaryTopic
+                );
+            
             return View(instructors);
-
-
         }
 
         public async Task<IActionResult> Profile(int? id)
@@ -33,18 +31,19 @@ namespace Lab2.Controllers
             {
                 return BadRequest("Can not solve id");
             }
-            var instructors = await _appDbContext.Instructors
-                .Where(i => i.InstructorId == id)
-                .Include(i => i.AppUser)
-                .Include(i => i.PrimaryTopic)
-                .Include(i => i.CoursesInstructed)
-                .FirstOrDefaultAsync();
+            var instructors = await _instructorService.GetAllWithIncludesAsync(
+                i=>i.CoursesInstructed,
+                i=>i.AppUser,
+                i=>i.PrimaryTopic
+            );
 
-            if (instructors == null)
+            var instructor = instructors.Where(i=>i.InstructorId == id).FirstOrDefault();
+            
+            if (instructor == null)
             {
                 return NotFound();
             }
-            return View(instructors);
+            return View(instructor);
 
         }
 

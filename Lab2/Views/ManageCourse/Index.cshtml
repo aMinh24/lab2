@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Lab2.Models.Course>
+﻿@model IEnumerable<Lab2.Entities.Course>
 
 <div class="mdk-header-layout__content page-content">
     <div class="pt-32pt">
@@ -68,7 +68,7 @@
                                     <div class="card-title mb-0">@Html.DisplayFor(modelItem => item.Title)</div>
                                     <p class="lh-1">
                                         <span class="text-50 small">with</span>
-                                        <span class="text-50 small font-weight-bold">@Html.DisplayFor(modelItem => item.Instructor.AppUser.Name)</span>
+                                        <span class="text-50 small font-weight-bold">@Html.DisplayFor(modelItem => item.Instructor.Name)</span>
                                     </p>
                                 </div>
                             </div>

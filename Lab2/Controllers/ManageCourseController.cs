@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using Lab2.Data;
+using Lab2.Entities;
+using Lab2.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Lab2.Models;
-using Lab2.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 
@@ -16,28 +13,39 @@ namespace Lab2.Controllers
     [Authorize(Roles = RoleName.Instructor)]
     public class ManageCourseController : Controller
     {
-        private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
+        private readonly ICourseService _courseService;
+        private readonly IPlatformService _platformService;
+        private readonly ITopicService _topicService;
+        private readonly IPathService _pathService;
+        private readonly IInstructorService _instructorService;
 
-        public ManageCourseController(AppDbContext context, UserManager<AppUser> userManager)
+        public ManageCourseController(UserManager<AppUser> userManager
+            , ICourseService courseService, IPlatformService platformService
+            , ITopicService topicService, IPathService pathService
+            , IInstructorService instructorService)
         {
-            _context = context;
             _userManager = userManager;
+            _courseService = courseService;
+            _platformService = platformService;
+            _topicService = topicService;
+            _pathService = pathService;
+            _instructorService = instructorService;
         }
 
         // GET: ManageCourse
         public async Task<IActionResult> Index()
         {
             var userId = _userManager.GetUserId(User);
+            Console.WriteLine(userId);
 
-            var courses = await _context.Courses
-                .Where(c => c.Instructor.UserId.Equals(userId))
-                .Include(c => c.Instructor)
-                .ThenInclude(i => i.AppUser)
-                .Include(c => c.Platform)
-                .Include(c => c.Topic)
-                .Include(c => c.Path) // Bao gồm Path để có thể hiển thị tên
-                .ToListAsync();
+            var courses = await _courseService.GetWithFilterAndIncludesAsync(
+                c => c.Instructor.UserId.Equals(userId),
+                c => c.Instructor,
+                c => c.Platform,
+                c => c.Topic,
+                c => c.Path
+            );
 
             return View(courses);
         }
@@ -50,12 +58,16 @@ namespace Lab2.Controllers
                 return NotFound();
             }
 
-            var course = await _context.Courses
-                .Include(c => c.Instructor)
-                .Include(c => c.Platform)
-                .Include(c => c.Topic)
-                .Include(c => c.Path) // Include Path information
-                .FirstOrDefaultAsync(m => m.CourseId == id);
+            var courses = await _courseService.GetWithFilterAndIncludesAsync(
+                c => c.CourseId == id,
+                c => c.Instructor,
+                c => c.Platform,
+                c => c.Topic,
+                c => c.Path
+            );
+
+            var course = courses
+                .FirstOrDefault();
 
             if (course == null)
             {
@@ -66,13 +78,13 @@ namespace Lab2.Controllers
         }
 
         // GET: ManageCourse/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["PlatformId"] = new SelectList(_context.Platforms, "PlatformId", "Name");
-            ViewData["TopicId"] = new SelectList(_context.Topics, "TopicId", "Name");
+            ViewData["PlatformId"] = new SelectList(await _platformService.GetAllPlatformAsync(), "PlatformId", "Name");
+            ViewData["TopicId"] = new SelectList(await _topicService.GetAllTopicAsync(), "TopicId", "Name");
 
             // Lấy tên Path để hiển thị trong danh sách chọn
-            ViewData["PathId"] = new SelectList(_context.Paths, "PathId", "Name");
+            ViewData["PathId"] = new SelectList(await _pathService.GetAllPathAsync(), "PathId", "Name");
             ViewData["Difficulty"] = new SelectList(new List<dynamic>
             {
                 new { Value = 0, Text = "Beginner" },
@@ -88,11 +100,12 @@ namespace Lab2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
             [Bind("CourseId,Title,Description,TrailerUrl,TopicId,PlatformId,Thumbnail,PathId,DifficultCourse")]
-            Course course)
+            Entities.Course course)
         {
             var userId = _userManager.GetUserId(User);
-            var instructor = await _context.Instructors
-                .FirstOrDefaultAsync(i => i.UserId.Equals(userId));
+            var instructors = await _instructorService.GetAllInstructorAsync();
+            var instructor = instructors
+                .FirstOrDefault(i => i.UserId.Equals(userId));
 
             if (instructor == null)
             {
@@ -102,8 +115,7 @@ namespace Lab2.Controllers
             course.InstructorId = instructor.InstructorId;
             course.Date = DateTime.Now;
 
-            _context.Add(course);
-            await _context.SaveChangesAsync();
+            await _courseService.CreateCourseAsync(course);
             return RedirectToAction(nameof(Index));
         }
 
@@ -115,15 +127,22 @@ namespace Lab2.Controllers
                 return NotFound();
             }
 
-            var course = await _context.Courses.Include(c => c.Path).FirstOrDefaultAsync(c => c.CourseId == id);
+            var courses = await _courseService.GetWithFilterAndIncludesAsync(
+                c => c.CourseId == id,
+                c => c.Path
+            );
+
+            var course = courses.FirstOrDefault();
             if (course == null)
             {
                 return NotFound();
             }
 
-            ViewData["PlatformId"] = new SelectList(_context.Platforms, "PlatformId", "Name", course.PlatformId);
-            ViewData["TopicId"] = new SelectList(_context.Topics, "TopicId", "Name", course.TopicId);
-            ViewData["PathId"] = new SelectList(_context.Paths, "PathId", "Name",course.PathId);
+            ViewData["PlatformId"] = new SelectList(await _platformService.GetAllPlatformAsync(), "PlatformId", "Name",
+                course.PlatformId);
+            ViewData["TopicId"] =
+                new SelectList(await _topicService.GetAllTopicAsync(), "TopicId", "Name", course.TopicId);
+            ViewData["PathId"] = new SelectList(await _pathService.GetAllPathAsync(), "PathId", "Name", course.PathId);
             ViewData["Difficulty"] = new SelectList(new List<dynamic>
             {
                 new { Value = 0, Text = "Beginner" },
@@ -136,8 +155,9 @@ namespace Lab2.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id,
-            [Bind("CourseId,Title,Description,TrailerUrl,InstructorId,TopicId,PlatformId,Thumbnail,Date,PathId,DifficultCourse")]
-            Course course)
+            [Bind(
+                "CourseId,Title,Description,TrailerUrl,InstructorId,TopicId,PlatformId,Thumbnail,Date,PathId,DifficultCourse")]
+            Entities.Course course)
         {
             if (id != course.CourseId)
             {
@@ -145,7 +165,9 @@ namespace Lab2.Controllers
             }
 
             var userId = _userManager.GetUserId(User);
-            var instructor = await _context.Instructors.FirstOrDefaultAsync(i => i.UserId.Equals(userId));
+            var instructors = await _instructorService.GetAllInstructorAsync();
+            var instructor = instructors
+                .FirstOrDefault(i => i.UserId.Equals(userId));
             if (instructor == null)
             {
                 return BadRequest("Không phải role để tạo");
@@ -154,12 +176,11 @@ namespace Lab2.Controllers
             course.InstructorId = instructor.InstructorId;
             try
             {
-                _context.Update(course);
-                await _context.SaveChangesAsync();
+                await _courseService.UpdateCourseAsync(id, course);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CourseExists(course.CourseId))
+                if (!await CourseExists(course.CourseId))
                 {
                     return NotFound();
                 }
@@ -180,11 +201,15 @@ namespace Lab2.Controllers
                 return NotFound();
             }
 
-            var course = await _context.Courses
-                .Include(c => c.Instructor)
-                .Include(c => c.Platform)
-                .Include(c => c.Topic)
-                .FirstOrDefaultAsync(m => m.CourseId == id);
+            var courses = await _courseService.GetWithFilterAndIncludesAsync(
+                c=>c.CourseId == id,
+                c => c.Instructor,
+                c => c.Platform,
+                c => c.Topic
+            );
+
+            var course = courses
+                .FirstOrDefault();
             if (course == null)
             {
                 return NotFound();
@@ -198,19 +223,14 @@ namespace Lab2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var course = await _context.Courses.FindAsync(id);
-            if (course != null)
-            {
-                _context.Courses.Remove(course);
-            }
-
-            await _context.SaveChangesAsync();
+            await _courseService.DeleteCourseAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CourseExists(int id)
+        private async Task<bool> CourseExists(int id)
         {
-            return _context.Courses.Any(e => e.CourseId == id);
+            var course = await _courseService.GetCourseByIdAsync(id);
+            return course == null;
         }
     }
 }

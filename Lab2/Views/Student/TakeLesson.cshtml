@@ -1,4 +1,6 @@
-﻿<!-- Header Layout Content -->
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Tuple<Lab2.Entities.Lesson,Lab2.Entities.Discussion>
+!-- Header Layout Content -->
 <div class="mdk-header-layout__content page-content ">
 
 <div class="navbar navbar-light border-0 navbar-expand-sm"
@@ -8,21 +10,21 @@
             <div class="nav-item py-16pt py-sm-0">
                 <div class="media flex-nowrap">
                     <div class="media-left mr-16pt">
-                        <a href="student-take-course.html">
-                            <img src="~/images/paths/angular_64x64.png"
+                        <a asp-action="TakeCourse" asp-route-id="@Model.Item1.Chapter.CourseId">
+                            <img src="@Url.Content(@Model.Item1.Chapter.Course.Thumbnail)"
                                  width="40"
-                                 alt="Angular"
+                                 alt="@Model.Item1.Chapter.Course.Title"
                                  class="rounded">
                         </a>
                     </div>
                     <div class="media-body d-flex flex-column">
-                        <a href="student-take-course.html"
+                        <a asp-action="TakeCourse" asp-route-id="@Model.Item1.Chapter.CourseId"
                            class="card-title">
-                            Angular Fundamentals
+                            @Model.Item1.Chapter.Course.Title
                         </a>
                         <div class="d-flex">
-                            <span class="text-50 small font-weight-bold mr-8pt">Elijah Murray</span>
-                            <span class="text-50 small">Software Engineer and Developer</span>
+                            <span class="text-50 small font-weight-bold mr-8pt">@Model.Item1.Chapter.Course.Instructor.Name</span>
+                            <span class="text-50 small">@Model.Item1.Chapter.Course.Instructor.About</span>
                         </div>
                     </div>
                 </div>

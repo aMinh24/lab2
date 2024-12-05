@@ -1,16 +1,16 @@
-@model Lab2.Models.Instructor
+@model Lab2.Entities.Instructor
 <!-- // END Header -->
 <!-- Header Layout Content -->
 <div class="mdk-header-layout__content page-content ">
 
     <div class="page-section bg-primary">
         <div class="container page__container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
-            <img src="@Model.AppUser.Avatar"
+            <img src="@Model.Avatar"
                  width="104"
                  class="mr-md-32pt mb-32pt mb-md-0"
                  alt="instructor">
             <div class="flex mb-32pt mb-md-0">
-                <h2 class="text-white mb-0">@Model.AppUser.Name</h2>
+                <h2 class="text-white mb-0">@Model.Name</h2>
                 <p class="lead text-white-50 d-flex align-items-center">Instructor <span class="ml-16pt d-flex align-items-center"><i class="material-icons icon-16pt mr-4pt">opacity</i> 2,300 IQ</span></p>
             </div>
             <a href=""
@@ -43,7 +43,7 @@
 
         <div class="page-headline text-center">
             <h2>Level-up Your Career</h2>
-            <p class="lead text-70 col-lg-8 mx-auto">Courses by @Model.AppUser.Name</p>
+            <p class="lead text-70 col-lg-8 mx-auto">Courses by @Model.Name</p>
         </div>
 
         <div class="row card-group-row mb-8pt">

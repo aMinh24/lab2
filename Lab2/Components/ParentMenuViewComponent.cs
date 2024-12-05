@@ -1,4 +1,5 @@
-﻿using Lab2.Models;
+﻿using Lab2.Data;
+using Lab2.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;

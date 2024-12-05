@@ -12,7 +12,7 @@ using Lab2.Areas.Identity.Models.RoleViewModels;
 using Lab2.Areas.Identity.Models.UserViewModels;
 using Lab2.Data;
 using Lab2.ExtendMethods;
-using Lab2.Models;
+using Lab2.Entities;
 using Lab2.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
