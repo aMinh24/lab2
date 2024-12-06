@@ -103,7 +103,12 @@ namespace Lab2.Controllers
             Entities.Course course)
         {
             var userId = _userManager.GetUserId(User);
+            Console.WriteLine(userId);
             var instructors = await _instructorService.GetAllInstructorAsync();
+            foreach (var t in instructors)
+            {
+                Console.WriteLine(t.UserId);
+            }
             var instructor = instructors
                 .FirstOrDefault(i => i.UserId.Equals(userId));
 

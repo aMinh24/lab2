@@ -521,7 +521,7 @@ namespace Lab2.Migrations
                         {
                             Id = 1,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9533),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7016),
                             Hide = false,
                             Icon = "home",
                             Link = "",
@@ -535,7 +535,7 @@ namespace Lab2.Migrations
                         {
                             Id = 2,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9548),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7022),
                             Hide = false,
                             Icon = "local_library",
                             Link = "courses",
@@ -549,7 +549,7 @@ namespace Lab2.Migrations
                         {
                             Id = 3,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9607),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7025),
                             Hide = false,
                             Icon = "style",
                             Link = "paths",
@@ -563,7 +563,7 @@ namespace Lab2.Migrations
                         {
                             Id = 4,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9609),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7027),
                             Hide = false,
                             Icon = "account_box",
                             Link = "student/dashboard",
@@ -577,7 +577,7 @@ namespace Lab2.Migrations
                         {
                             Id = 5,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9612),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7029),
                             Hide = false,
                             Icon = "search",
                             Link = "student/mycourse",
@@ -591,7 +591,7 @@ namespace Lab2.Migrations
                         {
                             Id = 6,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9614),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7054),
                             Hide = false,
                             Icon = "timeline",
                             Link = "student/mypath",
@@ -605,7 +605,7 @@ namespace Lab2.Migrations
                         {
                             Id = 7,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9617),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7056),
                             Hide = false,
                             Icon = "change_history",
                             Link = "student/pathdetail",
@@ -619,7 +619,7 @@ namespace Lab2.Migrations
                         {
                             Id = 8,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9619),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7058),
                             Hide = false,
                             Icon = "face",
                             Link = "student/courseprview",
@@ -633,7 +633,7 @@ namespace Lab2.Migrations
                         {
                             Id = 9,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9622),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7060),
                             Hide = false,
                             Icon = "panorama_fish_eye",
                             Link = "student/lesson",
@@ -647,7 +647,7 @@ namespace Lab2.Migrations
                         {
                             Id = 10,
                             Badge = "PRO",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9625),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7062),
                             Hide = false,
                             Icon = "class",
                             Link = "student/takecourse",
@@ -661,7 +661,7 @@ namespace Lab2.Migrations
                         {
                             Id = 11,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9627),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7064),
                             Hide = false,
                             Icon = "import_contacts",
                             Link = "student/takelesson",
@@ -675,7 +675,7 @@ namespace Lab2.Migrations
                         {
                             Id = 12,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9629),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7066),
                             Hide = false,
                             Icon = "dvr",
                             Link = "student/takequiz",
@@ -689,7 +689,7 @@ namespace Lab2.Migrations
                         {
                             Id = 13,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9633),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7068),
                             Hide = false,
                             Icon = "poll",
                             Link = "student/quizresults",
@@ -703,7 +703,7 @@ namespace Lab2.Migrations
                         {
                             Id = 14,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9638),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7070),
                             Hide = false,
                             Icon = "live_help",
                             Link = "student/quizresultdetails",
@@ -717,7 +717,7 @@ namespace Lab2.Migrations
                         {
                             Id = 15,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9640),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7072),
                             Hide = false,
                             Icon = "layers",
                             Link = "student/pathassessment",
@@ -731,7 +731,7 @@ namespace Lab2.Migrations
                         {
                             Id = 16,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9642),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7074),
                             Hide = false,
                             Icon = "assignment_turned_in",
                             Link = "student/pathassessmentresul",
@@ -745,7 +745,7 @@ namespace Lab2.Migrations
                         {
                             Id = 17,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9645),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7076),
                             Hide = false,
                             Icon = "school",
                             Link = "instructor",
@@ -759,7 +759,7 @@ namespace Lab2.Migrations
                         {
                             Id = 18,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9647),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7078),
                             Hide = false,
                             Icon = "import_contacts",
                             Link = "instructor/mycourses",
@@ -773,7 +773,7 @@ namespace Lab2.Migrations
                         {
                             Id = 19,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9649),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7080),
                             Hide = false,
                             Icon = "help",
                             Link = "instructor/quizz",
@@ -787,7 +787,7 @@ namespace Lab2.Migrations
                         {
                             Id = 20,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9651),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7082),
                             Hide = false,
                             Icon = "trending_up",
                             Link = "instructor/earnings",
@@ -801,7 +801,7 @@ namespace Lab2.Migrations
                         {
                             Id = 21,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9654),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7084),
                             Hide = false,
                             Icon = "receipt",
                             Link = "instructor/statement",
@@ -815,7 +815,7 @@ namespace Lab2.Migrations
                         {
                             Id = 22,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9659),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7086),
                             Hide = false,
                             Icon = "post_add",
                             Link = "instructor/editcourse",
@@ -829,7 +829,7 @@ namespace Lab2.Migrations
                         {
                             Id = 23,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9661),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7087),
                             Hide = false,
                             Icon = "format_shapes",
                             Link = "instructor/editquiz",
@@ -843,7 +843,7 @@ namespace Lab2.Migrations
                         {
                             Id = 24,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9664),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7089),
                             Hide = false,
                             Icon = "",
                             Link = "pricing.html",
@@ -857,7 +857,7 @@ namespace Lab2.Migrations
                         {
                             Id = 25,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9666),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7091),
                             Hide = false,
                             Icon = "",
                             Link = "login.html",
@@ -871,7 +871,7 @@ namespace Lab2.Migrations
                         {
                             Id = 26,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9668),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7093),
                             Hide = false,
                             Icon = "",
                             Link = "signup.html",
@@ -885,7 +885,7 @@ namespace Lab2.Migrations
                         {
                             Id = 27,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9670),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7095),
                             Hide = false,
                             Icon = "",
                             Link = "signup-payment.html",
@@ -899,7 +899,7 @@ namespace Lab2.Migrations
                         {
                             Id = 28,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9672),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7097),
                             Hide = false,
                             Icon = "",
                             Link = "reset-password.html",
@@ -913,7 +913,7 @@ namespace Lab2.Migrations
                         {
                             Id = 29,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9675),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7099),
                             Hide = false,
                             Icon = "",
                             Link = "change-password.html",
@@ -927,7 +927,7 @@ namespace Lab2.Migrations
                         {
                             Id = 30,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9677),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7101),
                             Hide = false,
                             Icon = "",
                             Link = "edit-account.html",
@@ -941,7 +941,7 @@ namespace Lab2.Migrations
                         {
                             Id = 31,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9681),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7103),
                             Hide = false,
                             Icon = "",
                             Link = "edit-account-profile.html",
@@ -955,7 +955,7 @@ namespace Lab2.Migrations
                         {
                             Id = 32,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9683),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7105),
                             Hide = false,
                             Icon = "",
                             Link = "edit-account-notifications.html",
@@ -969,7 +969,7 @@ namespace Lab2.Migrations
                         {
                             Id = 33,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9685),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7107),
                             Hide = false,
                             Icon = "",
                             Link = "edit-account-password.html",
@@ -983,7 +983,7 @@ namespace Lab2.Migrations
                         {
                             Id = 34,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9689),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7109),
                             Hide = false,
                             Icon = "",
                             Link = "billing.html",
@@ -997,7 +997,7 @@ namespace Lab2.Migrations
                         {
                             Id = 35,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9692),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7111),
                             Hide = false,
                             Icon = "",
                             Link = "billing-upgrade.html",
@@ -1011,7 +1011,7 @@ namespace Lab2.Migrations
                         {
                             Id = 38,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9694),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7112),
                             Hide = false,
                             Icon = "",
                             Link = "billing-invoice.html",
@@ -1025,7 +1025,7 @@ namespace Lab2.Migrations
                         {
                             Id = 39,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9696),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7114),
                             Hide = false,
                             Icon = "",
                             Link = "messages.html",
@@ -1039,7 +1039,7 @@ namespace Lab2.Migrations
                         {
                             Id = 40,
                             Badge = "",
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9699),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(7116),
                             Hide = false,
                             Icon = "",
                             Link = "email.html",
@@ -1101,7 +1101,7 @@ namespace Lab2.Migrations
                         new
                         {
                             Id = 1,
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9215),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(6853),
                             Hide = false,
                             Icon = "school",
                             Link = "sm_student",
@@ -1113,7 +1113,7 @@ namespace Lab2.Migrations
                         new
                         {
                             Id = 2,
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9220),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(6856),
                             Hide = false,
                             Icon = "format_shapes",
                             Link = "sm_instructor",
@@ -1125,7 +1125,7 @@ namespace Lab2.Migrations
                         new
                         {
                             Id = 3,
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9223),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(6858),
                             Hide = false,
                             Icon = "apps",
                             Link = "sm_apps",
@@ -1137,7 +1137,7 @@ namespace Lab2.Migrations
                         new
                         {
                             Id = 4,
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9226),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(6861),
                             Hide = false,
                             Icon = "message",
                             Link = "sm_messaging",
@@ -1149,7 +1149,7 @@ namespace Lab2.Migrations
                         new
                         {
                             Id = 5,
-                            DateBegin = new DateTime(2024, 12, 5, 22, 8, 24, 401, DateTimeKind.Local).AddTicks(9228),
+                            DateBegin = new DateTime(2024, 12, 6, 21, 54, 47, 747, DateTimeKind.Local).AddTicks(6863),
                             Hide = false,
                             Icon = "account_box",
                             Link = "sm_account",

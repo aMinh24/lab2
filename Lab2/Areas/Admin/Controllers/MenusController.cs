@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Lab2.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Lab2.Areas.Admin.Controllers
 {
+    [Authorize(Roles = RoleName.Administrator)]
+
     [Area("Admin")]
     public class MenusController : Controller
     {

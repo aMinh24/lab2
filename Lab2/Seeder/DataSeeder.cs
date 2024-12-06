@@ -1,9 +1,8 @@
 ﻿using Lab2.Data;
 using Lab2.Entities;
-using Lab2.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
+namespace Lab2.Seeder;
 public class DataSeeder
 {
     private readonly AppDbContext _context;
@@ -30,7 +29,7 @@ public class DataSeeder
             }
         }
 
-        var userAdmin = await _userManager.FindByEmailAsync("instructor@example.com");
+        var userAdmin = await _userManager.FindByEmailAsync("admin@example.com");
         if (userAdmin == null)
         {
             userAdmin = new AppUser
@@ -133,19 +132,19 @@ public class DataSeeder
             var developmentTypePath = await _context.TypePaths.FirstAsync(tp => tp.Path == "Development");
             var designTypePath = await _context.TypePaths.FirstAsync(tp => tp.Path == "Design");
 
-            var paths = new List<Lab2.Entities.Path>
+            var paths = new List<Entities.Path>
             {
-                new Lab2.Entities.Path
+                new Entities.Path
                 {
                     Name = "Web Development", Description = "Path for web development courses",
                     TypePathId = developmentTypePath.TypePathId, Avatar = "dev_path_avatar.png"
                 },
-                new Lab2.Entities.Path
+                new Entities.Path
                 {
                     Name = "Mobile Development", Description = "Path for mobile development courses",
                     TypePathId = developmentTypePath.TypePathId, Avatar = "mobile_path_avatar.png"
                 },
-                new Lab2.Entities.Path
+                new Entities.Path
                 {
                     Name = "Graphic Design", Description = "Path for design courses",
                     TypePathId = designTypePath.TypePathId, Avatar = "design_path_avatar.png"
@@ -164,6 +163,7 @@ public class DataSeeder
             var teacher = new Instructor()
             {
                 UserId = instructor.Id,
+                Name = "Instructor",
                 About = "Minh chúa quỷ 1 2 3 4",
                 LinkFacebook = "https://www.facebook.com/minh2k4z",
                 LinkTwitter = "123",
@@ -173,7 +173,7 @@ public class DataSeeder
             var newStudent = new Student()
             {
                 UserId = student.Id,
-                
+                Name = "Student"
             };
 
             _context.Instructors.Add(teacher);
@@ -182,9 +182,9 @@ public class DataSeeder
 
             var newInstructor = await _context.Instructors.Where(i=>i.UserId == instructor.Id).FirstOrDefaultAsync();
             
-            var newCourses = new List<Course>
+            var newCourses = new List<Entities.Course>
                 {
-                    new Course
+                    new Entities.Course
                     {
                         Title = "Newsletter Design",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.",
@@ -196,7 +196,7 @@ public class DataSeeder
                         Date = DateTime.Now,
                         DifficultCourse = DifficultCourse.Beginner
                     },
-                    new Course
+                    new Entities.Course
                     {
                         Title = "Adobe XD",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.",
@@ -209,7 +209,7 @@ public class DataSeeder
                         DifficultCourse = DifficultCourse.Beginner
 
                     },
-                    new Course
+                    new Entities.Course
                     {
                         Title = "inVision App",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.",
@@ -222,7 +222,7 @@ public class DataSeeder
                         DifficultCourse = DifficultCourse.Beginner
 
                     },
-                    new Course
+                    new Entities.Course
                     {
                         Title = "Craft by inVision",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.",
@@ -235,7 +235,7 @@ public class DataSeeder
                         DifficultCourse = DifficultCourse.Beginner
 
                     },
-                    new Course
+                    new Entities.Course
                     {
                         Title = "Learn Angular fundamentals",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.",
@@ -248,7 +248,7 @@ public class DataSeeder
                         DifficultCourse = DifficultCourse.Beginner
                         
                     },
-                    new Course
+                    new Entities.Course
                     {
                         Title = "Build an iOS Application in Swift",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.", // Update description if needed
@@ -260,7 +260,7 @@ public class DataSeeder
                         Date = DateTime.Now,
                         DifficultCourse = DifficultCourse.Beginner
                     },
-                    new Course
+                    new Entities.Course
                     {
                         Title = "Build a WordPress Website",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.", // Update description if needed
@@ -272,7 +272,7 @@ public class DataSeeder
                         Date = DateTime.Now,
                         DifficultCourse = DifficultCourse.Beginner
                     },
-                    new Course
+                    new Entities.Course
                     {
                         Title = "Become a React Native Developer",
                         Description = "Learn the fundamentals of working with Angular and how to create basic applications.", // Update description if needed
@@ -284,7 +284,7 @@ public class DataSeeder
                         Date = DateTime.Now,
                         DifficultCourse = DifficultCourse.Beginner
                     },
-                    new Course
+                    new Entities.Course
                     {
                         Title = "Learn Sketch",
                         Description = "Learn the fundamentals of working with Sketch.", // Update description
@@ -296,7 +296,7 @@ public class DataSeeder
                         Date = DateTime.Now,
                         DifficultCourse = DifficultCourse.Beginner
                     },
-                    new Course
+                    new Entities.Course
                     {
                         Title = "Learn Flinto",
                         Description = "Learn the fundamentals of working with Flinto.", // Update description
@@ -308,7 +308,7 @@ public class DataSeeder
                         Date = DateTime.Now,
                         DifficultCourse = DifficultCourse.Beginner
                     },
-                     new Course
+                     new Entities.Course
                     {
                         Title = "Learn Photoshop",
                         Description = "Learn the fundamentals of working with Photoshop.", // Update description
@@ -320,7 +320,7 @@ public class DataSeeder
                         Date = DateTime.Now,
                         DifficultCourse = DifficultCourse.Beginner
                     },
-                      new Course
+                      new Entities.Course
                     {
                         Title = "Learn Figma",
                         Description = "Learn the fundamentals of working with Figma.", // Update description
@@ -532,5 +532,4 @@ public class DataSeeder
             }
         }
     }
-
 }

@@ -3,10 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Configuration;
+using Lab2.Areas.Admin;
 using Lab2.Data;
 using Lab2.Entities;
 using Lab2.Services;
 using Lab2.Interfaces;
+using Lab2.Repositories;
+using Lab2.Seeder;
 using IEmailSender = Lab2.Interfaces.IEmailSender;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -64,6 +67,35 @@ builder.Services.Configure<MailSettings>(mailsettings);               // đăng 
 builder.Services.AddTransient<IEmailSender, SendMailService>();
 
 builder.Services.AddTransient<DataSeeder>();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(); //Unit of work
+//DI services
+builder.Services.AddScoped<IAnswerService, AnswerService>();
+builder.Services.AddScoped<IBlogPostService, BlogPostService>();
+builder.Services.AddScoped<IChapterService, ChapterService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IDiscussionService, DiscussionService>();
+builder.Services.AddScoped<IDiscussionReplyService, DiscussionReplyService>();
+builder.Services.AddScoped<IFeedBackService, FeedBackService>();
+builder.Services.AddScoped<IInstructorService, InstructorService>();
+builder.Services.AddScoped<ILearningOutcomesService, LearningOutcomesService>();
+builder.Services.AddScoped<ILessonService, LessonService>();
+builder.Services.AddScoped<IMenuService, MenuService>();
+builder.Services.AddScoped<IParentMenuService, ParentMenuService>();
+builder.Services.AddScoped<IPathService, PathService>();
+builder.Services.AddScoped<IPaymentInformationService, PaymentInformationService>();
+builder.Services.AddScoped<IPlatformService, PlatformService>();
+builder.Services.AddScoped<IQuestionService, QuestionService>();
+builder.Services.AddScoped<IQuizService, QuizService>();
+builder.Services.AddScoped<IStudentPathService, StudentPathService>();
+builder.Services.AddScoped<IStudentQuizService, StudentQuizService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
+builder.Services.AddScoped<ISubscriptionTypeService, SubscriptionTypeService>();
+builder.Services.AddScoped<ITopicService, TopicService>();
+builder.Services.AddScoped<ITypePathService, TypePathService>();
+builder.Services.AddScoped<IUserCourseService, UserCourseService>();
+builder.Services.AddScoped<IUserLessonService, UserLessonService>();
 /////////////
 var app = builder.Build();
 
@@ -104,6 +136,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+AdminAreaRegistration.RegisterArea(app);
 
 app.MapControllerRoute(
     name: "default",
