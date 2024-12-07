@@ -41,7 +41,7 @@
                     <!-- Course Description -->
                     <div class="form-group">
                         <label asp-for="Description" class="form-label"></label>
-                        <textarea asp-for="Description" class="form-control" id="summernote"></textarea>
+                        <textarea asp-for="Description" class="form-control" id="ck"></textarea>
                         <small class="form-text text-muted">Mô tả ngắn gọn về khóa học này.</small>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
@@ -152,6 +152,11 @@
         </div>
     </div>
 </div>
+<!-- CKEditor 4 Script -->
+<script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('ck');
+</script>
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

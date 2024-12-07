@@ -37,10 +37,9 @@ ViewData["Title"] = "Edit Course";
                         </div>
                     </div>
 
-                    <!-- Course Description -->
                     <div class="form-group">
                         <label asp-for="Description" class="form-label"></label>
-                        <textarea asp-for="Description" class="form-control" id="summernote"></textarea>
+                        <textarea asp-for="Description" class="form-control" id="ckeditor"></textarea>
                         <small class="form-text text-muted">Mô tả ngắn gọn về khóa học này.</small>
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
@@ -148,7 +147,10 @@ ViewData["Title"] = "Edit Course";
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
+<script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('ckeditor');
+</script>
 @section Scripts {
     @{
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
