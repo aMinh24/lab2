@@ -8,14 +8,17 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Lab2.Areas.Identity.Models.AccountViewModels;
+using Lab2.Data;
 using Lab2.ExtendMethods;
-using Lab2.Models;
+using Lab2.Entities;
+using Lab2.Interfaces;
 using Lab2.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Lab2.Areas.Identity.Controllers
@@ -29,17 +32,20 @@ namespace Lab2.Areas.Identity.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<AccountController> _logger;
+        private readonly AppDbContext _context;
 
         public AccountController(
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            AppDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            _context = context;
         }
 
         // GET: /Account/Login
@@ -47,6 +53,10 @@ namespace Lab2.Areas.Identity.Controllers
         [AllowAnonymous]
         public IActionResult Login(string returnUrl = null)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Redirect("/");
+            }
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -109,17 +119,21 @@ namespace Lab2.Areas.Identity.Controllers
         }
         //
         // GET: /Account/Register
-        [HttpGet]
+        [HttpGet("/signup/")]
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Redirect("/");
+            }
             returnUrl ??= Url.Content("~/");
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
         //
         // POST: /Account/Register
-        [HttpPost]
+        [HttpPost("/signup/")]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
@@ -133,13 +147,14 @@ namespace Lab2.Areas.Identity.Controllers
 
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, RoleName.Student);
+                    
                     _logger.LogInformation("Đã tạo user mới.");
 
                     // Phát sinh token để xác nhận email
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
 
-                    // https://localhost:5001/confirm-email?userId=fdsfds&code=xyz&returnUrl=
                     var callbackUrl = Url.ActionLink(
                         action: nameof(ConfirmEmail),
                         values: 
@@ -172,7 +187,79 @@ namespace Lab2.Areas.Identity.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-        
+
+        // GET: /Account/RegisterTeacher
+        [HttpGet("/register-teacher/")]
+        [Authorize(Roles = RoleName.Administrator)]
+        public IActionResult RegisterTeacher(string returnUrl = null)
+        {
+            returnUrl ??= Url.Content("~/");
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        // POST: /Account/RegisterTeacher
+        [HttpPost("/register-teacher/")]
+        [Authorize(Roles = RoleName.Administrator)]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterTeacher(RegisterViewModel model, string returnUrl = null)
+        {
+            returnUrl ??= Url.Content("~/");
+            ViewData["ReturnUrl"] = returnUrl;
+
+            if (ModelState.IsValid)
+            {
+                var user = new AppUser { UserName = model.UserName, Email = model.Email };
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    // Assign Teacher role to the user
+                    await _userManager.AddToRoleAsync(user, RoleName.Instructor);
+                    var instructor = await _userManager.FindByEmailAsync(model.Email);
+                    var teacher = new Instructor()
+                    {
+                        UserId = instructor.Id,
+                        About = "",
+                        LinkFacebook = "",
+                        LinkTwitter = "",
+                        Avatar = ""
+                    };
+
+                    _context.Instructors.Add(teacher);
+                    await _context.SaveChangesAsync();
+
+                    _logger.LogInformation("Teacher account created by admin.");
+
+                    // Confirm email immediately
+                    var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var confirmResult = await _userManager.ConfirmEmailAsync(user, token);
+
+                    if (confirmResult.Succeeded)
+                    {
+                        _logger.LogInformation("Email confirmed for teacher account.");
+                    }
+                    else
+                    {
+                        _logger.LogError("Email confirmation failed.");
+                    }
+
+                    return LocalRedirect(returnUrl);
+                }
+
+                // Handle errors if user creation failed
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            // If something failed, redisplay form
+            return View(model);
+        }
+
+
+
         // GET: /Account/ConfirmEmail
         [HttpGet]
         [AllowAnonymous]

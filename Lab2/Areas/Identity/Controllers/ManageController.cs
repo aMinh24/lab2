@@ -5,7 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Lab2.Areas.Identity.Models.ManageViewModels;
 using Lab2.ExtendMethods;
-using Lab2.Models;
+using Lab2.Entities;
+using Lab2.Interfaces;
 using Lab2.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -17,7 +18,7 @@ namespace Lab2.Areas.Identity.Controllers
 
     [Authorize]
     [Area("Identity")]
-    [Route("/Member/[action]")]
+    [Route("/Manage/[action]")]
     public class ManageController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -39,7 +40,7 @@ namespace Lab2.Areas.Identity.Controllers
 
         //
         // GET: /Manage/Index
-        [HttpGet]
+        [HttpGet("/manage/")]
         public async Task<IActionResult> Index(ManageMessageId? message = null)
         {
             ViewData["StatusMessage"] =

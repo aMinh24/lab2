@@ -1,25 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using Lab2.Entities;
+using Lab2.Interfaces;
 using MailKit.Security;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;
 
-public class MailSettings
-{
-    public string Mail { get; set; }
-    public string DisplayName { get; set; }
-    public string Password { get; set; }
-    public string Host { get; set; }
-    public int Port { get; set; }
-
-}
-
-public interface IEmailSender
-{
-    Task SendEmailAsync(string email, string subject, string message);
-    Task SendSmsAsync(string number, string message);
-}
+namespace Lab2.Services;
 
 public class SendMailService : IEmailSender {
 
@@ -79,7 +64,6 @@ public class SendMailService : IEmailSender {
         public Task SendSmsAsync(string number, string message)
         {
             // Cài đặt dịch vụ gửi SMS tại đây
-            // 
             System.IO.Directory.CreateDirectory("smssave");
             var emailsavefile = string.Format(@"smssave/{0}-{1}.txt",number, Guid.NewGuid());
             System.IO.File.WriteAllTextAsync(emailsavefile, message);

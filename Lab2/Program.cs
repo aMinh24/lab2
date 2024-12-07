@@ -1,8 +1,17 @@
-using Lab2.Models;
+using Lab2.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Configuration;
+using Lab2.Areas.Admin;
+using Lab2.Data;
+using Lab2.Entities;
+using Lab2.Services;
+using Lab2.Interfaces;
+using Lab2.Repositories;
+using Lab2.Seeder;
+using IEmailSender = Lab2.Interfaces.IEmailSender;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -19,6 +28,13 @@ builder.Services.AddIdentity<AppUser, IdentityRole>()
         .AddDefaultTokenProviders();
 
 ////////////////
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/login";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+});
+
 
 builder.Services.Configure<IdentityOptions> (options => {
     // Thiết lập về Password
@@ -49,9 +65,63 @@ var mailsettings = builder.Configuration.GetSection("MailSettings");  // đọc 
 builder.Services.Configure<MailSettings>(mailsettings);               // đăng ký để Inject
 
 builder.Services.AddTransient<IEmailSender, SendMailService>();
+
+builder.Services.AddTransient<DataSeeder>();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(); //Unit of work
+//DI services
+builder.Services.AddScoped<IAnswerService, AnswerService>();
+builder.Services.AddScoped<IBlogPostService, BlogPostService>();
+builder.Services.AddScoped<IChapterService, ChapterService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IDiscussionService, DiscussionService>();
+builder.Services.AddScoped<IDiscussionReplyService, DiscussionReplyService>();
+builder.Services.AddScoped<IFeedBackService, FeedBackService>();
+builder.Services.AddScoped<IInstructorService, InstructorService>();
+builder.Services.AddScoped<ILearningOutcomesService, LearningOutcomesService>();
+builder.Services.AddScoped<ILessonService, LessonService>();
+builder.Services.AddScoped<IMenuService, MenuService>();
+builder.Services.AddScoped<IParentMenuService, ParentMenuService>();
+builder.Services.AddScoped<IPathService, PathService>();
+builder.Services.AddScoped<IPaymentInformationService, PaymentInformationService>();
+builder.Services.AddScoped<IPlatformService, PlatformService>();
+builder.Services.AddScoped<IQuestionService, QuestionService>();
+builder.Services.AddScoped<IQuizService, QuizService>();
+builder.Services.AddScoped<IStudentPathService, StudentPathService>();
+builder.Services.AddScoped<IStudentQuizService, StudentQuizService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
+builder.Services.AddScoped<ISubscriptionTypeService, SubscriptionTypeService>();
+builder.Services.AddScoped<ITopicService, TopicService>();
+builder.Services.AddScoped<ITypePathService, TypePathService>();
+builder.Services.AddScoped<IUserCourseService, UserCourseService>();
+builder.Services.AddScoped<IUserLessonService, UserLessonService>();
 /////////////
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<AppDbContext>();
+        var userManager = services.GetRequiredService<UserManager<AppUser>>();
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>(); 
+
+
+        context.Database.Migrate(); // Apply migrations
+
+        var seeder = new DataSeeder(context, userManager,roleManager);
+        await seeder.SeedDataAsync(); // Call SeedDataAsync
+        Console.WriteLine("seed thanh cong");
+
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred seeding the DB.");
+    }
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -64,8 +134,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
+AdminAreaRegistration.RegisterArea(app);
 
 app.MapControllerRoute(
     name: "default",

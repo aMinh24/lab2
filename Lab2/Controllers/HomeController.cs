@@ -1,6 +1,9 @@
-using Lab2.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Lab2.Data;
+using Lab2.Entities;
+using Lab2.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Lab2.Controllers
 {
@@ -12,12 +15,13 @@ namespace Lab2.Controllers
         {
             _logger = logger;
         }
-
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = RoleName.Administrator)]
         public IActionResult Privacy()
         {
             return View();

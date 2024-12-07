@@ -1,29 +1,22 @@
-﻿@model IEnumerable<Lab2.Models.ParentMenu>
+﻿@model IEnumerable<Lab2.Entities.ParentMenu>
 
-@foreach (var parentMenu in Model)
+@foreach (var parent in Model)
 {
-    <div class="tab-pane" id="@parentMenu.Link">
-        <div class="sidebar-heading">@parentMenu.Name</div>
-        @if (parentMenu.Menus != null && parentMenu.Menus.Any())
-        {
-            <ul class="sidebar-menu">
-                @foreach (var menu in parentMenu.Menus)
-                {
-                    <li class="sidebar-menu-item">
-                        <a class="sidebar-menu-button" href="@menu.Link">
-                            @if (!string.IsNullOrEmpty(menu.Icon))
-                            {
-                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">@menu.Icon</span>
-                            }
-                            <span class="sidebar-menu-text">@menu.Name</span>
-                            @if (!string.IsNullOrEmpty(menu.Badge))
-                            {
-                                <span class="sidebar-menu-badge badge badge-accent badge-notifications ml-auto">@menu.Badge</span>
-                            }
-                        </a>
-                    </li>
-                }
-            </ul>
-        }
-    </div>
+    <div class="sidebar-heading">@parent.Name</div>
+    @if (parent.Menus != null && parent.Menus.Any())
+    {
+        <ul class="sidebar-menu">
+            @foreach (var menu in parent.Menus)
+            {
+                <li class="sidebar-menu-item">
+                    <a class="sidebar-menu-button"
+                       href="/@menu.Link">
+                        @* <p>@menu.Link</p> *@
+                        <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">@menu.Icon</span>
+                        <span class="sidebar-menu-text">@menu.Name</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    }
 }

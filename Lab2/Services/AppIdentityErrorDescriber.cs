@@ -1,8 +1,9 @@
+﻿
 using Microsoft.AspNetCore.Identity;
 
-namespace Lab2.Services
-{
-  public class AppIdentityErrorDescriber : IdentityErrorDescriber
+namespace Lab2.Services;
+
+public class AppIdentityErrorDescriber : IdentityErrorDescriber
   {
       public override IdentityError ConcurrencyFailure()
       {
@@ -136,4 +137,3 @@ namespace Lab2.Services
         return base.UserNotInRole(role);
       }
   }
-}
