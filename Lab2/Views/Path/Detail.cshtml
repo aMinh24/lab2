@@ -13,8 +13,10 @@
                     <div class="order-1 order-sm-0">
                         <h1 class="text-white">@Model.Name</h1>
                         <p class="lead text-white-50 measure-hero-lead mb-24pt">
-                            @Model.Description ?? "No description"
-                        </p>
+                            @{
+                                var description = Model.Description ?? "No description";
+                            }
+                        <p>@description</p>
                         <a href=""
                            class="btn btn-outline-white">
                             Get started
@@ -33,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="navbar navbar-expand-sm navbar-light bg-white border-bottom-2 navbar-list p-0 m-0 align-items-center">
+        @*<div class="navbar navbar-expand-sm navbar-light bg-white border-bottom-2 navbar-list p-0 m-0 align-items-center">
             <div class="container page__container">
                 <ul class="nav navbar-nav flex align-items-sm-center">
                     @{
@@ -55,11 +57,11 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>
 
-<div class="page-section border-bottom-2">
+@*<div class="page-section border-bottom-2">
 
     <div class="container page__container">
         <div class="row ">
@@ -154,7 +156,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 @for (int i = 0; i < 2; i++)
 {
     <div class="container page__container">
@@ -170,8 +172,6 @@
                     <h4>Intermediate</h4>
                 }
             </div>
-            <p class="text-70 mb-lg-32pt">Throughout these Angular courses for beginner*s you will learn core concepts*, common patterns using Angular and, finally, some of the best practices to build fully-functioning web applications using the Angular framework.</p>
-
             <div class="position-relative carousel-card">
                 <div class="js-mdk-carousel row d-block"
                      id="carousel-courses1">
