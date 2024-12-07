@@ -95,6 +95,54 @@ namespace Lab2.Controllers
         {
             return View();
         }
+        
+        public IActionResult CheckPayment(int id)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Redirect("/Login");
+            }
+            // Giả lập kết quả kiểm tra thanh toán
+            string userId = _userManager.GetUserId(User);
+            PaymentInformation paymentInformation = _context.PaymentInformations.Find(userId);
+
+            if (paymentInformation != null)
+            {
+
+                var student = _context.Students.Where(s => s.UserId == userId).FirstOrDefault();
+                if (student == null)
+                {
+                    return Redirect("/Home");
+                }
+
+                var course = _context.Courses.Where(c => c.CourseId == id).FirstOrDefault();
+                if (course == null)
+                {
+                    return Redirect("/Home");
+                }
+                var userCourse = _context.UserCourses
+                    .Where(u=>u.UserId == student.StudentId)
+                    .Where(u=>u.CourseId == course.CourseId)
+                    .FirstOrDefault();
+                if (userCourse == null)
+                {
+                    var newUserCourse = new UserCourse
+                        {
+                            CourseId = course.CourseId,
+                            UserId = student.StudentId,
+                            Course = course,
+                            Student = student
+                        };
+                    
+                    _context.UserCourses.Add(newUserCourse);
+                    _context.SaveChanges();
+                }
+                return RedirectToAction("TakeLesson", "Student", new { id = id });
+            }
+
+            return RedirectToAction("Index", "Payment");
+        }
+
 
         [HttpPost]
         public IActionResult Payment(PaymentInformation paymentInfo)

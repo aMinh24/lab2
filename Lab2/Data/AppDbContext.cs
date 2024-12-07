@@ -56,7 +56,7 @@ namespace Lab2.Data
                     Icon = "format_shapes",
                     Span = "Instructor"
                 },
-                new ParentMenu
+                /*new ParentMenu
                 {
                     Id = 3,
                     Name = "Apps",
@@ -67,7 +67,7 @@ namespace Lab2.Data
                     DateBegin = DateTime.Now,
                     Icon = "apps",
                     Span = "Apps"
-                },
+                },*/
                 new ParentMenu
                 {
                     Id = 4,
@@ -126,7 +126,7 @@ namespace Lab2.Data
                     Id = 3,
                     ParentMenuId = 1,
                     Name = "Browse Paths",
-                    Link = "paths",
+                    Link = "path",
                     Icon = "style",
                     Span = "Browse Paths",
                     Meta = "paths_meta",
@@ -197,7 +197,7 @@ namespace Lab2.Data
                     Hide = false,
                     Order = 8,
                     Badge = ""
-                },
+                }/*,
                 new Menu
                 {
                     Id = 9,
@@ -223,8 +223,8 @@ namespace Lab2.Data
                     Hide = false,
                     Order = 10,
                     Badge = "PRO"
-                },
-                new Menu
+                },*/
+                /*new Menu
                 {
                     Id = 11,
                     ParentMenuId = 1,
@@ -301,7 +301,7 @@ namespace Lab2.Data
                     Hide = false,
                     Order = 16,
                     Badge = ""
-                },
+                }*/,
 
                 // Instructor Menu Items
                 new Menu
@@ -322,14 +322,14 @@ namespace Lab2.Data
                     Id = 18,
                     ParentMenuId = 2,
                     Name = "Manage Courses",
-                    Link = "instructor/mycourses",
+                    Link = "ManageCourse",
                     Icon = "import_contacts",
                     Span = "Manage Courses",
                     Meta = "manage_courses_meta",
                     Hide = false,
                     Order = 2,
                     Badge = ""
-                },
+                }/*,
                 new Menu
                 {
                     Id = 19,
@@ -342,7 +342,7 @@ namespace Lab2.Data
                     Hide = false,
                     Order = 3,
                     Badge = ""
-                },
+                }*/,
                 new Menu
                 {
                     Id = 20,
@@ -369,7 +369,7 @@ namespace Lab2.Data
                     Order = 5,
                     Badge = ""
                 },
-                new Menu
+                /*new Menu
                 {
                     Id = 22,
                     ParentMenuId = 2,
@@ -394,7 +394,7 @@ namespace Lab2.Data
                     Hide = false,
                     Order = 7,
                     Badge = ""
-                },
+                },*/
 
                 // Account Menu Items
                 new Menu
